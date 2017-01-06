@@ -1,27 +1,28 @@
-<div style="margin-top: 100px;">
-  <div class="card card-block">
+<div class="card card-block" style="margin-top: 100px">
 
-    <form>
-      <div class="form-group">
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-Mail">
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passwort">
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-default">ANMELDEN</button>
-        <a href="#">Passwort vergessen?</a>
-      </div>
-    </form>
-
-    <hr>
-
+  <form>
     <div class="form-group">
-      <button class="btn btn-default">ANMELDEN MIT FACEBOOK</button>
+      <label for="email">E-Mail</label>
+      <input type="email" class="form-control" id="email" placeholder="" required>
     </div>
-
     <div class="form-group">
-      <button class="btn btn-default">ANMELDEN MIT GOOGLE</button>
+      <label for="password">Passwort</label>
+      <input type="password" class="form-control" id="password" placeholder="" required>
+      <a href="#">Passwort vergessen?</a>
     </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">ANMELDEN</button>
+      <a routerLink="/register">Hast du noch keinen Account?</a>
+    </div>
+  </form>
+
+  <hr>
+
+  <div class="form-group">
+    <button class="btn btn-default">ANMELDEN MIT FACEBOOK</button>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default">ANMELDEN MIT GOOGLE</button>
   </div>
 </div>
