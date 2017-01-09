@@ -12,4 +12,8 @@ export class NavbarComponent  {
   constructor() {
     
   }
+  
+  redirectToLoginRegister() {
+    window.location.href='//api.booki.me/oauth2/authorize?client_id=bookiFrontend&response_type=code&redirect_uri=booki.me/assets/serverscripts/loginRedirector.php';
+  }
 }
