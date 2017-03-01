@@ -21,11 +21,12 @@ import Wrapper														from 'web/containers/layout/Wrapper';
 
 import DevTools														from 'web/containers/dev/DevTools';
 
-//Containers
-
+//Components
 
 import Login														from 'web/components/auth/Login';
 import OAuthCallback												from 'web/components/auth/OAuthCallback';
+
+//Containers
 
 import Content														from 'web/containers/content/Content';
 	import DashboardContent											from 'web/containers/content/dashboard/Dashboard';
