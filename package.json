@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An admin dashboard for booki.me",
   "private": true,
-  "author": "Nico Hauser (Tyratox)",
+  "author": "Marc Berchtold (shock2provide) & Nico Hauser (Tyratox)",
   "main": "web/main.jsx",
   "license": "UNLICENSED",
   "scripts": {
@@ -18,7 +18,6 @@
     "babel-preset-es2017": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "booki-frontend-core": "github:hexcodech/booki-frontend-core",
-    "bootstrap": "^4.0.0-alpha.5",
     "chart.js": "^2.4.0",
     "css-loader": "^0.26.1",
     "react": "^15.4.2",
