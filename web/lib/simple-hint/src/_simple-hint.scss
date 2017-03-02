@@ -1,0 +1,403 @@
+
+@mixin prefix($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+@mixin transition($content...) {
+	-webkit-transition : $content;
+	transition         : $content;
+}
+@mixin transform ($content...) {
+	-webkit-transform : $content;
+	-ms-transform     : $content;
+	transform         : $content;
+}
+
+/* 
+	=========================
+	CHANGE ANY VARIABLES HERE
+	=========================
+*/
+// distance between tooltip and parent element
+$parent-offset: 10px;
+
+// for aligning arrow relative tooltip when position alignment is not middle (eg: bottom-left, left-top)
+$arrow-alignment-offset: 15px;
+
+// arrow size
+$arrow-width: 5px;
+
+// colors
+$default-color: #333;
+$info: #44C2F9;
+$success: #83C510;
+$error: #FF4C4C;
+$notice: #FFAE00;
+
+// transition durations
+$fadein-duration: 0.2s;
+$animation-duration: 0.3s;
+
+// delays
+$delay-short: 0.4s;
+$delay-med: 1s;
+$delay-long: 1.5s;
+
+/* 
+	=========================
+*/
+
+
+[data-hint] {
+	&:after {
+		content: attr(data-hint);
+		text-align: center;
+		white-space: nowrap;
+		z-index: 9999;
+
+		/* 
+			============================
+			CHANGE ANY TOOLTIP CSS HERE
+			============================
+		*/
+		background: $default-color;
+		padding: 3px 7px;
+		color: white;
+		font-weight: 400;
+		font-size: 1rem;
+		line-height: 2em;
+		/* 
+			============================
+		*/
+	}
+	&:after, &:before {
+		display: inline-block;
+		pointer-events: none;
+		position: absolute;
+		visibility: hidden;
+	}
+	&:hover {
+		&:after, &:before {
+			visibility: visible;
+		}
+	}
+	&:before {
+		content: "";
+		border: $arrow-width solid transparent;
+		z-index: 9998;
+	}
+}
+
+
+// ---- positioning ---- 
+// top + bottom position
+[class*="hint-bottom"] {
+	&:before {
+		border-bottom-color: $default-color;
+		top: 100%;
+		margin-top: $parent-offset - $arrow-width * 2;
+	}
+	&:after {
+		margin-top: $parent-offset;
+		top: 100%;
+	}
+}
+[class*="hint-top"] {
+	&:before {
+		border-top-color: $default-color;
+		bottom: 100%;
+		margin-bottom: $parent-offset - $arrow-width * 2;
+	}
+	&:after {
+		bottom: 100%;
+		margin-bottom: $parent-offset;
+	}
+}
+// top + bottom alignment
+[class*="hint-bottom-middle"], [class*="hint-top-middle"] {
+	&:before {
+		right: 50%;
+		margin-right: -$arrow-width;
+	}
+	&:after {
+		left: 50%;
+		@include transform( translateX(-50%));
+	}
+}
+[class*="hint-bottom-left"], [class*="hint-top-left"] {
+	&:before {
+		left: $arrow-alignment-offset;
+	}
+	&:after {
+		left: 0;
+	}
+}
+[class*="hint-bottom-right"], [class*="hint-top-right"] {
+	&:before {
+		right: $arrow-alignment-offset;
+	}
+	&:after {
+		right: 0;
+	}
+}
+
+// left + right position
+[class*="hint-left"] {
+	&:before {
+		border-left-color: $default-color;
+		left: 0;
+		margin-left: -$parent-offset;
+	}
+	&:after {
+		right: 100%;
+		margin-right: $parent-offset;
+	}
+}
+[class*="hint-right"] {
+	&:before {
+		border-right-color: $default-color;
+		right: 0;
+		margin-right: -$parent-offset;
+	}
+	&:after {
+		left: 100%;
+		margin-left: $parent-offset;
+	}
+}
+// left + right alignment
+[class*="hint-left-middle"], [class*="hint-right-middle"] {
+	&:before {
+		top: 50%;
+		margin-top: -$arrow-width;
+	}
+	&:after {
+		top: 50%;
+		@include transform(translateY(-50%));
+	}
+}
+[class*="hint-left-top"], [class*="hint-right-top"] {
+	&:before {
+		top: $arrow-alignment-offset;
+	}
+	&:after {
+		top: 0;
+	}
+}
+[class*="hint-left-bottom"], [class*="hint-right-bottom"] {
+	&:before {
+		bottom: $arrow-alignment-offset;
+	}
+	&:after {
+		bottom: 0;
+	}
+}
+
+
+// ---- persist ---- 
+.hint-persist {
+	&:before, &:after {
+		visibility: visible;
+	}
+}
+
+
+// ----  mobile ---- 
+[class*="hint-"][class*="-mobile"] {
+	&:after, &:before {
+		@media only screen and (max-width : 768px) { 
+			display: none;
+		}
+		
+	}
+}
+
+
+// ---- sizing ---- 
+[class*="hint-"][class*="-s-small"]:after {
+	width: 200px;
+	white-space: normal;
+}
+[class*="hint-"][class*="-s-med"]:after {
+	width: 300px;
+	white-space: normal;
+}
+[class*="hint-"][class*="-s-big"]:after {
+	width: 450px;
+	white-space: normal;
+}
+
+
+// ---- delay on default hints ---- 
+.hint-d-short {
+	&:hover:after, &:hover:before {
+		@include transition(visibility 0s $delay-short ease);
+	}
+}
+.hint-d-med {
+	&:hover:after, &:hover:before {
+		@include transition(visibility 0s $delay-med ease);
+	}
+}
+.hint-d-long {
+	&:hover:after, &:hover:before {
+		@include transition(visibility 0s $delay-long ease);
+	}
+}
+
+
+// ---- delay on animations ---- 
+[class*="hint-fade"], [class*="hint-anim"] {
+	&[class*="-d-short"] {
+		&:hover:before, &:hover:after {
+			@include prefix(transition-delay, $delay-short)
+		}
+	}
+
+	&[class*="-d-med"] {
+		&:hover:before, &:hover:after {
+			@include prefix(transition-delay, $delay-med)
+		}
+	}
+
+	&[class*="-d-long"] {
+		&:hover:before, &:hover:after {
+			@include prefix(transition-delay, $delay-long)
+		}
+	}
+}
+
+
+// ---- fade in ---- 
+[class*="hint-fade"] {
+	&:before, &:after {
+		@include transition(opacity $fadein-duration ease-out, visibility $fadein-duration ease-out);
+		opacity: 0;
+	}
+	&:hover:before, &:hover:after{
+		opacity: 1;
+	}
+}
+
+
+// ---- animation ---- 
+[class*="hint-anim"] {
+	&[class*="hint-top"] {
+		&:after, &:before {
+			bottom: 125%;
+			opacity: 0;
+			@include transition(opacity $animation-duration ease-out, visibility $animation-duration ease-out, bottom $animation-duration ease-out);
+		}
+		&:hover:after, &:hover:before {
+			opacity: 1;
+			bottom: 100%;
+		}
+	}
+	&[class*="hint-bottom"] {
+		&:after, &:before {
+			top: 125%;
+			opacity: 0;
+			@include transition(opacity $animation-duration ease, visibility $animation-duration ease, top $animation-duration ease);
+		}
+		&:hover:after, &:hover:before {
+			top: 100%;
+			opacity: 1;
+		}
+	}
+	&[class*="hint-right"] {
+		&:after, &:before {
+			margin-right: -$parent-offset - 15px;;
+			margin-left: $parent-offset + 15px;
+			opacity: 0;
+			@include transition(opacity $animation-duration ease-out, visibility $animation-duration ease, margin $animation-duration ease-out);
+		}
+		&:hover:after, &:hover:before {
+			margin-right: -$parent-offset;
+			margin-left: $parent-offset;
+			opacity: 1;
+		}
+	}
+	&[class*="hint-left"] {
+		&:after, &:before {
+			margin-right: $parent-offset + 15px;
+			margin-left: -$parent-offset - 15px;
+			opacity: 0;
+			@include transition(opacity $animation-duration ease-out, visibility $animation-duration ease, margin $animation-duration ease-out);
+		}
+		&:hover:after, &:hover:before {
+			margin-right: $parent-offset;
+			margin-left: -$parent-offset;
+			opacity: 1;
+		}
+	}
+}
+
+
+// ---- color types ---- 
+[class*="hint-"][class*="-t-info"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $info;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $info;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $info;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $info;
+	} 
+	&:after {
+		background: $info;
+	}
+}
+[class*="hint-"][class*="-t-success"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $success;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $success;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $success;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $success;
+	} 
+	&:after {
+		background: $success;
+	}
+}
+[class*="hint-"][class*="-t-error"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $error;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $error;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $error;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $error;
+	} 
+	&:after {
+		background: $error;
+	}
+}
+[class*="hint-"][class*="-t-notice"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $notice;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $notice;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $notice;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $notice;
+	} 
+	&:after {
+		background: $notice;
+	}
+}

@@ -17,13 +17,13 @@ import lookedUpBooks		from 'core/reducers/book/looked-up';
 import notifications		from 'core/reducers/notifications';
 
 
-//import dashboard			from 'app/reducers/dashboard';
+import dashboard			from 'app/reducers/dashboard';
 
 
 
 export default combineReducers({
 	authentication,
-	//dashboard,
+	dashboard,
 	
 	newUser,
 	users,

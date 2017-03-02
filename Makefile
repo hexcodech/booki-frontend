@@ -1,11 +1,11 @@
 WEBPACK = webpack
-CONFIG = ./webpack.config.js
+BUILD_CONFIG = ./webpack-build.config.js
 
 BUILD = ./build
 
 
 
 all:
-	$(WEBPACK) --config $(CONFIG)
+	$(WEBPACK) --config $(BUILD_CONFIG)
 clean:
 	rm -rf $(BUILD)/*

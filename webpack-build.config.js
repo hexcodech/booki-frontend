@@ -5,8 +5,6 @@ process.traceDeprecation = true; //https://github.com/webpack/loader-utils/issue
 
 module.exports = {
 	entry: [
-		//'react-hot-loader/patch',
-		'webpack-hot-middleware/client',
 		path.join(__dirname, 'web/main.jsx')
 	],
 	
@@ -16,10 +14,7 @@ module.exports = {
 		publicPath	: '/build/'
 	},
 	
-	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoEmitOnErrorsPlugin()
-    ],
+	plugins: [],
     
     resolve: {
 	    
@@ -30,11 +25,6 @@ module.exports = {
 	    
 	    alias: {
 		    core		: path.resolve(__dirname, 'node_modules', 'booki-frontend-core'),
-		    /*utilities	: path.resolve(__dirname, 'core/utilities'),
-		    constants	: path.resolve(__dirname, 'core/constants'),
-		    
-		    actions		: path.resolve(__dirname, 'core/actions'),
-		    reducers	: path.resolve(__dirname, 'core/reducers'),*/
 		},
 		
 		extensions: ['.js', '.jsx', '.css', '.scss']
@@ -47,9 +37,6 @@ module.exports = {
 				exclude	: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
 				
 				use		: [
-					{
-						loader: 'react-hot-loader'// /webpack
-					},
 					{
 						loader	: 'babel-loader',
 						options	: {
