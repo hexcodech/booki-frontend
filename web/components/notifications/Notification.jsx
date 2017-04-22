@@ -1,14 +1,22 @@
-import React		from 'react';
-import {connect}	from 'react-redux';
+import React
+       from 'react';
+
+import TimeAgo
+       from 'react-timeago';
+
+import CSSModules
+       from 'react-css-modules';
+import styles
+       from './Notification.scss';
 
 const onMouseEnter = (color) => {
 	return (e) => {
-		e.target.setAttribute("style", "color: " + color);
+		e.target.setAttribute('style', 'color: ' + color);
 	};
 }
 
 const onMouseLeave = (e) => {
-	e.target.removeAttribute("style");
+	e.target.removeAttribute('style');
 }
 
 const onMouseClick = (action, notification) => {
@@ -18,41 +26,51 @@ const onMouseClick = (action, notification) => {
 }
 
 const Notification = ({notification}) => {
-	
-	const {uuid, fadeIn, fadeOut, color, icon, title, text, hideDelay, timestamp, actions} = notification;
-	
+
+	const {
+		uuid, fadeIn, fadeOut, color, icon,
+		title, text, hideDelay, timestamp, actions
+	} = notification;
+
 	return (
 		<div
 			key={uuid}
-			className={'notification' + (fadeIn ? ' fade-in' : '') + (fadeOut ? ' fade-out' : '')}
+			styleName={
+				'notification' +
+				(fadeIn ? '-fade-in' : '') +
+				(fadeOut ? '-fade-out' : '')
+			}
 			style={{borderTopColor: color}}
 		>
 			<div className='row'>
-				<div className='col-2 icon'>
-					<i className='material-icons bottom v-center'>{icon}</i>
+				<div className='col-2'>
+					<i className='material-icons' styleName='icon'>{icon}</i>
 				</div>
 				<div className='col-7'>
-					<h6>{title}</h6>
-					<p>
+					<h6 styleName='title'>{title}</h6>
+					<p styleName='content'>
 						{text}
 					</p>
 					{
 						hideDelay &&
-						<small>
-							{'Will hide in '}
-							<TimeAgo
-								date={timestamp + hideDelay}
-								formatter={(value, unit) => {
-									return value + ' ' + unit + (value > 1 ? 's' : '');
-								}}
-							/>
-						</small>
+							<small styleName='counter'>
+								{'Will hide in '}
+								<TimeAgo
+									date={timestamp + hideDelay}
+									formatter={(value, unit) => {
+										return value + ' ' + unit + (value > 1 ? 's' : '');
+									}}
+        />
+							</small>
 					}
 				</div>
-				<div className='col-3 actions'>
-					<div className={(actions.length === 1 ? ' v-center' : '')}>
+				<div className='col-3' styleName='actions-wrapper'>
+					<div styleName={
+						(actions.length === 1 ? 'actions-center' : 'actions')
+					}>
 						{actions.map((action, index) => {
 							return <button
+								styleName='action'
 								key={index}
 								onMouseEnter={onMouseEnter(action.color)}
 								onMouseLeave={onMouseLeave}
@@ -68,4 +86,4 @@ const Notification = ({notification}) => {
 	);
 };
 
-export default connect()(Notification);
+export default CSSModules(Notification, styles);

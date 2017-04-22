@@ -1,0 +1,43 @@
+@import 'web/scss/variables.scss';
+
+.table{
+  width: 100%;
+}
+
+.table-interactive{
+  composes: table;
+
+  tr{
+    cursor: pointer;
+  }
+}
+
+.table thead{
+  background-color: $brand-primary;
+  color: #fff;
+  font-weight: bold;
+}
+
+.table th{
+  padding: 0.2rem;
+}
+
+.table tbody{
+  color: inherit;
+}
+
+.table td{
+  padding: 0.2rem;
+}
+
+.table tr:nth-child(even){
+  background-color: rgba($color-primary-0, 0.5);
+}
+
+
+.seperator{
+  background-color: $brand-primary !important;
+
+  color: #fff;
+  font-weight: bold;
+}

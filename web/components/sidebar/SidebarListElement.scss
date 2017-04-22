@@ -1,0 +1,42 @@
+@import 'web/scss/variables.scss';
+
+.list-item{
+  position: relative;
+  padding: .5rem 1rem;
+
+  i, a{
+    color: rgba($gray-dark, 0.65);
+  }
+
+  i{
+    vertical-align: bottom;
+    margin-right: .3rem;
+  }
+
+  a{
+    display: inline-block;
+  }
+}
+
+li, li a{
+
+}
+
+li.active, li.active a{
+
+}
+
+.list-item-active{
+  composes: list-item;
+  a, i{
+    color: $gray-dark;
+  }
+}
+
+.wrapper{
+  display: inline-flex;
+	vertical-align: middle;
+	align-items: center;
+
+  display: block;
+}

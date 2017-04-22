@@ -1,14 +1,24 @@
-import React				from 'react';
-import {connect}			from 'react-redux';
-import {Link}				from 'react-router';
+import React
+       from 'react';
+import {connect}
+       from 'react-redux';
+import {Link}
+       from 'react-router-dom';
 
-const SidebarElement = ({text, icon, url, active}) => {
-	
+import CSSModules
+       from 'react-css-modules';
+import styles
+       from './SidebarListElement.scss';
+
+const SidebarElement = ({text, icon, url, match, pathname}) => {
+
 	return (
-		<li className={active ? 'list-group-item active' : 'list-group-item'}>
-			<div className='valign-center max-block'>
+		<li styleName={
+      pathname.startsWith(match) ? 'list-item-active' : 'list-item'
+    }>
+			<div styleName='wrapper'>
 				<i className='material-icons'>{icon}</i>
-				<Link to={url} className='max-block'>
+				<Link to={url}>
 					{text}
 				</Link>
 			</div>
@@ -16,11 +26,4 @@ const SidebarElement = ({text, icon, url, active}) => {
 	);
 };
 
-const mapStatesToProps = (state, props) => {
-	
-	return {
-		active: state.routing.locationBeforeTransitions.pathname === props.url
-	};
-};
-
-export default connect(mapStatesToProps)(SidebarElement);
+export default CSSModules(SidebarElement, styles);

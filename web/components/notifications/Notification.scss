@@ -1,0 +1,108 @@
+@import 'web/scss/variables.scss';
+
+.notification{
+	width            : 300px;
+	margin           : 10px;
+	padding	         : 10px 0 10px 10px;
+
+	background-color : rgba(255, 255, 255, 1);
+	border-top       : $brand-primary 2px solid;
+
+	box-shadow       : 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+	transition       : 1s ease-in-out all;
+}
+
+.notification-fade-in{
+  composes  : notification;
+  animation : swipeIn 1s ease-in-out forwards;
+}
+.notification-fade-out{
+  composes  : notification;
+  animation : swipeOut 1s ease-in-out forwards;
+}
+
+.icon{
+  position       : absolute;
+	top            : 50%;
+	transform      : translateY(-50%);
+
+  vertical-align : bottom;
+  display        : block;
+  width          : 100%;
+
+  text-align     : center;
+}
+
+.actions-wrapper{
+  border-left: #eee 1px solid;
+  padding-left: 0;
+}
+
+.actions{
+  position: relative;
+}
+
+.actions-center{
+  composes     : actions;
+
+  position     : absolute;
+	top          : 50%;
+  left         : 0;
+  right        : 15px;
+	transform    : translateY(-50%);
+}
+
+.title{
+  margin-bottom: 5px;
+}
+
+.content{
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+}
+
+.counter{
+  font-size: 10px;
+}
+
+.action{
+  width: 100%;
+  border: none;
+
+  background-color: rgba(255, 255, 255, 0.75);
+
+  color: #aaa;
+  font-weight	: 300;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: 0.3s ease-in-out all;
+}
+
+@keyframes swipeIn{
+	0% {
+		transform: translateX(125%);
+	}
+	75% {
+		transform: translateX(-50%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes swipeOut{
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-50%);
+	}
+	100% {
+		transform: translateX(125%);
+	}
+}

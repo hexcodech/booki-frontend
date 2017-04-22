@@ -1,12 +1,26 @@
-import React				from 'react';
-import {connect}			from 'react-redux';
-import TimeAgo				from 'react-timeago';
+import React
+       from 'react';
+import TimeAgo
+       from 'react-timeago';
+
+import CSSModules
+       from 'react-css-modules';
+import styles
+       from './RefreshButton.scss';
 
 const RefreshButton = ({date, loading, refreshHandler}) => {
-	
+
 	return (
-		<span className=''>
-			<a href='#' onClick={refreshHandler}><i className={loading ? 'material-icons bottom spinning': 'material-icons bottom'}>refresh</i></a>{' '}
+		<span>
+			<a href='#' onClick={refreshHandler}>
+				<i
+					styleName={loading ? 'icon-spinning': 'icon'}
+					className='material-icons'
+				>refresh</i>
+			</a>
+
+			{' '}
+
 			{date &&
 				<span>
 					Refreshed{' '}
@@ -16,7 +30,7 @@ const RefreshButton = ({date, loading, refreshHandler}) => {
 							if(unit === 'second'){
 								return 'just now';
 							}else{
-								return value + ' ' + unit + (value > 1 ? 's' : '') + ' ' + suffix;
+								return value +' '+ unit + (value > 1 ? 's' : '') + ' ' + suffix;
 							}
 						}}
 					/>
@@ -26,4 +40,4 @@ const RefreshButton = ({date, loading, refreshHandler}) => {
 	);
 };
 
-export default connect()(RefreshButton);
+export default CSSModules(RefreshButton, styles);

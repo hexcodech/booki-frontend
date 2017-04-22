@@ -1,0 +1,12 @@
+@import 'web/scss/variables.scss';
+
+.content{
+  padding-bottom: .5rem;
+}
+
+.footer{
+  padding-top: .5rem;
+
+  border-top : $gray 1px solid;
+  font-style : italic;
+}

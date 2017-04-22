@@ -1,35 +1,116 @@
-import React				from 'react';
-import {connect}			from 'react-redux';
-import {push}				from 'react-router-redux';
+import React
+       from 'react';
+import {connect}
+       from 'react-redux';
+import {push}
+       from 'react-router-redux';
 
-import SidebarListElement	from 'web/components/sidebar/SidebarListElement';
+import SidebarListElement
+       from 'web/components/sidebar/SidebarListElement';
 
-const Sidebar = ({userId, name, profilePictureUrl, dispatch}) => {
-	
-	let width	= window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-	let height	= window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-	
+import CSSModules
+       from 'react-css-modules';
+import styles
+       from './Sidebar.scss';
+
+const Sidebar = ({user, pathname, dispatch}) => {
+
+	let width	= window.innerWidth ||
+	            document.documentElement.clientWidth ||
+							document.body.clientWidth;
+
+	let height	= window.innerHeight ||
+	              document.documentElement.clientHeight ||
+								document.body.clientHeight;
+
 	let bgStyles = {
-		background: 'linear-gradient(rgba(255, 173, 57, 1), rgba(255, 173, 57, 0.45)),' + 
-		'url(https://source.unsplash.com/random/' + Math.round(width/3) + 'x' + height + ')',
-		backgroundRepeat: 'no-repeat',
-		backgroundPosition: 'center center',
-		backgroundSize: 'cover'
+		background: 'linear-gradient(' +
+			'rgba(255, 173, 57, 1), rgba(255, 173, 57, 0.45)' +
+		'), url(' +
+			'https://source.unsplash.com/random/' + Math.round(width/3)+'x'+height +
+		'/weekly)'
 	};
-	
+
 	return (
-		<aside className='sidebar bg-primary' style={bgStyles}>
-			<figure className='profile-picture clickable' onClick={()=>{dispatch(push('/dashboard/user/' + userId + '/'))}}>
-				<img src={profilePictureUrl} className='mx-auto d-block' height='100' width='100' />
-				<p className='text-center user-name'>
-					{name.display}
+		<aside styleName='sidebar' style={bgStyles}>
+			<figure
+				styleName='profile-picture'
+				onClick={() => {
+					dispatch(
+						push('/user/' + user.id + '/')
+					)
+        }}>
+
+				<img src={user.profilePictureUrl} height='100' width='100'/>
+				<p styleName='user-name'>
+					{user.nameDisplay}
 				</p>
 			</figure>
-			<ul className='list-group'>
-				<SidebarListElement text='Dashboard' icon='dashboard' url='/dashboard/' />
-				<SidebarListElement text='Users' icon='supervisor_account' url='/dashboard/users/' />
-				<SidebarListElement text='OAuthClients' icon='business' url='/dashboard/clients/' />
-				<SidebarListElement text='Books' icon='book' url='/dashboard/books/' />
+
+			<ul styleName='link-list'>
+        <SidebarListElement
+					text='Dashboard'
+					icon='dashboard'
+					url='/dashboard/'
+          match='/dashboard/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='Users'
+					icon='supervisor_account'
+					url='/user/list'
+          match='/user/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='OAuthClients'
+					icon='business'
+					url='/client/list'
+          match='/client/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='People'
+					icon='nature_people'
+					url='/person/list'
+          match='/person/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='Conditions'
+					icon='check_circle'
+					url='/condition/list'
+          match='/condition/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='Books'
+					icon='book'
+					url='/book/list'
+          match='/book/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='Thumbnail types'
+					icon='list'
+					url='/thumbnail-type/list'
+          match='/thumbnail-type/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='Images'
+					icon='image'
+					url='/image/list'
+          match='/image/'
+          pathname={pathname}
+        />
+        <SidebarListElement
+					text='Offers'
+					icon='local_offer'
+					url='/offer/list'
+          match='/offer/'
+          pathname={pathname}
+        />
 			</ul>
 		</aside>
 	);
@@ -37,10 +118,9 @@ const Sidebar = ({userId, name, profilePictureUrl, dispatch}) => {
 
 const mapStateToProps = (state) => {
 	return {
-		userId				: state.app.authentication.user._id,
-		name				: state.app.authentication.user.name,
-		profilePictureUrl	: state.app.authentication.user.profilePictureUrl
+		user     : state.app.authentication.user,
+    pathname : state.router.location.pathname
 	};
 };
 
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps)(CSSModules(Sidebar, styles));

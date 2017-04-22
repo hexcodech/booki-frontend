@@ -1,0 +1,16 @@
+.sidebar{
+  position            : fixed;
+
+  height              : 100vh;
+
+  padding-left        : 0;
+
+  overflow-x          : hidden;
+  overflow-y          : scroll;
+
+  z-index             : 100;
+}
+
+.content > *{
+  margin-left         : -15px;
+}

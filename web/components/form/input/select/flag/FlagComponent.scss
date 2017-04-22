@@ -1,0 +1,24 @@
+.flag{
+  padding: .25rem;
+  display: block;
+
+  img{
+    margin-right: .5rem;
+  }
+}
+
+.flag-option{
+  composes: flag;
+
+  border-bottom: #eee 1px solid;
+	cursor: pointer;
+
+	&:hover{
+		background-color: #eee;
+	}
+}
+
+.flag-value{
+  composes: flag;
+
+}

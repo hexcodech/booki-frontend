@@ -1,0 +1,30 @@
+.condition{
+  position: relative;
+  padding: .5rem;
+  display: block;
+}
+
+.condition-option{
+  composes: condition;
+
+  border-bottom: #eee 1px solid;
+	cursor: pointer;
+
+	&:hover{
+		background-color: #eee;
+	}
+}
+
+.condition-value{
+  composes: condition;
+
+}
+
+.description{
+  position: relative;
+  margin-right: .5rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

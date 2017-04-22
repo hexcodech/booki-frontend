@@ -1,85 +1,105 @@
-import React														from 'react';
-import {createStore, combineReducers, applyMiddleware, compose}		from 'redux';
-import {Provider}													from 'react-redux';
-import {BrowserRouter as Router, Route, Link}						from 'react-router-dom';
-import {syncHistoryWithStore, routerReducer, routerMiddleware}		from 'react-router-redux';
-import thunkMiddleware												from 'redux-thunk';
-import throttle														from 'lodash/throttle';
+import React
+       from 'react';
+import {createStore, combineReducers, applyMiddleware, compose}
+       from 'redux';
+import {Provider}
+       from 'react-redux';
 
-import {loadState, saveState}										from 'core/utilities/local-storage';
+import {Route}
+       from 'react-router-dom';
+import createHistory
+       from 'history/createBrowserHistory'
+import {ConnectedRouter, routerReducer, routerMiddleware}
+       from 'react-router-redux';
+
+import thunkMiddleware
+       from 'redux-thunk';
+import throttle
+       from 'lodash/throttle';
+
+import {loadState, saveState}
+      from 'core/utilities/local-storage';
 
 //reducer(s)
 
-import appReducer													from 'app/reducers/app';
-
-//Components
-
-import Wrapper														from 'web/containers/layout/Wrapper';
+import appReducer        from 'app/reducers/app';
 
 //Containers
 
-import DevTools														from 'web/containers/dev/DevTools';
+import DevTools          from 'web/containers/dev/DevTools';
 
-import Login														from 'web/components/auth/Login';
-import OAuthCallback												from 'web/components/auth/OAuthCallback';
+import Login             from 'web/components/auth/Login';
+import OAuthCallback     from 'web/components/auth/OAuthCallback';
 
-import Content														from 'web/containers/content/Content';
-import Dashboard													from 'web/containers/content/dashboard/Dashboard';
+import Dashboard         from 'web/containers/content/dashboard/Dashboard';
 
-import UserList														from 'web/containers/content/user/UserList';
-import User															from 'web/containers/content/user/User';
+import Wrapper           from 'web/containers/layout/Wrapper';
 
-import ClientList													from 'web/containers/content/client/ClientList';
-import Client														from 'web/containers/content/client/Client';
-
-import BookList														from 'web/containers/content/book/BookList';
-import Book															from 'web/containers/content/book/Book';
+import UserRouter        from 'web/containers/content/user/UserRouter';
+import ClientRouter      from 'web/containers/content/client/ClientRouter';
+import PersonRouter      from 'web/containers/content/person/PersonRouter';
+import ConditionRouter   from 'web/containers/content/condition/ConditionRouter';
+import BookRouter        from 'web/containers/content/book/BookRouter';
+import ThumbnailTypeRouter from 'web/containers/content/thumbnail-type/ThumbnailTypeRouter';
+import ImageRouter       from 'web/containers/content/image/ImageRouter';
+import OfferRouter       from 'web/containers/content/offer/OfferRouter';
 
 
 const presistedState = loadState();
+const history        = createHistory();
 
 const store = createStore(
 	combineReducers({
-		app					: appReducer,
-		//routing				: routerReducer
+		app             : appReducer,
+		router          : routerReducer
 	}),
-	
+
 	presistedState,
-	
+
 	compose(
 		applyMiddleware(
 			thunkMiddleware,
-			//routerMiddleware(browserHistory)
+			routerMiddleware(history)
 		),
 		DevTools.instrument(),
 	),
 );
 
-store.subscribe(throttle(() => {//storing some keys of the application state in the localstorage
+//storing some keys of the application state in the localstorage
+store.subscribe(throttle(() => {
 	const state = store.getState();
-	
+
 	saveState({
-		//routing: state.routing,
+		router: state.router,
 		app: {
-			authentication	: state.app.authentication,
-			notifications	: state.app.notifications
+			authentication  : state.app.authentication,
+			//notifications   : state.app.notifications //functions can't be stored
 		}
 	});
-	
-}, 1000));
 
-//const history			= syncHistoryWithStore(browserHistory, store); //has to be after 'store' has been created
+}, 1000));
 
 const App = () => {
 	return (
-		<Provider store={store}>	
-			<Router>
-				<div>
-					<Route exact path='/' component={Login} />
-					<Route path='/auth/callback' component={OAuthCallback} />
-					<Route path='/dasboard' component={Dashboard} />
-				</div>
-			</Router>
+		<Provider store={store}>
+			<ConnectedRouter history={history}>
+        <div>
+          <Route exact path='/' component={Login} />
+          <Route path='/auth/callback' component={OAuthCallback} />
+
+          <Wrapper>
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/user' component={UserRouter} />
+            <Route path='/client' component={ClientRouter}/>
+            <Route path='/person' component={PersonRouter}/>
+            <Route path='/condition' component={ConditionRouter}/>
+            <Route path='/book' component={BookRouter}/>
+            <Route path='/thumbnail-type' component={ThumbnailTypeRouter} />
+            <Route path='/image' component={ImageRouter} />
+            <Route path='/offer' component={OfferRouter} />
+          </Wrapper>
+        </div>
+			</ConnectedRouter>
 		</Provider>
 	);
 };

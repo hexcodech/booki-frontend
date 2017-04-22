@@ -1,0 +1,81 @@
+$gray                     : #f5f5f5;
+$gray-dark                : #333333;
+$gray-light               : #BBBBBB;
+$gray-lighter             : #CCCCCC;
+$gray-lightest            : rgba(0, 0, 0, 0.05);
+
+
+$color-primary-0          : #FFE7C5; //very bright
+$color-primary-1          : #FFD69B; //bright
+
+$color-primary-2          : #FFC676; // Main Primary color
+
+$color-primary-3          : #DEA14B; //dark
+$color-primary-4          : #BF7F26; //darker
+
+$color-secondary-1        : #FFDE76;	// secondary color, yellowish
+
+$color-secondary-2        : #FFA176;	// secondary color, redish
+
+$color-accent-1           : #50AC89; // accent color, turquoisish
+$color-accent-2           : #6360B2; // accent color, dark blueish
+$color-accent-3           : #537EA5; // accent color, light blueish
+
+$brand-primary            : $color-primary-2;
+$brand-success            : #2ecc71;
+$brand-info               : #3498db;
+$brand-warning            : #FCBF37;
+$brand-danger             : #e74c3c;
+
+
+$enable-rounded           : false;
+$enable-shadows           : false;
+$enable-hover-media-query : true;
+
+$font-family-sans-serif   : 'Roboto', 'Helvetica', 'sans-serif';
+$font-family-serif        : 'Georgia', 'Times New Roman', 'Times', 'serif';
+$font-family-monospace    : 'Menlo', 'Monaco', 'Courier New',	'monospace';
+$font-family-base         : $font-family-sans-serif;
+
+$breadcrumb-bg            : #ffffff;
+$breadcrumb-divider-color : $gray-dark;
+$breadcrumb-active-color  : $gray-dark;
+$breadcrumb-divider       : '/';
+
+$label-default-bg         : $gray-dark;
+$label-primary-bg         : $brand-primary;
+$label-success-bg         : $brand-success;
+$label-info-bg            : $brand-info;
+$label-warning-bg         : $brand-warning;
+$label-danger-bg          : $brand-danger;
+
+$label-color              : #000;
+$label-link-hover-color   : #000;
+$label-font-weight        : 300;
+
+$hr-border-color          : $gray-dark;
+
+$btn-font-weight          : 300;
+
+$btn-secondary-color      : #fff;
+$btn-secondary-bg         : $gray-dark;
+$btn-secondary-border     : $gray-dark;
+
+$input-color              : $gray-dark;
+$input-color-placeholder  : $gray-light;
+$input-border-color       : $gray-light;
+$input-border-focus       : $gray-light;
+
+$simple-y-top-shadow      : 0px -2px 2px 0px rgba(0, 0, 0, 0.05);
+$simple-y-bottom-shadow   : 0px 2px 2px 0px rgba(0, 0, 0, 0.05);
+$simple-x-right-shadow    : 2px 0px 2px rgba(0, 0, 0, 0.05);
+$simple-x-left-shadow     : -2px 0px 2px rgba(0, 0, 0, 0.05);
+
+$error-shadow             : 0 0 4px $brand-danger;
+
+$font-size-h1             : 2rem;
+$font-size-h2             : 1.5rem;
+$font-size-h3             : 1.375rem;
+$font-size-h4             : 1.25rem;
+$font-size-h5             : 1.125rem;
+$font-size-h6             : 1rem;
