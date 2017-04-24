@@ -46,7 +46,7 @@
 // @import '../../node_modules/bootstrap/scss/carousel';
 
 // Utility classes
-// @import '../../node_modules/bootstrap/scss/utilities';
+@import '../../node_modules/bootstrap/scss/utilities';
 
 body{
   background-color: #fff;
@@ -187,6 +187,61 @@ body{
 .dropzone-reject{
   border-color: $brand-danger;
   border-width: 4px;
+}
+
+//no css modules for burger Menu
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 44px;
+
+  @extend .hidden-lg-up;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: $brand-primary;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: $brand-danger;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: $brand-primary;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: $brand-primary;
+}
+
+/* Wrapper for item list */
+.bm-item-list{
+  padding: 0.8em;
+  
+  a{
+    color: #fff;
+  }
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 //modify some bootstrap classes

@@ -19,9 +19,9 @@ import styles
 const Wrapper = ({children}) => {
 
 	return (
-		<div>
+		<div id='outer-container'>
       <Header />
-      <div className='col-12' styleName='content'>
+      <div className='col-12' styleName='content' id='page-wrap'>
 				{children}
 			</div>
 			<Notifications />

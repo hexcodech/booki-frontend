@@ -235,6 +235,15 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/components\/ui\/Burger.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/Burger-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/components\/ui\/Button.jsx": {
 		"ft": 64,
 		"mi": 0,

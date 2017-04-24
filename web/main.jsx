@@ -20,6 +20,8 @@ import throttle
        from 'lodash/throttle';
 import {loadState, saveState}
       from 'core/utilities/local-storage';
+import {reducer as burgerMenuReducer}
+      from 'redux-burger-menu';
 
 import DevTools
        from 'web/containers/dev/DevTools';
@@ -29,7 +31,8 @@ const presistedState = loadState();
 const store = createStore(
 	combineReducers({
 		app             : appReducer,
-		router          : routerReducer
+		router          : routerReducer,
+    burgerMenu      : burgerMenuReducer
 	}),
 
 	presistedState,

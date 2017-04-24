@@ -8,6 +8,8 @@ import styles
 
 import Logo
        from 'web/components/ui/Logo';
+import Menu
+      from 'web/components/ui/Burger';
 import Search
        from 'web/components/ui/Search';
 import Button
@@ -15,20 +17,28 @@ import Button
 
 const Header = ({children}) => {
   return (
-    <header styleName='header' className='container'>
-      <Logo />
-      <Button>
-        Beta
-      </Button>
-      <Search />
-      <nav styleName='nav'>
-        <ul>
-          <li>Kaufen</li>
-          <li>Verkaufen</li>
-          <li>Login</li>
-        </ul>
-      </nav>
-    </header>
+    <div>
+      <Menu
+        pageWrapId='page-wrap'
+        outerContainerId='outer-container'
+      >
+        <a id="home" className="menu-item" href="/">Home</a>
+      </Menu>
+      <header styleName='header' className='container'>
+        <Logo />
+        <Button>
+          Beta
+        </Button>
+        <Search />
+        <nav styleName='nav' className='hidden-md-down'>
+          <ul>
+            <li>Kaufen</li>
+            <li>Verkaufen</li>
+            <li>Login</li>
+          </ul>
+        </nav>
+      </header>
+    </div>
   );
 };
 
