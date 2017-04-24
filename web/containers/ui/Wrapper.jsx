@@ -5,6 +5,9 @@ import {connect}
 
 import DevTools
        from 'web/containers/dev/DevTools';
+
+import Header
+       from 'web/components/ui/Header';
 import Notifications
        from 'web/containers/Notifications';
 
@@ -17,8 +20,8 @@ const Wrapper = ({children}) => {
 
 	return (
 		<div>
-      <div
-        className='col-12' styleName='content'>
+      <Header />
+      <div className='col-12' styleName='content'>
 				{children}
 			</div>
 			<Notifications />

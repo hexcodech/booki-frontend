@@ -5,7 +5,7 @@ process.traceDeprecation = true; //https://github.com/webpack/loader-utils/issue
 
 module.exports = {
 	entry: [
-		//'react-hot-loader/patch',
+		'react-hot-loader/patch',
 		'webpack-hot-middleware/client',
 		path.join(__dirname, 'web/main.jsx')
 	],
@@ -43,7 +43,7 @@ module.exports = {
 
 				use		: [
 					{
-						loader: 'react-hot-loader'// /webpack
+						loader: 'react-hot-loader/webpack'
 					},
 					{
 						loader	: 'babel-loader',

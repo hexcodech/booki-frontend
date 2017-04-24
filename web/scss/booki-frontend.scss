@@ -48,14 +48,10 @@
 // Utility classes
 // @import '../../node_modules/bootstrap/scss/utilities';
 
-@import '../lib/simple-hint/src/simple-hint.scss';
-
-[class^='hint-']{
-  position: relative;
-}
-
 body{
-  background-color: $gray;
+  background-color: #fff;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 // no css modules for react-tags

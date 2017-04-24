@@ -1,0 +1,19 @@
+@import 'web/scss/variables.scss';
+
+.button{
+  display: inline-block;
+
+  background-color: $brand-primary;
+  height: 40px;
+  padding: 0 10px;
+
+  line-height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+
+  border: none;
+  border-radius: 5px;
+}

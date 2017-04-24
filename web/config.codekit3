@@ -9,28 +9,6 @@
 	],
 "creatorBuild": "25813",
 "files": {
-	"\/components\/auth\/Login.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/auth\/min\/Login-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/auth\/Login.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Login.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
 	"\/components\/auth\/OAuthCallback.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -191,72 +169,6 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/layout\/Actions.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/layout\/min\/Actions-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/layout\/Actions.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Actions.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/layout\/Card.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/layout\/min\/Card-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/layout\/Card.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Card.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/layout\/Table.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/layout\/min\/Table-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/layout\/Table.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Table.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
 	"\/components\/notifications\/Notification.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -301,28 +213,6 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/sidebar\/SidebarListElement.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/sidebar\/min\/SidebarListElement-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/sidebar\/SidebarListElement.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/SidebarListElement.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
 	"\/components\/Spinner.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -345,316 +235,99 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/components\/ui\/Button.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/Button-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/Button.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Button.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/Header.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/Header-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/Header.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Header.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/Logo.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/Logo-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/Logo.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Logo.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/Table.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/Table-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/Table.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Table.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/containers\/App.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
 		"oAP": "\/containers\/min\/App-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/book\/Book.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/book\/min\/Book-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/book\/BookList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/book\/min\/BookList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/book\/BookRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/book\/min\/BookRouter-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/client\/Client.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/client\/min\/Client-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/client\/ClientList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/client\/min\/ClientList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/client\/ClientRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/client\/min\/ClientRouter-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/condition\/Condition.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/condition\/min\/Condition-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/condition\/ConditionList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/condition\/min\/ConditionList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/condition\/ConditionRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/condition\/min\/ConditionRouter-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/Dashboard.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/dashboard\/min\/Dashboard-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/Dashboard.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Dashboard.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/containers\/content\/dashboard\/widgets\/CpuStats.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/dashboard\/widgets\/min\/CpuStats-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/widgets\/GeneralStats.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/dashboard\/widgets\/min\/GeneralStats-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/widgets\/MemoryStats.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/dashboard\/widgets\/min\/MemoryStats-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/widgets\/SpinnerWidget.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/dashboard\/widgets\/min\/SpinnerWidget-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/widgets\/UserStats.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/dashboard\/widgets\/min\/UserStats-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/widgets\/Widget.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/dashboard\/widgets\/min\/Widget-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/dashboard\/widgets\/Widget.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Widget.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/containers\/content\/image\/Image.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/image\/min\/Image-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/image\/ImageList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/image\/min\/ImageList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/image\/ImageRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/image\/min\/ImageRouter-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/offer\/Offer.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/offer\/min\/Offer-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/offer\/OfferList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/offer\/min\/OfferList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/offer\/OfferRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/offer\/min\/OfferRouter-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/person\/Person.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/person\/min\/Person-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/person\/PersonList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/person\/min\/PersonList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/person\/PersonRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/person\/min\/PersonRouter-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/thumbnail-type\/ThumbnailType.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/thumbnail-type\/min\/ThumbnailType-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/thumbnail-type\/ThumbnailTypeList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/thumbnail-type\/min\/ThumbnailTypeList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/thumbnail-type\/ThumbnailTypeRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/thumbnail-type\/min\/ThumbnailTypeRouter-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/user\/User.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/user\/min\/User-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/user\/UserList.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/user\/min\/UserList-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/user\/UserRouter.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/user\/min\/UserRouter-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -667,50 +340,6 @@
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
-		},
-	"\/containers\/layout\/Sidebar.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/layout\/min\/Sidebar-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/layout\/Sidebar.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Sidebar.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/containers\/layout\/Wrapper.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/layout\/min\/Wrapper-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/layout\/Wrapper.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Wrapper.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
 		},
 	"\/containers\/Notifications.jsx": {
 		"ft": 64,
@@ -734,79 +363,16 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/css\/booki-dashboard.min.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
+	"\/containers\/ui\/Wrapper.jsx": {
+		"ft": 64,
+		"mi": 0,
 		"oA": 1,
-		"oAP": "\/css\/booki-dashboard.min.min.css",
+		"oAP": "\/containers\/ui\/min\/Wrapper-min.js",
 		"oF": 0,
-		"oS": 0
+		"sC": 0,
+		"tS": 0
 		},
-	"\/css\/booki-dashboard.min.css.map": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/css\/booki-dashboard.min.css.map",
-		"oF": 0
-		},
-	"\/index.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/index.html",
-		"oF": 0
-		},
-	"\/lib\/simple-hint\/.gitignore": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/lib\/simple-hint\/.gitignore",
-		"oF": 0
-		},
-	"\/lib\/simple-hint\/dist\/simple-hint.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/lib\/simple-hint\/dist\/simple-hint.min.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/lib\/simple-hint\/dist\/simple-hint.min.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/lib\/simple-hint\/dist\/simple-hint.min.min.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/lib\/simple-hint\/LICENSE": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/lib\/simple-hint\/LICENSE",
-		"oF": 0
-		},
-	"\/lib\/simple-hint\/README.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 1,
-		"oAP": "\/lib\/simple-hint\/README.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
-	"\/lib\/simple-hint\/src\/_simple-hint.scss": {
+	"\/containers\/ui\/Wrapper.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -814,10 +380,32 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/css\/_simple-hint.min.css",
+		"oAP": "\/css\/Wrapper.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
+		},
+	"\/css\/booki-frontend.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/css\/booki-frontend.min.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/css\/booki-frontend.min.css.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/css\/booki-frontend.min.css.map",
+		"oF": 0
+		},
+	"\/index.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/index.html",
+		"oF": 0
 		},
 	"\/main.jsx": {
 		"ft": 64,
@@ -828,7 +416,7 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/scss\/booki-dashboard.scss": {
+	"\/scss\/booki-frontend.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -836,8 +424,8 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 0,
-		"oAP": "\/css\/booki-dashboard.min.css",
-		"oF": 0,
+		"oAP": "\/css\/booki-frontend.min.css",
+		"oF": 1,
 		"oS": 3,
 		"uL": 1
 		},
@@ -870,7 +458,7 @@
 	},
 "projectAttributes": {
 	"creationDate": 504481259,
-	"displayValue": "booki-dashboard",
+	"displayValue": "booki-frontend",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-angryPicard"
 	},

@@ -4,28 +4,14 @@ $gray-light               : #BBBBBB;
 $gray-lighter             : #CCCCCC;
 $gray-lightest            : rgba(0, 0, 0, 0.05);
 
+$brand-primary            : #FFC676;
+$brand-secondary          : #FBAA3A;
 
-$color-primary-0          : #FFE7C5; //very bright
-$color-primary-1          : #FFD69B; //bright
-
-$color-primary-2          : #FFC676; // Main Primary color
-
-$color-primary-3          : #DEA14B; //dark
-$color-primary-4          : #BF7F26; //darker
-
-$color-secondary-1        : #FFDE76;	// secondary color, yellowish
-
-$color-secondary-2        : #FFA176;	// secondary color, redish
-
-$color-accent-1           : #50AC89; // accent color, turquoisish
-$color-accent-2           : #6360B2; // accent color, dark blueish
-$color-accent-3           : #537EA5; // accent color, light blueish
-
-$brand-primary            : $color-primary-2;
-$brand-success            : #2ecc71;
-$brand-info               : #3498db;
-$brand-warning            : #FCBF37;
-$brand-danger             : #e74c3c;
+$brand-success            : #7ACA45;
+$brand-info               : $brand-primary;
+$brand-danger             : #FF8074;
+$brand-warning            : #B16FC3;
+$brand-dark               : #443929;
 
 
 $enable-rounded           : false;
