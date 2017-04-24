@@ -8,6 +8,8 @@ import styles
 
 import Logo
        from 'web/components/ui/Logo';
+import Search
+       from 'web/components/ui/Search';
 import Button
        from 'web/components/ui/Button';
 
@@ -18,12 +20,7 @@ const Header = ({children}) => {
       <Button>
         Beta
       </Button>
-      <div className='input-group' styleName='searchbar'>
-        <input type='search' className='form-control' placeholder='Suchen...' />
-        <div className='input-group-addon' styleName='search-button'>
-          <i className='material-icons'>search</i>
-        </div>
-      </div>
+      <Search />
       <nav styleName='nav'>
         <ul>
           <li>Kaufen</li>

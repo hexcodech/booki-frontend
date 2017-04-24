@@ -301,6 +301,28 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/components\/ui\/Search.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/Search-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/Search.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Search.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/components\/ui\/Table.jsx": {
 		"ft": 64,
 		"mi": 0,

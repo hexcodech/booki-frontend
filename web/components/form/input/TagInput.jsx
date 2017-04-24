@@ -1,7 +1,5 @@
 import React
        from 'react';
-import bindAll
-       from 'lodash/bindAll';
 
 import {WithContext as ReactTags}
        from 'react-tag-input';
@@ -10,33 +8,28 @@ class TagInput extends React.Component{
 
 	constructor(props){
 		super(props);
-
-		bindAll(this, [
-      'handleChange', 'handleDelete', 'handleAddition', 'handleDrag',
-      'handleOnInput'
-    ]);
 	}
 
-  handleOnInput(e){
+  handleOnInput = (e) => {
     if(this.props.handleOnInput){
       this.props.handleOnInput(e);
     }
-  }
+  };
 
-	handleChange(tags){
+	handleChange = (tags) => {
 		if(this.props.handleOnChange){
 			this.props.handleOnChange(this.props.id, tags.map(el => el.text));
 		}
-	}
+	};
 
-	handleDelete(i) {
+	handleDelete = (i) => {
 		let tags = this.props.tags;
 		tags.splice(i, 1);
 
 		this.handleChange(tags);
-	}
+	};
 
-	handleAddition(tag) {
+	handleAddition = (tag) => {
 		let tags = this.props.tags;
 
 		if(this.props.unique){
@@ -54,9 +47,9 @@ class TagInput extends React.Component{
 		});
 
 		this.handleChange(tags);
-	}
+	};
 
-	handleDrag(tag, currPos, newPos) {
+	handleDrag = (tag, currPos, newPos) => {
 		let tags = this.props.tags;
 
 		// mutate array
@@ -65,7 +58,7 @@ class TagInput extends React.Component{
 
 		// re-render
 		this.handleChange(tags);
-	}
+	};
 
 	render(){
 		let {tags, suggestions, placeholder, handleFilterSuggestions} = this.props;

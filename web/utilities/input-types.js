@@ -6,7 +6,8 @@ import TagInput
 import SelectInput
        from 'web/components/form/input/select/SelectInput.jsx';
 
-import fuzzy from 'fuzzy';
+import fuzzy
+       from 'fuzzy';
 
 export const selectInput = (
   props, onSelect = null, getValue = (o) => {return o && o.value ? o.value : ''}
@@ -37,7 +38,7 @@ export const selectInput = (
 //fuzzySearch
 
 const fuzzySearch = (query, suggestions) => {
-  return fuzzy.filter(query, suggestions).map(function(item){
+  return fuzzy.filter(query, suggestions).map((item) => {
     return item.string;
   });
 }

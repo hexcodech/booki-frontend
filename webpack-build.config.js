@@ -7,50 +7,53 @@ module.exports = {
 	entry: [
 		path.join(__dirname, 'web/main.jsx')
 	],
-	
+
 	output: {
 		path		: path.join(__dirname, 'build/'),
 		filename	: 'bundle.js',
 		publicPath	: '/build/'
 	},
-	
+
 	plugins: [],
-    
+
     resolve: {
-	    
+
 	    modules: [
 		    path.resolve(__dirname),
 		    path.resolve(__dirname, 'node_modules')
 	    ],
-	    
+
 	    alias: {
 		    core		: path.resolve(__dirname, 'node_modules', 'booki-frontend-core'),
 		},
-		
+
 		extensions: ['.js', '.jsx', '.css', '.scss']
 	},
-	
+
 	module: {
 		rules: [
 			{
 				test	: /\.jsx?$/,
 				exclude	: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
-				
+
 				use		: [
 					{
 						loader	: 'babel-loader',
 						options	: {
 							presets: ['es2015', 'es2016', 'es2017', 'react'],
-							plugins: ['transform-object-rest-spread']
+							plugins: [
+								'transform-object-rest-spread',
+								'transform-class-properties'
+							]
 						}
 					}
-					
+
 				]
 			},
 			{
 				test	: /\.css$/,
 				exclude	: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
-				
+
 				use	: [
 					{
 						loader: 'style-loader',
@@ -71,7 +74,7 @@ module.exports = {
 			{
 				test	: /\.scss$/,
 				exclude	: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
-				
+
 				use		: [
 					{
 						loader: 'style-loader',
