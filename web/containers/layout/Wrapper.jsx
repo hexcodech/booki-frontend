@@ -3,9 +3,6 @@ import React
 import {connect}
        from 'react-redux';
 
-import Sidebar
-       from 'web/containers/layout/Sidebar';
-
 import DevTools
        from 'web/containers/dev/DevTools';
 import Notifications
@@ -20,13 +17,8 @@ const Wrapper = ({children}) => {
 
 	return (
 		<div>
-			<div className='col-md-4 col-lg-3' styleName='sidebar'>
-				<Sidebar />
-			</div>
       <div
-        className='col-12 offset-md-4 col-md-8 offset-lg-3 col-lg-9'
-        styleName='content'
-      >
+        className='col-12' styleName='content'>
 				{children}
 			</div>
 			<Notifications />

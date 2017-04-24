@@ -38,7 +38,7 @@ class OAuthCallback extends React.Component{
 			fetchAuthUser(accessToken.token)
 		).then(() => {
 			this.props.dispatch(
-				push('/dashboard/')
+				push('/')
 			);
 		});
 	}
