@@ -1,5 +1,6 @@
 {
-	"API_URL"		: "http://localhost:8101",
-	"CLIENT_ID"		: "58678cb95d20d9be0ecb142c",
-	"REDIRECT_URI"	: "http://localhost:8080/oauth-callback"
+	"API_URL"      : "http://localhost:8101",
+	"API_VERSION"  : "1",
+	"CLIENT_ID"    : "1",
+	"REDIRECT_URI" : "http://localhost:8080/oauth-callback"
 }

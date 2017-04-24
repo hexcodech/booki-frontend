@@ -8,4 +8,4 @@ BUILD = ./build
 all:
 	$(WEBPACK) --config $(BUILD_CONFIG)
 clean:
-	rm -rf $(BUILD)/*
+	rm -rf $(BUILD)/

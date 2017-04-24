@@ -9,43 +9,38 @@ module.exports = {
 		'webpack-hot-middleware/client',
 		path.join(__dirname, 'web/main.jsx')
 	],
-	
+
 	output: {
 		path		: path.join(__dirname, 'build/'),
 		filename	: 'bundle.js',
 		publicPath	: '/build/'
 	},
-	
+
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin()
-    ],
-    
-    resolve: {
-	    
-	    modules: [
-		    path.resolve(__dirname),
-		    path.resolve(__dirname, 'node_modules')
-	    ],
-	    
-	    alias: {
-		    core		: path.resolve(__dirname, 'node_modules', 'booki-frontend-core'),
-		    /*utilities	: path.resolve(__dirname, 'core/utilities'),
-		    constants	: path.resolve(__dirname, 'core/constants'),
-		    
-		    actions		: path.resolve(__dirname, 'core/actions'),
-		    reducers	: path.resolve(__dirname, 'core/reducers'),*/
+  ],
+
+  resolve: {
+
+		modules: [
+			path.resolve(__dirname),
+			path.resolve(__dirname, 'node_modules')
+		],
+
+		alias: {
+			core		: path.resolve(__dirname, 'node_modules', 'booki-frontend-core')
 		},
-		
+
 		extensions: ['.js', '.jsx', '.css', '.scss']
 	},
-	
+
 	module: {
 		rules: [
 			{
 				test	: /\.jsx?$/,
 				exclude	: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
-				
+
 				use		: [
 					{
 						loader: 'react-hot-loader'// /webpack
@@ -57,13 +52,13 @@ module.exports = {
 							plugins: ['transform-object-rest-spread']
 						}
 					}
-					
+
 				]
 			},
 			{
 				test	: /\.css$/,
 				exclude	: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
-				
+
 				use	: [
 					{
 						loader: 'style-loader',
@@ -74,9 +69,9 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							modules			: true,
-							importLoaders	: true,
-							localIdentName	: '[path]___[name]__[local]___[hash:base64:5]'
+							modules: true,
+							importLoaders: true,
+							localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
 						}
 					}
 				]
@@ -84,7 +79,7 @@ module.exports = {
 			{
 				test	: /\.scss$/,
 				exclude	: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
-				
+
 				use		: [
 					{
 						loader: 'style-loader',
