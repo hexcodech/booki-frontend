@@ -1,5 +1,9 @@
 import React
        from 'react';
+import {connect}
+       from 'react-redux';
+import {action as toggleMenu}
+       from 'redux-burger-menu';
 
 import CSSModules
        from 'react-css-modules';
@@ -15,14 +19,23 @@ import Search
 import Button
        from 'web/components/ui/Button';
 
-const Header = ({children}) => {
+
+const NavMenu = (
+  <ul>
+    <li><a href="/">Kaufen</a></li>
+    <li><a href="/">Verkaufen</a></li>
+    <li><a href="/">Login</a></li>
+  </ul>
+);
+
+const Header = ({children, dispatch}) => {
   return (
     <div>
       <Menu
         pageWrapId='page-wrap'
         outerContainerId='outer-container'
       >
-        <a id="home" className="menu-item" href="/">Home</a>
+        {NavMenu}
       </Menu>
       <header styleName='header' className='container'>
         <Logo />
@@ -30,16 +43,19 @@ const Header = ({children}) => {
           Beta
         </Button>
         <Search />
+        <div
+          styleName='burger-button'
+          className='hidden-lg-up'
+          onClick={() => {dispatch(toggleMenu(true));}}
+        >
+          <i className='material-icons'>menu</i>
+        </div>
         <nav styleName='nav' className='hidden-md-down'>
-          <ul>
-            <li>Kaufen</li>
-            <li>Verkaufen</li>
-            <li>Login</li>
-          </ul>
+          {NavMenu}
         </nav>
       </header>
     </div>
   );
 };
 
-export default CSSModules(Header, styles);
+export default connect()(CSSModules(Header, styles));

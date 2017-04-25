@@ -19,6 +19,17 @@
   }
 }
 
+.burger-button{
+  color: $brand-primary;
+  margin-left: 1rem;
+  cursor: pointer;
+
+  & > i{
+    font-size: 3rem;
+    vertical-align: middle;
+  }
+}
+
 .nav{
   white-space: nowrap;
 }

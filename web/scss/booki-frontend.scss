@@ -193,13 +193,13 @@ body{
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  /*position: fixed;
   width: 36px;
   height: 30px;
   right: 36px;
-  top: 44px;
+  top: 44px;*/
 
-  @extend .hidden-lg-up;
+  display: none;
 }
 
 /* Color/shape of burger icon bars */
@@ -233,7 +233,17 @@ body{
 /* Wrapper for item list */
 .bm-item-list{
   padding: 0.8em;
-  
+
+  ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li{
+    
+  }
+
   a{
     color: #fff;
   }
