@@ -19,10 +19,6 @@ const Footer = ({children, dispatch}) => {
         <div className='row'>
           <div className='col-xs-12 col-md-4'>
             <Logo color='#fff'/>
-            <div styleName='copyright'>
-              <p>© Copyright {year} by booki</p>
-              <p>All rights reserved</p>
-            </div>
           </div>
           <div className='col-xs-12 col-md-4'>
             Lorem
@@ -30,6 +26,9 @@ const Footer = ({children, dispatch}) => {
           <div className='col-xs-12 col-md-4'>
             Ipsum
           </div>
+        </div>
+        <div styleName='copyright' className='text-xs-center'>
+          © Copyright {year} by booki
         </div>
       </div>
     </footer>

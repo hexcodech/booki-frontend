@@ -1,12 +1,16 @@
 import React
        from 'react';
+import {connect}
+       from 'react-redux';
 import Autosuggest
        from 'react-autosuggest';
+import {push}
+       from 'react-router-redux';
 
 import CSSModules
        from 'react-css-modules';
 import styles
-       from './Search.scss';
+       from './Searchbar.scss';
 
 const books = [
   {
@@ -46,10 +50,22 @@ class Search extends React.Component{
     };
   }
 
-  onChange = (event, {newValue}) => {
+  onChange = (event, {newValue, method}) => {
     this.setState({
       value: newValue
     });
+  };
+
+  onKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      if(this.state.value.length > 0){
+
+        this.props.dispatch(
+          push('/search/' + this.state.value)
+        );
+
+      }
+    }
   };
 
   onSuggestionsFetchRequested = ({value}) => {
@@ -71,7 +87,8 @@ class Search extends React.Component{
     const inputProps = {
       placeholder: 'Suche nach einem Buch...',
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      onKeyPress: this.onKeyPress
     };
 
     return (
@@ -93,4 +110,4 @@ class Search extends React.Component{
   }
 }
 
-export default CSSModules(Search, styles);
+export default connect()(CSSModules(Search, styles));

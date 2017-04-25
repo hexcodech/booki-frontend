@@ -27,6 +27,7 @@ import DevTools
        from 'web/containers/dev/DevTools';
 
 const presistedState = loadState();
+const history        = createHistory();
 
 const store = createStore(
 	combineReducers({
@@ -58,8 +59,6 @@ store.subscribe(throttle(() => {
 	});
 
 }, 1000));
-
-const history = createHistory();
 
 ReactDOM.render(
 	<AppContainer>

@@ -11,8 +11,8 @@ import {getParameterByName}
 import {fetchAuthUser, receiveAccessToken}
        from 'core/actions/auth';
 
-import Spinner
-       from 'web/components/Spinner';
+import Loader
+       from 'halogen/RingLoader';
 
 class OAuthCallback extends React.Component{
 
@@ -46,7 +46,7 @@ class OAuthCallback extends React.Component{
 
 	render(){
 		return (
-      <Spinner />
+      <Loader />
 		);
 	}
 

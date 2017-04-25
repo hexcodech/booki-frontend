@@ -213,28 +213,6 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/Spinner.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/min\/Spinner-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/Spinner.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Spinner.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
 	"\/components\/ui\/Burger.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -262,6 +240,28 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/css\/Button.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/Footer.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/Footer-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/Footer.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Footer.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -310,16 +310,16 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/ui\/Search.jsx": {
+	"\/components\/ui\/Searchbar.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/components\/ui\/min\/Search-min.js",
+		"oAP": "\/components\/ui\/min\/Searchbar-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/ui\/Search.scss": {
+	"\/components\/ui\/Searchbar.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -327,7 +327,7 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/css\/Search.min.css",
+		"oAP": "\/css\/Searchbar.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -362,6 +362,72 @@
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
+		},
+	"\/containers\/content\/Home.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/content\/min\/Home-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/content\/Home.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Home.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/content\/Search.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/content\/min\/Search-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/content\/Search.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Search.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/content\/Sell.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/content\/min\/Sell-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/content\/Sell.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Sell.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
 		},
 	"\/containers\/dev\/DevTools.jsx": {
 		"ft": 64,

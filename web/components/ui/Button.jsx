@@ -6,10 +6,10 @@ import CSSModules
 import styles
        from './Button.scss';
 
-const Button = ({children}) => {
+const Button = (props) => {
   return (
-    <button styleName='button'>
-      {children}
+    <button styleName='button' {...props}>
+      {props.children}
     </button>
   );
 };

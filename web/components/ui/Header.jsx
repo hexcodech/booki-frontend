@@ -5,6 +5,9 @@ import {connect}
 import {action as toggleMenu}
        from 'redux-burger-menu';
 
+import {Link}
+       from 'react-router-dom';
+
 import CSSModules
        from 'react-css-modules';
 import styles
@@ -14,17 +17,17 @@ import Logo
        from 'web/components/ui/Logo';
 import Menu
       from 'web/components/ui/Burger';
-import Search
-       from 'web/components/ui/Search';
+import Searchbar
+       from 'web/components/ui/Searchbar';
 import Button
        from 'web/components/ui/Button';
 
 
 const NavMenu = (
   <ul>
-    <li><a href="/">Kaufen</a></li>
-    <li><a href="/">Verkaufen</a></li>
-    <li><a href="/">Login</a></li>
+    <li><Link to='/'>Kaufen</Link></li>
+    <li><Link to='/sell'>Verkaufen</Link></li>
+    <li><Link to='/login'>Login</Link></li>
   </ul>
 );
 
@@ -38,22 +41,30 @@ const Header = ({children, dispatch}) => {
       >
         {NavMenu}
       </Menu>
-      <header styleName='header' className='container'>
-        <Logo />
-        <Button>
-          Beta
-        </Button>
-        <Search />
-        <div
-          styleName='burger-button'
-          className='hidden-lg-up'
-          onClick={() => {dispatch(toggleMenu(true));}}
-        >
-          <i className='material-icons'>menu</i>
+      <header styleName='header-wrapper'>
+        <div styleName='header' className='container'>
+          <Link to='/'>
+            <div styleName='logo'>
+              <Logo />
+            </div>
+          </Link>
+          <div styleName='beta' className='hidden-sm-down'>
+            <Button>
+              Beta
+            </Button>
+          </div>
+          <Searchbar />
+          <div
+            styleName='burger-button'
+            className='hidden-lg-up'
+            onClick={() => {dispatch(toggleMenu(true));}}
+          >
+            <i className='material-icons'>menu</i>
+          </div>
+          <nav styleName='nav' className='hidden-md-down'>
+            {NavMenu}
+          </nav>
         </div>
-        <nav styleName='nav' className='hidden-md-down'>
-          {NavMenu}
-        </nav>
       </header>
     </div>
   );

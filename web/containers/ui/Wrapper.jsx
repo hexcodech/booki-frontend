@@ -24,7 +24,7 @@ const Wrapper = ({children}) => {
 		<div id='outer-container'>
       <div styleName='border-wrapper'>
         <Header />
-        <div className='col-12' styleName='content' id='page-wrap'>
+        <div styleName='content' id='page-wrap'>
   				{children}
   			</div>
       </div>
