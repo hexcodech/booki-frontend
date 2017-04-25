@@ -32,6 +32,7 @@ const Header = ({children, dispatch}) => {
   return (
     <div>
       <Menu
+        right
         pageWrapId='page-wrap'
         outerContainerId='outer-container'
       >

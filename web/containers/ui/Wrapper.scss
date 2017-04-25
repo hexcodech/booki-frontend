@@ -1,16 +1,11 @@
-.sidebar{
-  position            : fixed;
+@import 'web/scss/variables.scss';
 
-  height              : 100vh;
-
-  padding-left        : 0;
-
-  overflow-x          : hidden;
-  overflow-y          : scroll;
-
-  z-index             : 100;
+.border-wrapper{
+  border-top   : $brand-primary 5px solid;
+  border-left  : $brand-primary 5px solid;
+  border-right : $brand-primary 5px solid;
 }
 
-.content > *{
-  margin-left         : -15px;
+.content{
+  color: inherit;
 }

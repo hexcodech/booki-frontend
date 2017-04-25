@@ -1,0 +1,17 @@
+@import 'web/scss/variables.scss';
+
+.footer{
+  background-color: $brand-primary;
+  color: #fff;
+
+  padding: 1rem;
+  font-size: .9rem;
+}
+
+.copyright{
+  margin: 1rem 0 0 0;
+
+  p{
+    margin: 0;
+  }
+}

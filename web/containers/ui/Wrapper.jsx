@@ -8,6 +8,8 @@ import DevTools
 
 import Header
        from 'web/components/ui/Header';
+import Footer
+       from 'web/components/ui/Footer';
 import Notifications
        from 'web/containers/Notifications';
 
@@ -20,10 +22,13 @@ const Wrapper = ({children}) => {
 
 	return (
 		<div id='outer-container'>
-      <Header />
-      <div className='col-12' styleName='content' id='page-wrap'>
-				{children}
-			</div>
+      <div styleName='border-wrapper'>
+        <Header />
+        <div className='col-12' styleName='content' id='page-wrap'>
+  				{children}
+  			</div>
+      </div>
+      <Footer />
 			<Notifications />
 			<DevTools />
 		</div>
