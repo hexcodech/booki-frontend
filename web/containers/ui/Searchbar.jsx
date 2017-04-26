@@ -7,34 +7,22 @@ import Autosuggest
 import {push}
        from 'react-router-redux';
 
+import {getParameterByName}
+       from 'core/utilities/location';
+
+import {lookUpBooks}
+       from 'core/actions/book';
+
 import CSSModules
        from 'react-css-modules';
 import styles
        from './Searchbar.scss';
 
-const books = [
-  {
-    title: 'C++',
-    year: 1972
-  },
-  {
-    title: 'Elm',
-    year: 2012
-  }
-];
+const getSuggestionValue = book => book.title;
 
-const getSuggestions = (value) => {
-  const inputValue  = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-
-  return inputLength === 0 ? [] : books;
-};
-
-const getSuggestionValue = suggestion => suggestion.title;
-
-const renderSuggestion = (suggestion) => (
+const renderSuggestion = (book) => (
   <div>
-    {suggestion.title}
+    {book.title}
   </div>
 );
 
@@ -50,7 +38,32 @@ class Search extends React.Component{
     };
   }
 
+  componentDidMount = () => {
+    //Search for local suggestions
+
+    if(window.location.pathname.startsWith('/search/')){
+      let search = unescape(window.location.pathname.split('/search/')[1]);
+
+      this.setState({
+        value: search ? search : ''
+      });
+    }
+  };
+
+  getSuggestions = (value) => {
+    const inputValue  = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+
+    return inputLength === 0 ? [] : this.props.books.local;
+  };
+
   onChange = (event, {newValue, method}) => {
+
+    //Search for suggestions
+    this.props.dispatch(
+      lookUpBooks(newValue, false)
+    );
+
     this.setState({
       value: newValue
     });
@@ -70,7 +83,7 @@ class Search extends React.Component{
 
   onSuggestionsFetchRequested = ({value}) => {
     this.setState({
-      suggestions: getSuggestions(value)
+      suggestions: this.getSuggestions(value)
     });
   };
 
@@ -110,4 +123,10 @@ class Search extends React.Component{
   }
 }
 
-export default connect()(CSSModules(Search, styles));
+const mapStateToProps = (state) => {
+	return {
+		books: state.app.lookedUpBooks
+	};
+}
+
+export default connect(mapStateToProps)(CSSModules(Search, styles));

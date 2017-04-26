@@ -1,11 +1,13 @@
 @import 'web/scss/variables.scss';
 
 .border-wrapper{
-  border-top   : $brand-primary 5px solid;
-  border-left  : $brand-primary 5px solid;
-  border-right : $brand-primary 5px solid;
+  border-top   : $brand-primary 10px solid;
+  border-left  : $brand-primary 10px solid;
+  border-right : $brand-primary 10px solid;
 
-  box-shadow: inset 1px 1px 2px 0 rgba(0,0,0,0.25);
+  min-height   : 100vh;
+
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.2);
 }
 
 .content{

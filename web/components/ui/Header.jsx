@@ -18,7 +18,7 @@ import Logo
 import Menu
       from 'web/components/ui/Burger';
 import Searchbar
-       from 'web/components/ui/Searchbar';
+       from 'web/containers/ui/Searchbar';
 import Button
        from 'web/components/ui/Button';
 

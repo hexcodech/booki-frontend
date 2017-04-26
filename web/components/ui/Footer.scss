@@ -1,13 +1,28 @@
 @import 'web/scss/variables.scss';
 
 .footer{
+  position: relative;
+
   background-color: $brand-primary;
   color: #fff;
 
-  padding: 1rem;
+  height: 180px;
+
+  padding: 2rem 0 .5rem 0;
   font-size: .9rem;
+
+  & > div{
+    height: 100%;
+  }
 }
 
 .copyright{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  text-transform: uppercase;
+
   text-align: center;
 }
