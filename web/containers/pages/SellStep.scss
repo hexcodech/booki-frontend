@@ -1,0 +1,21 @@
+@import 'web/scss/variables.scss';
+
+.sell-step{
+
+  margin-bottom: 3rem;
+
+  h1{
+    margin-bottom: 0;
+  }
+}
+
+.spinner{
+  display: inline-block;
+  margin-right: .5rem;
+}
+
+.next{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}

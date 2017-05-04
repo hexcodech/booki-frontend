@@ -13,10 +13,11 @@ $brand-danger             : #FF8074;
 $brand-warning            : #B16FC3;
 $brand-dark               : #443929;
 
-
-$enable-rounded           : false;
-$enable-shadows           : false;
+$enable-rounded           : true;
+$enable-shadows           : true;
 $enable-hover-media-query : true;
+
+$border-radius            : .25rem;
 
 $font-family-sans-serif   : 'Roboto', 'Helvetica', 'sans-serif';
 $font-family-serif        : 'Georgia', 'Times New Roman', 'Times', 'serif';
@@ -47,10 +48,13 @@ $btn-secondary-color      : #fff;
 $btn-secondary-bg         : $gray-dark;
 $btn-secondary-border     : $gray-dark;
 
-$input-color              : $gray-dark;
-$input-color-placeholder  : $gray-light;
-$input-border-color       : $gray-light;
-$input-border-focus       : $gray-light;
+$input-color              : $brand-primary;
+$input-color-placeholder  : $brand-secondary;
+$input-border-color       : $brand-secondary;
+$input-border-focus       : $brand-primary;
+$input-box-shadow         : none;
+
+$form-group-margin-bottom : 0.5rem;
 
 $simple-y-top-shadow      : 0px -2px 2px 0px rgba(0, 0, 0, 0.05);
 $simple-y-bottom-shadow   : 0px 2px 2px 0px rgba(0, 0, 0, 0.05);

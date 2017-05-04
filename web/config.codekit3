@@ -27,6 +27,15 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/components\/dev\/DevTools.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/dev\/min\/DevTools-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/components\/form\/FormField.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -160,15 +169,6 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/form\/input\/TagInput.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/min\/TagInput-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
 	"\/components\/notifications\/Notification.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -190,6 +190,37 @@
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
+		},
+	"\/components\/pages\/Home.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/Home-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/pages\/Home.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Home.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/pages\/Login.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/Login-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/components\/RefreshButton.jsx": {
 		"ft": 64,
@@ -213,25 +244,60 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/ui\/Burger.jsx": {
+	"\/components\/ui\/containers\/Modal.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/components\/ui\/min\/Burger-min.js",
+		"oAP": "\/components\/ui\/containers\/min\/Modal-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/ui\/Button.jsx": {
+	"\/components\/ui\/containers\/Modal.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Modal.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/containers\/Wrapper.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/components\/ui\/min\/Button-min.js",
+		"oAP": "\/components\/ui\/containers\/min\/Wrapper-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/ui\/Button.scss": {
+	"\/components\/ui\/containers\/Wrapper.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Wrapper.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/elements\/Button.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/elements\/min\/Button-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/elements\/Button.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -240,6 +306,50 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/css\/Button.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/elements\/Logo.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/elements\/min\/Logo-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/elements\/Logo.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Logo.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/components\/ui\/elements\/Table.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/elements\/min\/Table-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/elements\/Table.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Table.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -266,16 +376,25 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/ui\/Header.jsx": {
+	"\/components\/ui\/navigation\/Burger.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/components\/ui\/min\/Header-min.js",
+		"oAP": "\/components\/ui\/navigation\/min\/Burger-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/ui\/Header.scss": {
+	"\/components\/ui\/navigation\/Header.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/navigation\/min\/Header-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/navigation\/Header.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -288,152 +407,11 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/ui\/Logo.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/ui\/min\/Logo-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/ui\/Logo.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Logo.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/ui\/Searchbar.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/ui\/min\/Searchbar-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/ui\/Searchbar.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Searchbar.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/ui\/Table.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/ui\/min\/Table-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/ui\/Table.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Table.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
 	"\/containers\/App.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
 		"oAP": "\/containers\/min\/App-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/Home.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/min\/Home-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/Home.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Home.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/containers\/content\/Search.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/min\/Search-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/Search.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Search.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/containers\/content\/Sell.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/content\/min\/Sell-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/containers\/content\/Sell.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/Sell.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/containers\/dev\/DevTools.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/containers\/dev\/min\/DevTools-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -460,16 +438,16 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/containers\/ui\/Wrapper.jsx": {
+	"\/containers\/pages\/Search.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/containers\/ui\/min\/Wrapper-min.js",
+		"oAP": "\/containers\/pages\/min\/Search-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/containers\/ui\/Wrapper.scss": {
+	"\/containers\/pages\/Search.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -477,7 +455,73 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/css\/Wrapper.min.css",
+		"oAP": "\/css\/Search.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/pages\/Sell.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/pages\/min\/Sell-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/pages\/Sell.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Sell.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/pages\/SellStep.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/pages\/min\/SellStep-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/pages\/SellStep.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/SellStep.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/ui\/Searchbar.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/ui\/min\/Searchbar-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/ui\/Searchbar.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Searchbar.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1

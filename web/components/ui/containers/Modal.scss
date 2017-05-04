@@ -1,0 +1,62 @@
+@import 'web/scss/variables.scss';
+
+.overlay{
+  position: absolute;
+  top:0;
+  right:0;
+  bottom: 0;
+  left:0;
+
+  background-color: rgba(0, 0, 0, 0.25);
+
+  z-index: 999;
+}
+
+.modals{
+  position: relative;
+  display: block;
+
+  max-width: 600px;
+  margin: 120px auto 0 auto;
+}
+
+.modal{
+  position: absolute;
+  left:0;
+  right: 0;
+
+  min-height: 300px;
+
+  padding: 1rem;
+
+  background-color: #fff;
+
+  z-index: 1000;
+
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
+  border-radius: 5px;
+}
+
+.modal-fading{
+  composes: modal;
+
+  animation : swipeOut 1s ease-in-out forwards;
+}
+
+@for $i from 2 through 10{
+  .modal:nth-child(#{$i}){
+    right: .5rem * $i;
+  }
+}
+
+@keyframes swipeOut{
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(25%);
+	}
+	100% {
+		transform: translateX(-200%);
+	}
+}

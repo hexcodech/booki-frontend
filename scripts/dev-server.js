@@ -1,11 +1,11 @@
 const apiConfig		= require('../config.json');
 //this can't be read by the client (btw this is just a local dev secret
-const CLIENT_SECRET	= 'jbRA3q/ibi6A0FS4yL7sV3UAf6rtjO';
+const CLIENT_SECRET	= 'LSrPC7eMrZBUDOy6rJrZCl6xOm60U/';
 
 const path		= require('path');
 const webpack	= require('webpack');
 const express	= require('express');
-const request = require('request');
+const request   = require('request');
 const config	= require('../webpack.config');
 
 const app		= express();
@@ -75,10 +75,10 @@ app.get('*', (req, res) => {
 	res.sendFile(path.resolve(__dirname, '../web/index.html'));
 });
 
-app.listen(8080, (err) => {
+app.listen(8081, (err) => {
 	if (err) {
 		return console.error(err);
 	}
 
-	console.log('Listening at http://localhost:8080/');
+	console.log('Listening at http://localhost:8081/');
 });

@@ -1,68 +1,55 @@
-import {combineReducers}
-       from 'redux';
+import { combineReducers } from "redux";
 
 //import reducers
-import authentication
-       from 'core/reducers/auth';
+import authentication from "core/reducers/auth";
 
-import validation
-       from 'core/reducers/validation';
+import validation from "core/reducers/validation";
 
-import users
-       from 'core/reducers/users';
+import users from "core/reducers/users";
 
-import lookedUpPeople
-      from 'core/reducers/person/looked-up';
+import lookedUpPeople from "core/reducers/person/looked-up";
 
-import conditions
-       from 'core/reducers/conditions';
+import conditions from "core/reducers/conditions";
 
-import books
-       from 'core/reducers/books';
-import newBook
-       from 'core/reducers/book/new';
-import lookedUpBooks
-       from 'core/reducers/book/looked-up';
+import books from "core/reducers/books";
+import newBook from "core/reducers/book/new";
+import lookedUpBooks from "core/reducers/book/looked-up";
 
-import images
-       from 'core/reducers/images';
+import images from "core/reducers/images";
 
-import offers
-       from 'core/reducers/offers';
-import newOffer
-       from 'core/reducers/offer/new';
+import offers from "core/reducers/offers";
+import newOffer from "core/reducers/offer/new";
 
-import offerRequests
-      from 'core/reducers/offer-requests';
-import newOfferRequest
-      from 'core/reducers/offer-request/new';
+import offerRequests from "core/reducers/offer-requests";
+import newOfferRequest from "core/reducers/offer-request/new";
 
-import notifications
-       from 'core/reducers/notifications';
+import notifications from "core/reducers/notifications";
 
-
+import pages from "app/reducers/pages";
 
 export default combineReducers({
 	authentication,
 	validation,
-  
+
 	users,
 
-  lookedUpPeople,
+	lookedUpPeople,
 
-  conditions,
+	conditions,
 
 	newBook,
 	books,
-  lookedUpBooks,
+	lookedUpBooks,
 
-  images,
+	images,
 
-  newOffer,
-  offers,
+	newOffer,
+	offers,
 
-  offerRequests,
-  newOfferRequest,
+	offerRequests,
+	newOfferRequest,
 
-	notifications
+	notifications,
+
+	pages
 });

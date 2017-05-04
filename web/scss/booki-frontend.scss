@@ -32,7 +32,7 @@
 // @import '../../node_modules/bootstrap/scss/badge';
 // @import '../../node_modules/bootstrap/scss/jumbotron';
 @import '../../node_modules/bootstrap/scss/alert';
-// @import '../../node_modules/bootstrap/scss/progress';
+//@import '../../node_modules/bootstrap/scss/progress';
 // @import '../../node_modules/bootstrap/scss/media';
 // @import '../../node_modules/bootstrap/scss/list-group';
 // @import '../../node_modules/bootstrap/scss/custom-forms';
@@ -167,7 +167,7 @@ body{
   position: relative;
 
   width: 100%;
-  height: 50px;
+  min-height: 240px;
   border: #000 2px dashed;
 
   .center{
@@ -241,7 +241,7 @@ body{
   }
 
   li{
-    
+
   }
 
   a{
@@ -254,6 +254,14 @@ body{
   background: rgba(0, 0, 0, 0.3);
 }
 
+//some default styles
+
+h1, h2, h3, h4, h5, h6{
+  color: $brand-primary;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 //modify some bootstrap classes
 
 .has-dangers .react-select .Select-control{
@@ -263,4 +271,8 @@ body{
 .alert{
    max-height : 150px;
    overflow   : scroll;
+}
+
+.form-group small.form-text{
+  color: $brand-primary;
 }

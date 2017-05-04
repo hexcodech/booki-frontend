@@ -1,0 +1,34 @@
+@import 'web/scss/variables.scss';
+
+.sell{
+  color: inherit;
+}
+
+.form{
+  color: inherit;
+}
+
+.image{
+
+  
+
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+.isbn-input input, .isbn-input input:focus{
+  color: $brand-primary;
+  font-size: 2rem;
+  font-weight: 500;
+
+  border: $brand-primary 1px solid;
+
+  border-radius: 5px;
+}
+
+.description{
+  margin-bottom: 1rem;
+  display: block;
+}

@@ -1,83 +1,84 @@
-import React
-       from 'react';
+import React from "react";
 
-import TimeAgo
-       from 'react-timeago';
+import TimeAgo from "react-timeago";
 
-import CSSModules
-       from 'react-css-modules';
-import styles
-       from './Notification.scss';
+import CSSModules from "react-css-modules";
+import styles from "./Notification.scss";
 
-const onMouseEnter = (color) => {
-	return (e) => {
-		e.target.setAttribute('style', 'color: ' + color);
+const onMouseEnter = color => {
+	return e => {
+		e.target.setAttribute("style", "color: " + color);
 	};
-}
+};
 
-const onMouseLeave = (e) => {
-	e.target.removeAttribute('style');
-}
+const onMouseLeave = e => {
+	e.target.removeAttribute("style");
+};
 
 const onMouseClick = (action, notification) => {
-	return (e) => {
+	return e => {
 		action.action(e, notification);
 	};
-}
+};
 
-const Notification = ({notification}) => {
-
+const Notification = ({ notification }) => {
 	const {
-		uuid, fadeIn, fadeOut, color, icon,
-		title, text, hideDelay, timestamp, actions
+		uuid,
+		fadeIn,
+		fadeOut,
+		color,
+		icon,
+		title,
+		text,
+		hideDelay,
+		timestamp,
+		actions
 	} = notification;
 
 	return (
 		<div
 			key={uuid}
 			styleName={
-				'notification' +
-				(fadeIn ? '-fade-in' : '') +
-				(fadeOut ? '-fade-out' : '')
+				"notification" +
+					(fadeIn ? "-fade-in" : "") +
+					(fadeOut ? "-fade-out" : "")
 			}
-			style={{borderTopColor: color}}
+			style={{ borderTopColor: color }}
 		>
-			<div className='row'>
-				<div className='col-2'>
-					<i className='material-icons' styleName='icon'>{icon}</i>
+			<div className="row">
+				<div className="col-2">
+					<i className="material-icons" styleName="icon">{icon}</i>
 				</div>
-				<div className='col-7'>
-					<h6 styleName='title'>{title}</h6>
-					<p styleName='content'>
+				<div className="col-7">
+					<h6 styleName="title">{title}</h6>
+					<p styleName="content">
 						{text}
 					</p>
-					{
-						hideDelay &&
-							<small styleName='counter'>
-								{'Will hide in '}
-								<TimeAgo
-									date={timestamp + hideDelay}
-									formatter={(value, unit) => {
-										return value + ' ' + unit + (value > 1 ? 's' : '');
-									}}
-        />
-							</small>
-					}
+					{hideDelay &&
+						<small styleName="counter">
+							{"Will hide in "}
+							<TimeAgo
+								date={timestamp + hideDelay}
+								formatter={(value, unit) => {
+									return value + " " + unit + (value > 1 ? "s" : "");
+								}}
+							/>
+						</small>}
 				</div>
-				<div className='col-3' styleName='actions-wrapper'>
-					<div styleName={
-						(actions.length === 1 ? 'actions-center' : 'actions')
-					}>
+				<div className="col-3" styleName="actions-wrapper">
+					<div styleName={actions.length === 1 ? "actions-center" : "actions"}>
 						{actions.map((action, index) => {
-							return <button
-								styleName='action'
-								key={index}
-								onMouseEnter={onMouseEnter(action.color)}
-								onMouseLeave={onMouseLeave}
-								onClick={onMouseClick(action, notification)}
-							>
+							return (
+								<button
+									styleName="action"
+									key={index}
+									onMouseEnter={onMouseEnter(action.color)}
+									onMouseLeave={onMouseLeave}
+									onClick={onMouseClick(action, notification)}
+								>
 									{action.text}
-							</button>;
+								</button>
+							);
 						})}
 					</div>
 				</div>

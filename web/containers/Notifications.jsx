@@ -1,40 +1,36 @@
-import React
-       from 'react';
-import {connect}
-       from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import {addNotification}
-       from 'core/actions/notification';
+import { addNotification } from "core/actions/notification";
 
-import Notification
-       from 'web/components/notifications/Notification';
+import Notification from "web/components/notifications/Notification";
 
-import CSSModules
-       from 'react-css-modules';
-import styles
-       from './Notifications.scss';
+import CSSModules from "react-css-modules";
+import styles from "./Notifications.scss";
 
-const Notifications = ({notifications, dispatch}) => {
+const Notifications = ({ notifications, dispatch }) => {
 	return (
-		<div styleName='notifications'>
-			{notifications.sort((a, b) => {
-				return b.timestamp - a.timestamp
-			}).map((notification, index) => {
-				return (
-          <Notification
-            key={notification.timestamp}
-            notification={notification}
-          />
-        );
-			})}
+		<div styleName="notifications">
+			{notifications
+				.sort((a, b) => {
+					return b.timestamp - a.timestamp;
+				})
+				.map((notification, index) => {
+					return (
+						<Notification
+							key={notification.timestamp}
+							notification={notification}
+						/>
+					);
+				})}
 		</div>
 	);
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
 	return {
-		notifications	: state.app.notifications
+		notifications: state.app.notifications
 	};
-}
+};
 
 export default connect(mapStateToProps)(CSSModules(Notifications, styles));
