@@ -25,7 +25,7 @@
   left:0;
   right: 0;
 
-  min-height: 300px;
+  min-height: 400px;
 
   padding: 1rem;
 
@@ -45,7 +45,7 @@
 
 @for $i from 2 through 10{
   .modal:nth-child(#{$i}){
-    right: .5rem * $i;
+    right: .5rem * ($i - 1);
   }
 }
 

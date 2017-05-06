@@ -1,12 +1,38 @@
 import { combineReducers } from "redux";
 
-const sell = (
-	state = {
-		step: 0,
-		isbn: ""
+const defaultState = {
+	step: 0,
+	isbn: "",
+	book: {
+		isbn13: "",
+		title: "",
+		subtitle: "",
+		publisher: "",
+		authors: [],
+		thumbnails: [],
+		language: "",
+		coverId: 0,
+		pageCount: "",
+		publicationDate: 0,
+		verified: false
 	},
-	action
-) => {
+	image: {
+		width: 0,
+		height: 0,
+		mimeType: "",
+		thumbnails: []
+	},
+	offer: {
+		conditionId: 0,
+		description: "",
+		price: ""
+	},
+	nextEnabled: false,
+	loading: false,
+	fading: []
+};
+
+const sell = (state = defaultState, action) => {
 	switch (action.type) {
 		case "PAGES_SELL_NEXT_STEP":
 			return {
@@ -29,6 +55,42 @@ const sell = (
 				...state,
 				isbn: action.isbn
 			};
+
+		case "PAGES_SELL_UPDATE_BOOK":
+			return {
+				...state,
+				book: { ...state.book, ...action.book }
+			};
+
+		case "PAGES_SELL_UPDATE_IMAGE":
+			return {
+				...state,
+				image: { ...state.image, ...action.image }
+			};
+
+		case "PAGES_SELL_UPDATE_OFFER":
+			return {
+				...state,
+				offer: { ...state.offer, ...action.offer }
+			};
+
+		case "PAGES_SELL_SET_NEXT_ENABLED":
+			return { ...state, nextEnabled: action.nextEnabled };
+		case "PAGES_SELL_SET_LOADING":
+			return { ...state, loading: action.loading };
+
+		case "PAGES_SELL_ADD_FADING":
+			return { ...state, fading: [...state.fading, action.id] };
+
+		case "PAGES_SELL_REMOVE_FADING":
+			return {
+				...state,
+				fading: state.fading.filter(id => {
+					return id !== action.id;
+				})
+			};
+		case "PAGES_SELL_RESET":
+			return { ...state, ...defaultState };
 
 		default:
 			return state;
