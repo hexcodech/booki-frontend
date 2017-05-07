@@ -49,6 +49,10 @@
   }
 }
 
+.modal:nth-child(n + 11){
+  display: none;
+}
+
 @keyframes swipeOut{
 	0% {
 		transform: translateX(0);

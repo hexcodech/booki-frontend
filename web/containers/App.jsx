@@ -12,6 +12,7 @@ import Wrapper from "web/components/ui/containers/Wrapper";
 import Home from "web/components/pages/Home";
 import Login from "web/components/pages/Login";
 import Sell from "web/containers/pages/Sell";
+import BookDetail from "web/containers/pages/BookDetail";
 import Search from "web/containers/pages/Search";
 
 const App = ({ store, history }) => {
@@ -26,6 +27,7 @@ const App = ({ store, history }) => {
 						<Route path="/auth/callback" component={OAuthCallback} />
 
 						<Route path="/search/:search" component={Search} />
+						<Route path="/book/:bookId" component={BookDetail} />
 						<Route path="/sell" component={Sell} />
 					</Wrapper>
 				</div>

@@ -1,0 +1,49 @@
+@import "web/scss/variables.scss";
+
+.book{
+  color: inherit;
+}
+
+.title{
+  h1, h2{
+    margin: 0;
+    display: inline-block;
+  }
+
+  h2{
+    margin-left: .5rem;
+  }
+}
+
+.authors{
+  color: $gray;
+  font-style: italic;
+}
+
+.description{
+  margin-top: 1rem;
+  text-align: justify;
+
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.meta{
+  /*width: 100%;
+
+  td:first-child{
+    width: 30%;
+  }*/
+
+  td:first-child{
+    padding-right: 1rem;
+
+    &:after{
+      content: ":";
+    }
+  }
+}
+
+.offers{
+  margin-top: 1rem;
+}

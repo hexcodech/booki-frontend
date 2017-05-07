@@ -7,20 +7,17 @@
   padding: 1rem;
 
   background-color: #9B9B9B;
-  height: 300px;
 }
 
 .slider{
   height: 100%;
 }
 
-.book{
+.book-slide{
   height: 100%;
   position: relative;
-  overflow: hidden;
+}
 
-  img{
-    width: 100%;
-    height: auto;
-  }
+.book-list{
+  margin-top: 1rem;
 }

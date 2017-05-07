@@ -9,7 +9,7 @@ import styles from "./SellStep.scss";
 
 class SellStep extends React.Component {
 	render() {
-		let { step, children, loading } = this.props;
+		let { dispatch, step, children, loading } = this.props;
 
 		return (
 			<div styleName="sell-step">
@@ -17,6 +17,15 @@ class SellStep extends React.Component {
 
 				{children}
 
+				<button
+					styleName="cancel"
+					className="btn btn-primary"
+					onClick={() => {
+						dispatch(push("/"));
+					}}
+				>
+					Abbrechen
+				</button>
 				<button
 					disabled={!this.props.nextEnabled}
 					styleName="next"
@@ -32,4 +41,4 @@ class SellStep extends React.Component {
 	}
 }
 
-export default CSSModules(SellStep, styles);
+export default connect()(CSSModules(SellStep, styles));

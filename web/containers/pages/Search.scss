@@ -1,7 +1,89 @@
+@import "web/scss/variables.scss";
+
 .search{
   color: inherit;
 }
-
 .loader > div > div{
   margin: 0 auto;
+}
+
+.book{
+  padding: .5rem;
+  background: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
+}
+
+.title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  h3, h4{
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.authors{
+  color: #000;
+  font-size: .8rem;
+
+  margin: 0;
+}
+
+.offers{
+  margin-top: 1rem;
+}
+
+.profile-picture{
+  position: relative;
+
+  width: 25px;
+  height: 25px;
+
+  display: inline-block;
+  overflow: hidden;
+
+  border-radius: 50%;
+  border: $brand-primary 2px solid;
+
+  img{
+    vertical-align: top;
+    width: 100%;
+    height: auto;
+  }
+
+  &:nth-child(n + 2){
+    margin-left: -12.5px;
+  }
+
+  &:nth-child(n + 4){
+    display: none;
+  }
+
+  &:first-child{
+    opacity: 0.5;
+  }
+}
+
+.offer-counter{
+  font-size: .8rem;
+  margin-left: .5rem;
+  color: $brand-primary;
+}
+
+.price{
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.detail-button{
+  width: calc(100% + 1rem);
+  margin: 1rem -.5rem -.5rem -.5rem;
+
+  font-weight: 700;
+  text-transform: uppercase;
+
+  border-radius: 0 0 5px 5px;
 }

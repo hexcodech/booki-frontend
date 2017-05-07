@@ -1,8 +1,8 @@
-$gray                     : #f5f5f5;
+$gray                     : #999999;
 $gray-dark                : #333333;
 $gray-light               : #BBBBBB;
 $gray-lighter             : #CCCCCC;
-$gray-lightest            : rgba(0, 0, 0, 0.05);
+$gray-lightest            : #f5f5f5;
 
 $brand-primary            : #FFC676;
 $brand-secondary          : #FBAA3A;
@@ -13,8 +13,8 @@ $brand-danger             : #FF8074;
 $brand-warning            : #B16FC3;
 $brand-dark               : #443929;
 
-$enable-rounded           : true;
-$enable-shadows           : true;
+$enable-rounded           : false;
+$enable-shadows           : false;
 $enable-hover-media-query : true;
 
 $border-radius            : .25rem;

@@ -288,6 +288,28 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/components\/ui\/elements\/Book.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/elements\/min\/Book-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/elements\/Book.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Book.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/components\/ui\/elements\/Button.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -434,6 +456,28 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/css\/Notifications.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/pages\/BookDetail.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/pages\/min\/BookDetail-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/pages\/BookDetail.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/BookDetail.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
