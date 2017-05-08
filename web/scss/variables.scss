@@ -13,6 +13,9 @@ $brand-danger             : #FF8074;
 $brand-warning            : #B16FC3;
 $brand-dark               : #443929;
 
+$base-font-size           : 18px;
+$grid-gutter-width-base   : ($base-font-size * 2);
+
 $enable-rounded           : false;
 $enable-shadows           : false;
 $enable-hover-media-query : true;

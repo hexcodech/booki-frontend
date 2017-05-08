@@ -1,5 +1,3 @@
-import { addErrorNotification } from "booki-frontend-core/actions/notification";
-
 export const nextStep = () => {
 	return {
 		type: "PAGES_SELL_NEXT_STEP"

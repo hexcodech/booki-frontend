@@ -1,7 +1,7 @@
 @import 'web/scss/variables.scss';
 
 .overlay{
-  position: absolute;
+  position: fixed;
   top:0;
   right:0;
   bottom: 0;
@@ -12,12 +12,21 @@
   z-index: 999;
 }
 
+.modal-wrapper{
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+
+  z-index: 1000;
+}
+
 .modals{
   position: relative;
   display: block;
 
   max-width: 600px;
-  margin: 120px auto 0 auto;
+  margin: 6.75rem auto 1rem auto;
 }
 
 .modal{
@@ -31,7 +40,7 @@
 
   background-color: #fff;
 
-  z-index: 1000;
+  z-index: 1001;
 
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
   border-radius: 5px;

@@ -10,8 +10,8 @@
 .book{
   padding: .5rem;
   background: #FFFFFF;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
+
+  border-bottom: $brand-primary 1px solid;
 }
 
 .title{
@@ -23,24 +23,26 @@
     display: inline-block;
     margin: 0;
   }
+
+  h4{
+    margin-left: .25rem;
+  }
 }
 
 .authors{
   color: #000;
   font-size: .8rem;
-
-  margin: 0;
 }
 
 .offers{
   margin-top: 1rem;
 }
 
-.profile-picture{
+.profile-picture, .profile-picture-more{
   position: relative;
 
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 
   display: inline-block;
   overflow: hidden;
@@ -61,6 +63,9 @@
   &:nth-child(n + 4){
     display: none;
   }
+}
+
+.profile-picture-more{
 
   &:first-child{
     opacity: 0.5;
@@ -68,22 +73,31 @@
 }
 
 .offer-counter{
-  font-size: .8rem;
+  font-size: 1rem;
   margin-left: .5rem;
   color: $brand-primary;
 }
 
 .price{
-  font-size: 1rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+
+  font-size: 1.5rem;
   font-weight: 700;
+  color: $brand-primary;
 }
 
 .detail-button{
-  width: calc(100% + 1rem);
-  margin: 1rem -.5rem -.5rem -.5rem;
+  position: absolute;
+  bottom: 0;
+  
+  display: block;
+
+  margin-top: 1rem;
 
   font-weight: 700;
   text-transform: uppercase;
 
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px;
 }
