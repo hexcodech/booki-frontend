@@ -8,7 +8,9 @@
 }
 
 .book{
-  padding: .5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+
   background: #FFFFFF;
 
   border-bottom: $brand-primary 1px solid;
@@ -91,7 +93,7 @@
 .detail-button{
   position: absolute;
   bottom: 0;
-  
+
   display: block;
 
   margin-top: 1rem;

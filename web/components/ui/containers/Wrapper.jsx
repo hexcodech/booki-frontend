@@ -2,8 +2,9 @@ import React from "react";
 
 import DevTools from "web/components/dev/DevTools";
 
-import Header from "web/components/ui/navigation/Header";
 import Footer from "web/components/ui/Footer";
+
+import Header from "web/containers/ui/navigation/Header";
 import Notifications from "web/containers/Notifications";
 
 import CSSModules from "react-css-modules";

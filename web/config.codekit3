@@ -398,25 +398,16 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/ui\/navigation\/Burger.jsx": {
+	"\/components\/ui\/navigation\/NavMenu.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/components\/ui\/navigation\/min\/Burger-min.js",
+		"oAP": "\/components\/ui\/navigation\/min\/NavMenu-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/ui\/navigation\/Header.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/ui\/navigation\/min\/Header-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/ui\/navigation\/Header.scss": {
+	"\/components\/ui\/navigation\/NavMenu.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -424,7 +415,7 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/css\/Header.min.css",
+		"oAP": "\/css\/NavMenu.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -478,6 +469,28 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/css\/BookDetail.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/pages\/Profile.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/pages\/min\/Profile-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/pages\/Profile.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Profile.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -544,6 +557,37 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/css\/SellStep.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/ui\/navigation\/Burger.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/ui\/navigation\/min\/Burger-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/ui\/navigation\/Header.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/ui\/navigation\/min\/Header-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/ui\/navigation\/Header.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Header.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1

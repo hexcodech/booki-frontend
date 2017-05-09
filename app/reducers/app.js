@@ -26,6 +26,7 @@ import newOfferRequest from "core/reducers/offer-request/new";
 import notifications from "core/reducers/notifications";
 
 import pages from "app/reducers/pages";
+import searchBar from "app/reducers/search-bar";
 
 export default combineReducers({
 	authentication,
@@ -50,6 +51,8 @@ export default combineReducers({
 	newOfferRequest,
 
 	notifications,
+
+	searchBar,
 
 	pages
 });

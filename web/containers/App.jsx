@@ -14,6 +14,7 @@ import Login from "web/components/pages/Login";
 import Sell from "web/containers/pages/Sell";
 import BookDetail from "web/containers/pages/BookDetail";
 import Search from "web/containers/pages/Search";
+import Profile from "web/containers/pages/Profile";
 
 const App = ({ store, history }) => {
 	return (
@@ -29,6 +30,7 @@ const App = ({ store, history }) => {
 						<Route path="/search/:search" component={Search} />
 						<Route path="/book/:bookId" component={BookDetail} />
 						<Route path="/sell" component={Sell} />
+						<Route path="/profile" component={Profile} />
 					</Wrapper>
 				</div>
 			</ConnectedRouter>

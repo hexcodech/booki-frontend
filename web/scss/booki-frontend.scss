@@ -10,7 +10,7 @@
 
 // Core CSS
 @import '../../node_modules/bootstrap/scss/reboot';
-//@import '../../node_modules/bootstrap/scss/type';
+@import '../../node_modules/bootstrap/scss/type';
 // @import '../../node_modules/bootstrap/scss/images';
 // @import '../../node_modules/bootstrap/scss/code';
 @import '../../node_modules/bootstrap/scss/grid';
@@ -50,7 +50,8 @@
 
 body{
   background-color: #fff;
-  font-weight: 500;
+  color: $brand-dark;
+  font-weight: $font-weight-normal;
   font-size: $base-font-size;
 }
 
@@ -258,7 +259,8 @@ body{
 
 h1, h2, h3, h4, h5, h6{
   color: $brand-primary;
-  text-transform: uppercase;
+
+  font-family: "Montserrat";
   font-weight: 700;
 }
 
@@ -275,4 +277,22 @@ h1, h2, h3, h4, h5, h6{
 
 .form-group small.form-text{
   color: $brand-primary;
+}
+
+.btn{
+  box-shadow			: inset 0px -3px 0px 0px rgba(0,0,0,0.25);
+	text-transform  : uppercase;
+	border          : none;
+  border-radius   : 5px;
+
+	line-height     : 1.5;
+
+	&:hover{
+		box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,0.25);
+    background-color: $brand-primary;
+	}
+
+	&:active{
+		box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,0.25);
+	}
 }

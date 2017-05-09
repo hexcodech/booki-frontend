@@ -16,8 +16,9 @@ const Home = () => {
 						<div className="col-md-5">
 							<h2>
 								Dein Zimmer nach der Matura?
+								<br />
+								Auf booki kannst du deine alten Bücher einfach verkaufen.
 							</h2>
-							<h2>Auf booki kannst du deine alten Bücher einfach verkaufen.</h2>
 
 							<Link styleName="about" to={"/about"}>So funktioniert es</Link>
 						</div>

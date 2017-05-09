@@ -8,40 +8,17 @@ import CSSModules from "react-css-modules";
 import styles from "./Header.scss";
 
 import Logo from "web/components/ui/elements/Logo";
-import Menu from "web/components/ui/navigation/Burger";
 import Button from "web/components/ui/elements/Button";
+import NavMenu from "web/components/ui/navigation/NavMenu";
 
+import Menu from "web/containers/ui/navigation/Burger";
 import Searchbar from "web/containers/ui/Searchbar";
 
-const NavMenu = (
-	<ul>
-		<li>
-			<Link to="/">Kaufen</Link>
-		</li>
-		<li>
-			<Link to="/sell">Verkaufen</Link>
-		</li>
-		<li>
-			<a
-				href={
-					API_URL +
-						"/oauth2/authorize?client_id=" +
-						CLIENT_ID +
-						"&response_type=code&redirect_uri=" +
-						REDIRECT_URI
-				}
-			>
-				Login
-			</a>
-		</li>
-	</ul>
-);
-
-const Header = ({ children, dispatch }) => {
+const Header = ({ children, dispatch, user, accessToken }) => {
 	return (
 		<div>
 			<Menu right pageWrapId="page-wrap" outerContainerId="outer-container">
-				{NavMenu}
+				<NavMenu user={user} />
 			</Menu>
 			<header styleName="header-wrapper">
 				<div styleName="header" className="container">
@@ -66,7 +43,7 @@ const Header = ({ children, dispatch }) => {
 						<i className="material-icons">menu</i>
 					</div>
 					<nav styleName="nav" className="hidden-md-down">
-						{NavMenu}
+						<NavMenu user={user} />
 					</nav>
 				</div>
 			</header>
@@ -74,4 +51,11 @@ const Header = ({ children, dispatch }) => {
 	);
 };
 
-export default connect()(CSSModules(Header, styles));
+const mapStateToProps = state => {
+	return {
+		user: state.app.authentication.user,
+		accessToken: state.app.authentication.accessToken.token
+	};
+};
+
+export default connect(mapStateToProps)(CSSModules(Header, styles));

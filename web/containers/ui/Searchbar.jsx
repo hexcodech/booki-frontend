@@ -5,6 +5,7 @@ import { push } from "react-router-redux";
 
 import { getParameterByName } from "core/utilities/location";
 
+import { updateText } from "app/actions/search-bar";
 import { lookUpBooks } from "core/actions/book";
 
 import CSSModules from "react-css-modules";
@@ -19,71 +20,47 @@ const renderSuggestion = book => (
 );
 
 class Search extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-			value: "",
-			suggestions: []
-		};
-	}
-
 	componentDidMount = () => {
 		//Search for local suggestions
 
 		if (window.location.pathname.startsWith("/search/")) {
 			let search = unescape(window.location.pathname.split("/search/")[1]);
 
-			this.setState({
-				value: search ? search : ""
-			});
-		}
-	};
-
-	getSuggestions = value => {
-		const inputValue = value.trim().toLowerCase();
-		const inputLength = inputValue.length;
-
-		return inputLength === 0 ? [] : this.props.books.local;
-	};
-
-	onChange = (event, { newValue, method }) => {
-		//Search for suggestions
-		this.props.dispatch(lookUpBooks(newValue, "local"));
-
-		this.setState({
-			value: newValue
-		});
-	};
-
-	onKeyPress = event => {
-		if (event.key === "Enter") {
-			if (this.state.value.length > 0) {
-				this.props.dispatch(push("/search/" + this.state.value));
+			if (search) {
+				this.props.dispatch(updateText(search));
 			}
 		}
 	};
 
-	onSuggestionsFetchRequested = ({ value }) => {
-		this.setState({
-			suggestions: this.getSuggestions(value)
-		});
+	onChange = (event, { newValue, method }) => {
+		//Search for suggestions
+		if (newValue && newValue.length > 0) {
+			this.props.dispatch(lookUpBooks(newValue, "local"));
+		}
+
+		this.props.dispatch(updateText(newValue));
 	};
 
-	onSuggestionsClearRequested = () => {
-		this.setState({
-			suggestions: []
-		});
+	onSuggestionsFetchRequested = () => {};
+
+	onSuggestionsClearRequested = () => {};
+
+	onKeyPress = event => {
+		if (event.key === "Enter") {
+			if (this.props.query.length > 0) {
+				this.props.dispatch(push("/search/" + this.props.query));
+			}
+		}
 	};
 
 	render() {
-		const { value, suggestions } = this.state;
+		const { query: value, suggestions } = this.props;
 
 		const inputProps = {
 			placeholder: "Suche nach einem Buch...",
 			value,
-			onChange: this.onChange,
-			onKeyPress: this.onKeyPress
+			onKeyPress: this.onKeyPress,
+			onChange: this.onChange
 		};
 
 		return (
@@ -107,7 +84,8 @@ class Search extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		books: state.app.lookedUpBooks
+		suggestions: state.app.lookedUpBooks.local,
+		query: state.app.searchBar.query
 	};
 };
 

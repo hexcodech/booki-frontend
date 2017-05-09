@@ -41,18 +41,19 @@ $label-danger-bg          : $brand-danger;
 
 $label-color              : #000;
 $label-link-hover-color   : #000;
-$label-font-weight        : 300;
 
 $hr-border-color          : $gray-dark;
 
-$btn-font-weight          : 300;
+$font-weight-normal       : 500;
+$btn-font-weight          : $font-weight-normal;
+$label-font-weight        : $font-weight-normal;
 
 $btn-secondary-color      : #fff;
 $btn-secondary-bg         : $gray-dark;
 $btn-secondary-border     : $gray-dark;
 
-$input-color              : $brand-primary;
-$input-color-placeholder  : $brand-secondary;
+$input-color              : $brand-dark;
+$input-color-placeholder  : $brand-primary;
 $input-border-color       : $brand-secondary;
 $input-border-focus       : $brand-primary;
 $input-box-shadow         : none;
@@ -68,9 +69,9 @@ $simple-x-left-shadow     : -2px 0px 2px rgba(0, 0, 0, 0.05);
 
 $error-shadow             : 0 0 4px $brand-danger;
 
-$font-size-h1             : 2rem;
-$font-size-h2             : 1.5rem;
-$font-size-h3             : 1.375rem;
-$font-size-h4             : 1.25rem;
-$font-size-h5             : 1.125rem;
+$font-size-h1             : 2.3rem;
+$font-size-h2             : 2rem;
+$font-size-h3             : 1.7rem;
+$font-size-h4             : 1.3rem;
+$font-size-h5             : 1.1rem;
 $font-size-h6             : 1rem;

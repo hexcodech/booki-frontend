@@ -49,6 +49,10 @@ class BookDetail extends React.Component {
 			return thumbnail.name === "book-cover-medium";
 		})[0];
 
+		thumbnail = thumbnail
+			? API_URL + thumbnail.src
+			: "https://www.gravatar.com/avatar/?d=mm&s=100";
+
 		let offer = book.offers.filter(offer => {
 			return offer.id == bookDetail.offerId;
 		})[0];
@@ -99,12 +103,7 @@ class BookDetail extends React.Component {
 				<div styleName="book" className="container">
 					<div className="row">
 						<div className="col-6 col-md-3">
-							<Book
-								width={200}
-								height={245}
-								id={book.id}
-								url={thumbnail ? API_URL + thumbnail.url : 0}
-							/>
+							<Book width={200} height={245} id={book.id} url={thumbnail} />
 						</div>
 						<div className="col-12 col-md-9">
 							<div styleName="title">

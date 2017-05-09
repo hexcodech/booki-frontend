@@ -1,0 +1,20 @@
+@import "web/scss/variables.scss";
+
+.header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  img{
+    display: inline-block;
+
+    width: 100px;
+    height: auto;
+
+    border-radius: 50%;
+    border: $brand-primary 5px solid;
+  }
+  h1{
+    margin-left: 1rem;
+  }
+}

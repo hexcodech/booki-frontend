@@ -1,0 +1,23 @@
+@import "web/scss/variables.scss";
+
+.profile{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-picture{
+  width: 25px;
+  height: 25px;
+
+  img{
+    width: 100%;
+    height: auto;
+
+    border-radius: 50%;
+    border: $brand-primary 2px solid;
+  }
+}
+
+.name{
+  margin-left: .5rem;
+}
