@@ -114,15 +114,7 @@ class Profile extends React.Component {
 					text: "Wähle ein Bild, dass kleiner als 2 Megabyte ist!",
 					icon: "error_outline",
 					color: COLOR_FAILURE,
-					actions: [
-						{
-							text: "Log",
-							color: "#000",
-							action: function() {
-								console.log(error);
-							}
-						}
-					]
+					actions: []
 				})
 			);
 		}

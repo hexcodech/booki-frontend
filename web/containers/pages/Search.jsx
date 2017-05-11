@@ -33,7 +33,7 @@ class Search extends React.Component {
 							<Loader color="#FFC676" size="75px" />
 						</div>
 					: <div className="row">
-							{[...combined, ...combined].map(book => {
+							{combined.map(book => {
 								return (
 									<div
 										key={Math.random() + book.isbn13}
