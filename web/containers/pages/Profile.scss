@@ -74,4 +74,45 @@
 
 .table{
   width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 5px;
+
+  td:nth-child(1){
+    width: 50%;
+  }
+
+  td:nth-child(2){
+    width: 30%;
+  }
+
+  td:nth-child(3){
+    width: 20%;
+  }
+
+  th, td{
+    padding: .5rem;
+  }
+}
+
+.table{
+  border: $brand-primary 1px solid;
+
+  td, th{
+    border-bottom: $brand-primary 1px solid;
+    border-right: $brand-primary 1px solid;
+  }
+
+  tr:last-child td{
+    border-bottom: none;
+  }
+
+  td:last-child, th:last-child{
+    border-right: none;
+  }
+}
+
+.title{
+  margin: 1rem 0 .5rem 0;
 }

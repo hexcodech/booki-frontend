@@ -196,54 +196,57 @@ class BookDetail extends React.Component {
 					<div styleName="offers">
 						<h1>Angebote</h1>
 						<div className="row">
-							{book.offers.map(offer => {
-								//TODO sort
-								let thumbnail = offer.user.thumbnails.filter(thumbnail => {
-									return thumbnail.name === "profile-picture-medium";
-								})[0];
+							{book.offers
+								.sort((a, b) => {
+									return a.price - b.price;
+								})
+								.map(offer => {
+									let thumbnail = offer.user.thumbnails.filter(thumbnail => {
+										return thumbnail.name === "profile-picture-medium";
+									})[0];
 
-								thumbnail = thumbnail
-									? API_URL + thumbnail.url
-									: "https://www.gravatar.com/avatar/?d=mm&s=100";
+									thumbnail = thumbnail
+										? API_URL + thumbnail.url
+										: "https://www.gravatar.com/avatar/?d=mm&s=100";
 
-								return (
-									<div key={offer.id} className="col-12 col-md-6 col-lg-4">
-										<div styleName="offer">
-											<div className="row">
-												<div className="col-2 col-sm-2 col-md-3">
-													<div styleName="profile-picture">
-														<img src={thumbnail} />
+									return (
+										<div key={offer.id} className="col-12 col-md-6 col-lg-4">
+											<div styleName="offer">
+												<div className="row">
+													<div className="col-2 col-sm-2 col-md-3">
+														<div styleName="profile-picture">
+															<img src={thumbnail} />
+														</div>
 													</div>
-												</div>
-												<div className="col-10 col-sm-10 col-md-9">
-													<h4>{offer.user.nameDisplay}</h4>
-													<p styleName="condition">
-														Zustand: <span>{offer.condition.key} {" "}</span>
-													</p>
-													<p styleName="price">
-														Preis:
-														{" "}
-														<span>
-															{parseFloat(offer.price).toFixed(2) + " Fr."}
-														</span>
-													</p>
-												</div>
-												<div className="col-12">
-													<button
-														styleName="detail-button"
-														className="btn btn-primary"
-														onClick={() => {
-															dispatch(setOfferId(offer.id));
-														}}
-													>
-														Mehr Infos
-													</button>
+													<div className="col-10 col-sm-10 col-md-9">
+														<h4>{offer.user.nameDisplay}</h4>
+														<p styleName="condition">
+															Zustand: <span>{offer.condition.key} {" "}</span>
+														</p>
+														<p styleName="price">
+															Preis:
+															{" "}
+															<span>
+																{parseFloat(offer.price).toFixed(2) + " Fr."}
+															</span>
+														</p>
+													</div>
+													<div className="col-12">
+														<button
+															styleName="detail-button"
+															className="btn btn-primary"
+															onClick={() => {
+																dispatch(setOfferId(offer.id));
+															}}
+														>
+															Mehr Infos
+														</button>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-								);
-							})}
+									);
+								})}
 						</div>
 					</div>
 				</div>

@@ -177,28 +177,29 @@ class Sell extends React.Component {
 
 		promise.then(image => {
 			dispatch(updateImage(image));
-			dispatch(
-				updateBook({
-					...this.props.sell.book,
-					coverId: image.id
-				})
-			);
-			this.validateBook();
+
+			let book = {
+				...this.props.sell.book,
+				coverId: image.id
+			};
+
+			dispatch(updateBook(book));
+
+			this.validateBook(book, image);
 		});
 	};
 
 	onBookChange = key => {
 		return event => {
-			let book = {};
+			let book = { ...this.props.sell.book }, image = this.props.sell.image;
 			book[key] = event.currentTarget.value;
 
 			this.props.dispatch(updateBook(book));
-			setTimeout(this.validateBook, 0); //FIXME
+			this.validateBook(book, image);
 		};
 	};
 
-	validateBook = () => {
-		let { book, image } = this.props.sell;
+	validateBook = (book, image) => {
 		if (
 			book.title.length > 0 &&
 			book.authors.length > 0 &&
@@ -251,16 +252,15 @@ class Sell extends React.Component {
 			offer[key] = event.currentTarget.value;
 
 			this.props.dispatch(updateOffer(offer));
-			setTimeout(this.validateOffer, 0); //FIXME
+			this.validateOffer(offer);
 		};
 	};
 
-	validateOffer = () => {
+	validateOffer = offer => {
 		if (
-			this.props.sell.offer.conditionId &&
-			this.props.sell.offer.conditionId != 0 &&
-			(!isNaN(this.props.sell.offer.price) &&
-				this.props.sell.offer.price > 0) &&
+			offer.conditionId &&
+			offer.conditionId != 0 &&
+			(!isNaN(offer.price) && offer.price > 0) &&
 			this.props.sell.book.id
 		) {
 			this.props.dispatch(setNextEnabled(true));
