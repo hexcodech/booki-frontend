@@ -1,6 +1,7 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+
+import { API_URL, CLIENT_ID, REDIRECT_URI } from "config.json";
 
 import CSSModules from "react-css-modules";
 import styles from "./NavMenu.scss";
@@ -11,7 +12,7 @@ const NavMenu = ({ user = false }) => {
 	})[0];
 
 	thumbnail = thumbnail
-		? API_URL + thumbnail.src
+		? API_URL + thumbnail.url
 		: "https://www.gravatar.com/avatar/?d=mm&s=50";
 
 	return (
@@ -23,7 +24,7 @@ const NavMenu = ({ user = false }) => {
 				<Link to="/sell">Verkaufen</Link>
 			</li>
 			<li>
-				{!user &&
+				{!user.id &&
 					<a
 						href={
 							API_URL +
@@ -35,14 +36,14 @@ const NavMenu = ({ user = false }) => {
 					>
 						Login
 					</a>}
-				{user &&
+				{user.id &&
 					<Link to="/profile">
 						<div styleName="profile">
 							<div styleName="profile-picture">
 								<img src={thumbnail} />
 							</div>
 							<div styleName="name">
-								{user.nameDisplay}
+								{user.nameDisplay.substring(0, 15)}
 							</div>
 						</div>
 					</Link>}

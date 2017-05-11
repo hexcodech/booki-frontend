@@ -3,8 +3,13 @@ import { connect } from "react-redux";
 
 import Book from "web/components/ui/elements/Book";
 import { API_URL } from "config.json";
+import { COLOR_SUCCESS, COLOR_FAILURE, COLOR_INFO } from "core/constants/color";
 
 import { fetchBookIfNeeded } from "core/actions/book";
+import { postOfferRequest } from "core/actions/offer-request";
+
+import { addNotification } from "core/actions/notification";
+
 import {
 	setOfferId,
 	resetOfferId,
@@ -27,7 +32,31 @@ class BookDetail extends React.Component {
 		);
 	};
 
-	onSendRequest = () => {};
+	onSendRequest = () => {
+		const { dispatch, accessToken, bookDetail } = this.props;
+
+		let promise = dispatch(
+			postOfferRequest(
+				{ offerId: bookDetail.offerId, message: bookDetail.message },
+				accessToken
+			)
+		);
+
+		dispatch(resetOfferId());
+		dispatch(updateMessage(""));
+
+		promise.then(offerRequest => {
+			dispatch(
+				addNotification({
+					title: "Anfrage verschickt",
+					text: "Die Anfrage wurde erfolgreich übermittelt.",
+					hideDelay: 2500,
+					icon: "check_circle",
+					color: COLOR_SUCCESS
+				})
+			);
+		});
+	};
 
 	render() {
 		const { dispatch, accessToken, books, match, bookDetail } = this.props;
@@ -49,9 +78,7 @@ class BookDetail extends React.Component {
 			return thumbnail.name === "book-cover-medium";
 		})[0];
 
-		thumbnail = thumbnail
-			? API_URL + thumbnail.src
-			: "https://www.gravatar.com/avatar/?d=mm&s=100";
+		thumbnail = thumbnail ? API_URL + thumbnail.url : "";
 
 		let offer = book.offers.filter(offer => {
 			return offer.id == bookDetail.offerId;
@@ -73,6 +100,7 @@ class BookDetail extends React.Component {
 							<h4>Nachricht an {offer.user.nameDisplay}</h4>
 							<textarea
 								className="form-control"
+								value={bookDetail.message}
 								onChange={e => {
 									dispatch(updateMessage(e.currentTarget.value));
 								}}
@@ -170,12 +198,12 @@ class BookDetail extends React.Component {
 						<div className="row">
 							{book.offers.map(offer => {
 								//TODO sort
-								let thumbnail = offer.user.thumbnails.map(thumbnail => {
+								let thumbnail = offer.user.thumbnails.filter(thumbnail => {
 									return thumbnail.name === "profile-picture-medium";
 								})[0];
 
 								thumbnail = thumbnail
-									? API_URL + thumbnail.src
+									? API_URL + thumbnail.url
 									: "https://www.gravatar.com/avatar/?d=mm&s=100";
 
 								return (

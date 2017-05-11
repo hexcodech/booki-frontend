@@ -1,7 +1,5 @@
 import React from "react";
 
-import TimeAgo from "react-timeago";
-
 import CSSModules from "react-css-modules";
 import styles from "./Notification.scss";
 
@@ -54,16 +52,6 @@ const Notification = ({ notification }) => {
 					<p styleName="content">
 						{text}
 					</p>
-					{hideDelay &&
-						<small styleName="counter">
-							{"Will hide in "}
-							<TimeAgo
-								date={timestamp + hideDelay}
-								formatter={(value, unit) => {
-									return value + " " + unit + (value > 1 ? "s" : "");
-								}}
-							/>
-						</small>}
 				</div>
 				<div className="col-3" styleName="actions-wrapper">
 					<div styleName={actions.length === 1 ? "actions-center" : "actions"}>

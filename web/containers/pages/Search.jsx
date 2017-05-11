@@ -74,7 +74,7 @@ class Search extends React.Component {
 												</div>
 												<div styleName="offers">
 													{book.offers.reverse().map(offer => {
-														let thumbnail = offer.user.thumbnails.map(
+														let thumbnail = offer.user.thumbnails.filter(
 															thumbnail => {
 																return (
 																	thumbnail.name === "profile-picture-small"
@@ -83,7 +83,7 @@ class Search extends React.Component {
 														)[0];
 
 														thumbnail = thumbnail
-															? API_URL + thumbnail.src
+															? API_URL + thumbnail.url
 															: "https://www.gravatar.com/avatar/?d=mm&s=60";
 
 														return (
