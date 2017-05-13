@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Autosuggest from "react-autosuggest";
 import { push } from "react-router-redux";
+import debounce from "lodash/debounce";
 
 import { getParameterByName } from "core/utilities/location";
 
@@ -34,12 +35,17 @@ class Search extends React.Component {
 
 	onChange = (event, { newValue, method }) => {
 		//Search for suggestions
+		if (method === "type") {
+			this.updateSuggestions(newValue);
+		}
+		this.props.dispatch(updateText(newValue));
+	};
+
+	updateSuggestions = debounce(newValue => {
 		if (newValue && newValue.length > 0) {
 			this.props.dispatch(lookUpBooks(newValue, "local"));
 		}
-
-		this.props.dispatch(updateText(newValue));
-	};
+	}, 300);
 
 	onSuggestionsFetchRequested = () => {};
 
