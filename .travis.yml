@@ -1,0 +1,27 @@
+---
+language: node_js
+node_js:
+  - 7
+cache:
+  directories:
+    - node_modules
+install: true
+env:
+  - secure: #FTP_USER_STAGING encrypted
+  - secure: #FTP_PASSWORD_STAGING encrypted
+  - secure: #FTP_USER_DEV encrypted
+  - secure: #FTP_PASSWORD_DEV encrypted
+script:
+ - npm run build
+after-success:
+ - mkdir deploy;
+ - cp -r scripts deploy/;
+ - cp -r web deploy/;
+ - cp -r build deploy/;
+ - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    find deploy/* -type f -exec curl -u $FTP_USER_STAGING:$FTP_PASSWORD_STAGING --ftp-create-dirs -T {} ftp://ts.frostbolt.ch/booki/frontendStaging/{} \;
+   fi
+ - if [ "$TRAVIS_BRANCH" == "dev" ]; then
+    #Dev server commands
+   fi
+#Other stuff, like reloading webserver, sending notifications, etc...
