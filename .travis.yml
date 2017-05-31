@@ -11,8 +11,6 @@ notifications:
     on_start: never
     on_cancel: always
     on_error: always
-env:
-- secure: WFhg+shBXX54/5Sd+zUR6+2KdySXYcPlIo05/T6OzLcFH16kqukwYtdDvKSFWCABnmmAG7f+Y5KvKb7ybVdpcZ3XsoNebtaSUbLrVJetgcSEss6aZdf3aybjD1CBQR65kTPUsufyfdEsmbvcTvHfywgPnn7zYzi8CPNeG9AEY9RExvn9tzqpGw+CQFX1yUKwXGphAFwtrE/O/l5jH4Z9i/VTqqEr+jRbChLy1qXBpJJ9EeaBVlP21Dpr82BOgG7wIrtV8LXo/58FobF3gZsONihG8HLO5vHAgvtibzoeTroX6HmFvMm/VNU4vldNokKccYMKfPyjhW8FLuatWLWIojeHLaFLZKn1KtUW50gxcwEPMsXJeuzOhfa8BZu4QyGvcYp/AKjuQx7l2dbOCTLzUWc2+uE+EPhkKBy8HxGNR0rPqYhJS0RjdDc0A413bh+88r9uNXURi62LMMuZHovLIuKH3T0Y5jgE57srSMZNjOFjzUPgUbwN2TihWAtHU7s9pMrD1c3OGig8/EcSwXdWEqj7IF5jEo5ha/ku4Cr+6JOkXnySdiJvb+fk5Q82z7gYhbwTcMA1wLDotG2AXCaRgNSKQSMvhaCojbdc4KtUAARMzNTWe+j69vXtRHyIsSZcTS+U6QV+Iua81x6ANnFlmWhQOquNTGS+XftP43qp+ak=
 install: yarn install
 before_script: yarn test
 script:
