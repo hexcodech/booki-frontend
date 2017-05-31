@@ -7,8 +7,9 @@
   "main": "web/main.jsx",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "make all && node scripts/server.js",
-    "dev": "node scripts/dev-server.js"
+	  "test": "echo \"No test specified yet\"",
+	  "start": "make all && node scripts/server.js",
+	  "dev": "node scripts/dev-server.js"
   },
   "dependencies": {
     "booki-frontend-core": "github:hexcodech/booki-frontend-core",
