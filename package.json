@@ -9,6 +9,7 @@
   "scripts": {
 	  "test": "echo \"No test specified yet\"",
 	  "start": "make all && node scripts/server.js",
+	  "build": "make all",
 	  "dev": "node scripts/dev-server.js"
   },
   "dependencies": {
