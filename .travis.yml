@@ -42,10 +42,9 @@ after_success:
 - git config --global user.name "Travis CI"
 - git add .;
 - export GIT_TAG=build-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
-- echo -n $GIT_TAG > public/version;
 - git commit -m "$CM_MESSAGE";
-- git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
+    git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
     git push --quiet --set-upstream origin-frontend release $GIT_TAG > /dev/null 2>&1;
   fi
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
