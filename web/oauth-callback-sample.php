@@ -1,7 +1,7 @@
 <?php
 
 $config = json_decode(file_get_contents("config.json"));
-define("CLIENT_SECRET", "jbRA3q/ibi6A0FS4yL7sV3UAf6rtjO");
+define("CLIENT_SECRET", "");
 
 if(empty($_GET["code"])){
 	header("Location: /");

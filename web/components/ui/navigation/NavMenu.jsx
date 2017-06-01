@@ -7,9 +7,11 @@ import CSSModules from "react-css-modules";
 import styles from "./NavMenu.scss";
 
 const NavMenu = ({ user = false }) => {
-	let thumbnail = user.thumbnails.filter(thumbnail => {
-		return thumbnail.name == "profile-picture-small";
-	})[0];
+	let thumbnail = user.thumbnails
+		? user.thumbnails.filter(thumbnail => {
+				return thumbnail.name == "profile-picture-small";
+			})[0]
+		: "";
 
 	thumbnail = thumbnail
 		? API_URL + thumbnail.url
