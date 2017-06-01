@@ -44,13 +44,13 @@ after_success:
       export GIT_TAG=build-staging-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER;
       git config --global user.email "builds@travis-ci.com";
       git config --global user.name "Travis CI";
-      git commit -m "Built files";
+      git commit -a -m "Built files";
       git push --quiet https://$GITHUBKEY@github.com/hexcodech/booki-frontend > /dev/null 2>&1;
     fi
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "dev" ]; then
       export GIT_TAG=build-dev-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER;
       git config --global user.email "builds@travis-ci.com";
       git config --global user.name "Travis CI";
-      git commit -m "Built files";
+      git commit -a -m "Built files";
       git push --quiet https://$GITHUBKEY@github.com/hexcodech/booki-frontend > /dev/null 2>&1;
     fi
