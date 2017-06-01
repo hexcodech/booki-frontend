@@ -31,36 +31,36 @@ after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
       echo -e "Starting to tag commit.\n";
 
-      git config --global user.email "travis@travis-ci.org"
-      git config --global user.name "Travis Release"
+      git config --global user.email "travis@travis-ci.org";
+      git config --global user.name "Travis Release";
 
-      git tag -a v${TRAVIS_BUILD_NUMBER}-release -m "Travis realse build $TRAVIS_BUILD_NUMBER pushed a tag."
-      git push origin --tags
-      git fetch origin
+      git tag -a v${TRAVIS_BUILD_NUMBER}-release -m "Travis realse build $TRAVIS_BUILD_NUMBER pushed a tag.";
+      git push origin --tags;
+      git fetch origin;
 
       echo -e "Done magic with tags.\n";
     fi
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
       echo -e "Starting to tag commit.\n";
 
-      git config --global user.email "travis@travis-ci.org"
-      git config --global user.name "Travis Staging"
+      git config --global user.email "travis@travis-ci.org";
+      git config --global user.name "Travis Staging";
 
-      git tag -a v${TRAVIS_BUILD_NUMBER}-staging -m "Travis staging build $TRAVIS_BUILD_NUMBER pushed a tag."
-      git push origin --tags
-      git fetch origin
+      git tag -a v${TRAVIS_BUILD_NUMBER}-staging -m "Travis staging build $TRAVIS_BUILD_NUMBER pushed a tag.";
+      git push origin --tags;
+      git fetch origin;
 
       echo -e "Done magic with tags.\n";
     fi
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "dev" ]; then
       echo -e "Starting to tag commit.\n";
 
-      git config --global user.email "travis@travis-ci.org"
-      git config --global user.name "Travis Dev"
+      git config --global user.email "travis@travis-ci.org";
+      git config --global user.name "Travis Dev";
 
-      git tag -a v${TRAVIS_BUILD_NUMBER}-dev -m "Travis dev build $TRAVIS_BUILD_NUMBER pushed a tag."
-      git push origin --tags
-      git fetch origin
+      git tag -a v${TRAVIS_BUILD_NUMBER}-dev -m "Travis dev build $TRAVIS_BUILD_NUMBER pushed a tag.";
+      git push origin --tags;
+      git fetch origin;
 
       echo -e "Done magic with tags.\n";
     fi
