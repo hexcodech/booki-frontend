@@ -14,7 +14,7 @@ notifications:
 env:
   global:
     - CM_MESSAGE="Automated travis build"
-    - secure: T1ihFlo4unh8ivr/EQz7KcWiUNmk0176wUvUgspYDGci/LMyfp6O9NWX5e1u+TFnIV1Zh8s5Ig7W7JYwZD6Pwmy4EIua0qnJRCx/BFUJmhq9BcrIN8kKbjlPHo5KGlvw07B/v/tWXhR1kex8ef1867NkNFmfPpysa7ZH1ZrdsPRXqRInaXCZ7FRU7h0GXF9QImJfhKSfJ2ZrDViSBAbUZMyZuZ7G6i9UMDURyPb4+Z3VqX6xgHeVP3jtxWiir2VJ9sSnQSa5CRIxZU3w0ShC2GlBWClXhdM6Jl5UVv3EzwYVgzb0XPAac5XHEp2P5tmPqkNG5qNzVHEftmvZMwIJKgI596ScivSkOhv0xPdizm9BDHgh0GBoeptuA4r+6Rj3sB8LyVzpoAyo4fMMo+PN6pr6J/mRdjOwlKEgHD69QaKnblzsp2z8LZi0vwNfhlam0zpsxwA6iSYJp4NeMHj3Irt1nUnHdMfYVXsnORJgwAUaCUaLfB9/D3E1zJ7cpyQ2ftD7OxhXujU64zb8zC6gAmkk7Fg8QYpPMEUOsTEPliwBLGcIwQ8BGwMSwTnp0N2kV7JJTWb0ZGhV0H9xcY2p6YZMVyeLbKKZ3SRjuuUpvdmCnMaFgk/qk6xEbDAOH59REq/HVfUTB2FIhJ/ici7txMbQGEccUJPdI207Rte5Y3Q=
+    secure: "1Au6xOmSlorykJ4T+MtLPGved2zcJU4nWpC1RmkiE6NEqgaDNz/KagdJGWASnoqmiAt4j6il7OWc5doXsJPCJaKPY36B2DjwvQJrmBIsaZ1poFaLYR2MJ2MeLCIT+tlcQOuTm/MNRecuBLb7weTkCnFbJPrgtmGDipo3zxAmYF84P8AuJEH8inp5eYviVrfzNJ3ek0PaMoHce10NlGctk0XsqU8AMDf5Ui14oTmQQmMrQJua1kMQW5FC6mW4Qqy1GEDV6uHbTpr4XjY+6YqHEyaDbvd1JZLheqh1aREPkFBb+wm8w8FVUxgLwcDMPuoJq02keV9BZBQLsbvISNIC4n9fij5gN+71u9E85x3yGrau6lh3WPvzUH/q8s3Z5QVJsVhMbi5sqfI6mfqYPCkbvQ8gkkkqO8C3GZQckLIKx1GDtpw32qvN2zfoqyca4Ab+F4DmwACiWLXTFplu0dE8QpbvbrQ3JpDEWn3tC+XvP7VmpzXthfkRGasZOcOp3e+mHIs1ylVvhG4NwKxJ4cIHy0XK8VO5Ga4Jd3g55rO4I50VNUaWffYbXZHXYOKkwIwtxK5U1R4FmbnXA6XzHwRWejgWR/oy56RrvP+GwQBYa4o1RDaP7yEsLFC9091Irv20mGKEDVEB1fUmdV1o2svFECdEUXOjVO/QTNMy+f+UmnE="
 branches:
   except:
   - "/^build-[0-9A-z\\-]*/"
@@ -46,7 +46,7 @@ after_success:
 - git commit -m "$CM_MESSAGE"
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
     git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
-    git push --quiet origin-frontend release $GIT_TAG > /dev/null 2>&1;
+    git push --quiet origin-frontend HEAD:$TRAVIS_BRANCH $GIT_TAG > /dev/null 2>&1;
   else
-    git push origin-frontend HEAD:$TRAVIS_BRANCH;
+    git push --quiet origin-frontend HEAD:$TRAVIS_BRANCH > /dev/null 2>&1;
   fi
