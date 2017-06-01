@@ -19,7 +19,7 @@ branches:
   except:
   - "/^build-[0-9A-z\\-]*/"
 before_install:
-  - if [ "$TRAVIS_COMMIT_MESSAGE" = "$CM_MESSAGE"]; then travis cancel; fi
+  - if [ "$TRAVIS_COMMIT_MESSAGE" = "$CM_MESSAGE" ]; then travis cancel; fi
 install:
 - yarn install
 before_script:
