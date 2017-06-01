@@ -11,6 +11,9 @@ notifications:
     on_start: never
     on_cancel: always
     on_error: always
+branches:
+  except:
+    - /^build-[0-9A-z\-]*/
 install:
   - yarn install
 before_script:
@@ -28,35 +31,23 @@ script:
   - yarn run build
 after_success:
   - cd build && zip booki-frontend *
-  - echo -e "Starting to tag commit.\n";
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
-      git config --global user.email "builds@travis-ci.org";
-      git config --global user.name "Travis CI";
-
-      git tag -a v${TRAVIS_BUILD_NUMBER}-release -m "Travis realse build $TRAVIS_BUILD_NUMBER pushed a tag.";
-      git push origin --tags;
-      git fetch origin;
+      export GIT_TAG=build-release-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
     fi
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-      git config --global user.email "builds@travis-ci.org";
-      git config --global user.name "Travis CI";
-
-      git tag -a v${TRAVIS_BUILD_NUMBER}-staging -m "Travis staging build $TRAVIS_BUILD_NUMBER pushed a tag.";
-      git push origin --tags;
-      git fetch origin;
+      export GIT_TAG=build-staging-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
     fi
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "dev" ]; then
-      git config --global user.email "builds@travis-ci.org";
-      git config --global user.name "Travis CI";
-
-      git tag -a v${TRAVIS_BUILD_NUMBER}-dev -m "Travis dev build $TRAVIS_BUILD_NUMBER pushed a tag.";
-      git push origin --tags;
-      git fetch origin;
+      export GIT_TAG=build-dev-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
     fi
-  - echo -e "Done magic with tags.\n";
+  - git config --global user.email "builds@travis-ci.com"
+  - git config --global user.name "Travis CI"
+  - echo -n $GIT_TAG > public/version
+  - git commit -m "Set build VERSION number" public/version
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
+  - git push --quiet https://$GITHUBKEY@github.com/dev-confidence/example-backend-api $GIT_TAG > /dev/null 2>&1
 deploy:
   provider: releases
-  prerelease: true
   api_key:
     secure: GGx2Yqju7BHBtS53kC12Ki1+ZRkmJRZKz1O9YMcpgveKV9U9mcUBxsdbqQWg+UB5wi/XyzQDsNSuIoj9wgnTih5UD7+0FnOlwdhBOHaoPKPg6YmKcQUaTIwSobRpaKG50AR/9dz79V1MBquBSFhsjwoXZ2jbSTrHeilvVl50sAMM+0Rb+y3ZaMOkieLdS9acVhBip165FOu5e7k+NDVmOJ8wY6i/85GRJ7n07CfZAgvBLYJKoG06JpHmaynKS4/n1yadHGQfVvuAlRT2EsNleJ5BspYY+9+jfH4YOFx+m6DYGGPk8i0E8/g96s747o4kbyDpKkSC9bY7d/CxiT2cFlyKPgsgob4PXLf/iaRur3FU2499rLMV8hBKoVecBYciyfGLUWmarquIZDe0GGQTyZsdvk3+WKor2IH6qxx5/1T40cKT8vsimPdCbpMwV5bAh/etQqzxwVbKcU0KAB9F19s858GWUstSNbqfxF4OCvQl5hR/et/oXXRcPlcMoOe64z+VFmnQJuxLeQmL2yrW2WUtBfFTDJLniAS5zH5l7PhoMaTD7jlIFSJjOasmhQ3zTeHwlXhrgZWQK7OUCaw9spEc2IV6TY4No+9FQ2IODhE2rbwZE+cvBAzKYg4E4G+9mVk2nZTEgtWSiIOImDjLKHT5u6RLuZHoGo29s5+hkWk=
   file: build/booki-frontend.zip
