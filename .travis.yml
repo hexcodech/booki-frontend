@@ -11,7 +11,9 @@ notifications:
     on_start: never
     on_cancel: always
     on_error: always
-install: yarn install
+install:
+  - yarn config set cache $(yarn cache dir)
+  - yarn install
 before_script: yarn test
 script:
 - yarn run build
