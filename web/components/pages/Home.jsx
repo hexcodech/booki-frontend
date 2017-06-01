@@ -15,7 +15,7 @@ const Home = () => {
 					<div styleName="book-slide" className="row">
 						<div className="col-md-5">
 							<h2>
-								Dein Zimmer nach der Matura?
+								Dein Zimmer nach der Matur?
 								<br />
 								Auf booki kannst du deine alten Bücher einfach verkaufen.
 							</h2>
