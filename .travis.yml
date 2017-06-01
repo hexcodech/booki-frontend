@@ -41,11 +41,11 @@ after_success:
 - git remote add origin-frontend https://${GH_TOKEN}@github.com/hexcodech/booki-frontend.git > /dev/null 2>&1
 - git config --global user.email "travis@travis-ci.org"
 - git config --global user.name "Travis CI"
-- git add .
+- git add -A .
 - git commit -m "$CM_MESSAGE"
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
     git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
     git push --quiet origin-frontend release $GIT_TAG > /dev/null 2>&1;
   else
-    git push --quiet origin-frontend > /dev/null 2>&1;
+    git push origin-frontend;
   fi
