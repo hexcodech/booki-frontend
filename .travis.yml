@@ -9,14 +9,17 @@ notifications:
     on_success: always
     on_failure: always
     on_start: never
-    on_cancel: always
+    on_cancel: never
     on_error: always
 env:
   global:
     secure: T1ihFlo4unh8ivr/EQz7KcWiUNmk0176wUvUgspYDGci/LMyfp6O9NWX5e1u+TFnIV1Zh8s5Ig7W7JYwZD6Pwmy4EIua0qnJRCx/BFUJmhq9BcrIN8kKbjlPHo5KGlvw07B/v/tWXhR1kex8ef1867NkNFmfPpysa7ZH1ZrdsPRXqRInaXCZ7FRU7h0GXF9QImJfhKSfJ2ZrDViSBAbUZMyZuZ7G6i9UMDURyPb4+Z3VqX6xgHeVP3jtxWiir2VJ9sSnQSa5CRIxZU3w0ShC2GlBWClXhdM6Jl5UVv3EzwYVgzb0XPAac5XHEp2P5tmPqkNG5qNzVHEftmvZMwIJKgI596ScivSkOhv0xPdizm9BDHgh0GBoeptuA4r+6Rj3sB8LyVzpoAyo4fMMo+PN6pr6J/mRdjOwlKEgHD69QaKnblzsp2z8LZi0vwNfhlam0zpsxwA6iSYJp4NeMHj3Irt1nUnHdMfYVXsnORJgwAUaCUaLfB9/D3E1zJ7cpyQ2ftD7OxhXujU64zb8zC6gAmkk7Fg8QYpPMEUOsTEPliwBLGcIwQ8BGwMSwTnp0N2kV7JJTWb0ZGhV0H9xcY2p6YZMVyeLbKKZ3SRjuuUpvdmCnMaFgk/qk6xEbDAOH59REq/HVfUTB2FIhJ/ici7txMbQGEccUJPdI207Rte5Y3Q=
+    CM_MESSAGE="Automated travis build"
 branches:
   except:
   - "/^build-[0-9A-z\\-]*/"
+before_install:
+  - if [ "$TRAVIS_COMMIT_MESSAGE" = "$CM_MESSAGE"]; then travis cancel; fi
 install:
 - yarn install
 before_script:
@@ -40,14 +43,14 @@ after_success:
 - git add .;
 - export GIT_TAG=build-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
 - echo -n $GIT_TAG > public/version;
-- git commit -m "Automated travis build";
+- git commit -m "$CM_MESSAGE";
 - git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
     git push --quiet --set-upstream origin-frontend release $GIT_TAG > /dev/null 2>&1;
   fi
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-    git push --quiet --set-upstream origin-frontend master $GIT_TAG > /dev/null 2>&1;
+    git push --quiet --set-upstream origin-frontend master > /dev/null 2>&1;
   fi
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "dev" ]; then
-    git push --quiet --set-upstream origin-frontend dev $GIT_TAG > /dev/null 2>&1;
+    git push --quiet --set-upstream origin-frontend dev > /dev/null 2>&1;
   fi
