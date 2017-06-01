@@ -35,7 +35,6 @@ after_success:
       export GIT_TAG=build-release-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
       git config --global user.email "builds@travis-ci.com";
       git config --global user.name "Travis CI";
-      git branch release;
       echo -n $GIT_TAG > public/version;
       git commit -m "Set build VERSION number" public/version;
       git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
@@ -45,7 +44,6 @@ after_success:
       export GIT_TAG=build-staging-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER;
       git config --global user.email "builds@travis-ci.com";
       git config --global user.name "Travis CI";
-      git branch master;
       git commit -m "Built files";
       git push --quiet https://$GITHUBKEY@github.com/hexcodech/booki-frontend > /dev/null 2>&1;
     fi
@@ -53,7 +51,6 @@ after_success:
       export GIT_TAG=build-dev-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER;
       git config --global user.email "builds@travis-ci.com";
       git config --global user.name "Travis CI";
-      git branch dev;
       git commit -m "Built files";
       git push --quiet https://$GITHUBKEY@github.com/hexcodech/booki-frontend > /dev/null 2>&1;
     fi
