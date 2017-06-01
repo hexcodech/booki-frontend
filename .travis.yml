@@ -48,5 +48,5 @@ after_success:
     git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
     git push --quiet origin-frontend HEAD:$TRAVIS_BRANCH $GIT_TAG > /dev/null 2>&1;
   else
-    git push --quiet origin-frontend HEAD:$TRAVIS_BRANCH > /dev/null 2>&1;
+    git push origin-frontend HEAD:$TRAVIS_BRANCH;
   fi
