@@ -26725,7 +26725,7 @@ var Home = function Home() {
 						_react2.default.createElement(
 							"h2",
 							null,
-							"Dein Zimmer nach der Matur?",
+							"Dein Zimmer nach der Matura?",
 							_react2.default.createElement("br", null),
 							"Auf booki kannst du deine alten B\xFCcher einfach verkaufen."
 						),
