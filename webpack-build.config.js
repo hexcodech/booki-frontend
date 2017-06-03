@@ -7,9 +7,9 @@ module.exports = {
 	entry: [path.join(__dirname, "web/main.jsx")],
 
 	output: {
-		path: path.join(__dirname, "build/"),
+		path: path.join(__dirname, "build/js/"),
 		filename: "bundle.js",
-		publicPath: "/build/"
+		publicPath: "/js/"
 	},
 
 	plugins: [],
