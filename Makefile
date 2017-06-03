@@ -5,10 +5,11 @@ BUILD = ./build
 
 all:
 	if [ -e "config.json" ]; then \
-		rm -rf $($BUILD); \
-		cp web/index.html build/index.html; \
-		cp -r web/css/ build/css/; \
-		cp -r web/img build/img; \
+		rm -rf $(BUILD); \
+		mkdir $(BUILD); \
+		cp web/index.html $(BUILD)/index.html; \
+		cp -r web/css/ $(BUILD)/css/; \
+		cp -r web/img $(BUILD)/img; \
 		$(WEBPACK) --config "$(BUILD_CONFIG)"; \
 	else \
 		echo "config.json doesn't exist!"; \
