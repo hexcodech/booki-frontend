@@ -191,7 +191,8 @@ class Sell extends React.Component {
 
 	onBookChange = key => {
 		return event => {
-			let book = { ...this.props.sell.book }, image = this.props.sell.image;
+			let book = { ...this.props.sell.book },
+				image = this.props.sell.image;
 			book[key] = event.currentTarget.value;
 
 			this.props.dispatch(updateBook(book));
@@ -204,7 +205,8 @@ class Sell extends React.Component {
 			book.title.length > 0 &&
 			book.authors.length > 0 &&
 			(!isNaN(book.pageCount) && book.pageCount > 0) &&
-			((book.coverId && book.coverId != 0) || (image.id && image.id != 0)) &&
+			((book.thumbnails && book.thumbnails.length > 0) ||
+				(image.id && image.id != 0)) &&
 			book.language &&
 			book.language.length >= 2
 		) {
@@ -314,8 +316,10 @@ class Sell extends React.Component {
 						>
 
 							<small styleName="description">
-								Um dein Buch möglichst schnell zu finden, gib im unteren Suchfeld
-								seine ISBN ein. Wir versuchen dann, so viel wie möglich über dein
+								Um dein Buch möglichst schnell zu finden, gib im unteren
+								Suchfeld
+								seine ISBN ein. Wir versuchen dann, so viel wie möglich über
+								dein
 								Buch herauszufinden.
 							</small>
 
