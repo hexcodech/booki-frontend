@@ -15,14 +15,22 @@ const Home = () => {
 					<div styleName="book-slide" className="row">
 						<div className="col-md-5">
 							<h2>
-								Dein Zimmer nach der Matura?
+								Hallo!
 								<br />
 								Auf booki kannst du deine alten Bücher einfach verkaufen.
 							</h2>
 
 							<Link styleName="about" to={"/about"}>So funktioniert es</Link>
 						</div>
-						<div className="col-md-7" />
+						<div styleName="slider-books" className="col-md-2">
+							<img src="/img/book01.png" />
+						</div>
+						<div styleName="slider-books" className="col-md-2">
+							<img src="/img/book02.png" />
+						</div>
+						<div styleName="slider-books" className="col-md-3">
+							<img src="/img/book03.png" />
+						</div>
 					</div>
 				</div>
 			</div>
