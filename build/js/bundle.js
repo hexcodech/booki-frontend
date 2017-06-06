@@ -26725,7 +26725,7 @@ var Home = function Home() {
 						_react2.default.createElement(
 							"h2",
 							null,
-							"Dein Zimmer nach der Matura?",
+							"Hallo!",
 							_react2.default.createElement("br", null),
 							"Auf booki kannst du deine alten B\xFCcher einfach verkaufen."
 						),
@@ -26735,7 +26735,21 @@ var Home = function Home() {
 							"So funktioniert es"
 						)
 					),
-					_react2.default.createElement("div", { className: "col-md-7" })
+					_react2.default.createElement(
+						"div",
+						{ styleName: "slider-books", className: "col-md-2" },
+						_react2.default.createElement("img", { src: "/img/book01.png" })
+					),
+					_react2.default.createElement(
+						"div",
+						{ styleName: "slider-books", className: "col-md-2" },
+						_react2.default.createElement("img", { src: "/img/book02.png" })
+					),
+					_react2.default.createElement(
+						"div",
+						{ styleName: "slider-books", className: "col-md-3" },
+						_react2.default.createElement("img", { src: "/img/book03.png" })
+					)
 				)
 			)
 		),
@@ -31597,7 +31611,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".web-components-pages-___Home__home___1L18o {\n  z-index: 1;\n}\n\n.web-components-pages-___Home__slider-wrapper___Z-Fs1 {\n  margin-top: -1rem;\n  padding: 1rem;\n  min-height: 300px;\n  background-color: #9B9B9B;\n  background-image: url(\"/img/matura.jpg\");\n  background-repeat: none;\n  background-size: cover;\n  background-position: center;\n}\n\n.web-components-pages-___Home__slider___-nqLE {\n  height: 100%;\n}\n\n.web-components-pages-___Home__book-slide___1YJwL {\n  height: 100%;\n  position: relative;\n}\n\n.web-components-pages-___Home__book-slide___1YJwL h1,\n.web-components-pages-___Home__book-slide___1YJwL h2 {\n  color: #fff;\n  text-transform: none;\n}\n\n.web-components-pages-___Home__about___Hc96u {\n  text-transform: uppercase;\n  font-size: .8rem;\n  color: #fff;\n}\n\n.web-components-pages-___Home__about___Hc96u:hover {\n  color: #fff;\n}\n\n.web-components-pages-___Home__about___Hc96u:after {\n  content: \" >\";\n}\n\n.web-components-pages-___Home__book-list___aAFye {\n  margin-top: 1rem;\n}", ""]);
+exports.push([module.i, ".web-components-pages-___Home__home___1L18o {\n  z-index: 1;\n}\n\n.web-components-pages-___Home__slider-wrapper___Z-Fs1 {\n  margin-top: -1rem;\n  padding: 1rem;\n  min-height: 300px;\n  background-color: #CFCFCF;\n}\n\n.web-components-pages-___Home__slider___-nqLE {\n  height: 100%;\n}\n\n.web-components-pages-___Home__book-slide___1YJwL {\n  height: 100%;\n  position: relative;\n}\n\n.web-components-pages-___Home__book-slide___1YJwL h1,\n.web-components-pages-___Home__book-slide___1YJwL h2 {\n  color: #fff;\n  text-transform: none;\n}\n\n.web-components-pages-___Home__about___Hc96u {\n  text-transform: uppercase;\n  font-size: .8rem;\n  color: #fff;\n}\n\n.web-components-pages-___Home__about___Hc96u:hover {\n  color: #fff;\n}\n\n.web-components-pages-___Home__about___Hc96u:after {\n  content: \" >\";\n}\n\n.web-components-pages-___Home__book-list___aAFye {\n  margin-top: 1rem;\n}\n\n.web-components-pages-___Home__slider-books___JZ3b5 img {\n  width: 100%;\n  height: auto;\n}\n\n.web-components-pages-___Home__slider-books___JZ3b5:nth-child(3) img {\n  margin-top: 150px;\n}", ""]);
 
 // exports
 exports.locals = {
@@ -31606,7 +31620,8 @@ exports.locals = {
 	"slider": "web-components-pages-___Home__slider___-nqLE",
 	"book-slide": "web-components-pages-___Home__book-slide___1YJwL",
 	"about": "web-components-pages-___Home__about___Hc96u",
-	"book-list": "web-components-pages-___Home__book-list___aAFye"
+	"book-list": "web-components-pages-___Home__book-list___aAFye",
+	"slider-books": "web-components-pages-___Home__slider-books___JZ3b5"
 };
 
 /***/ }),
