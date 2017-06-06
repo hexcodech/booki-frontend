@@ -28747,7 +28747,7 @@ var Sell = function (_React$Component) {
 				_this.validateBook(book, image);
 			};
 		}, _this.validateBook = function (book, image) {
-			if (book.title.length > 0 && book.authors.length > 0 && !isNaN(book.pageCount) && book.pageCount > 0 && (book.coverId && book.coverId != 0 || image.id && image.id != 0) && book.language && book.language.length >= 2) {
+			if (book.title.length > 0 && book.authors.length > 0 && !isNaN(book.pageCount) && book.pageCount > 0 && (book.thumbnails && book.thumbnails.length > 0 || image.id && image.id != 0) && book.language && book.language.length >= 2) {
 				_this.props.dispatch((0, _sell.setNextEnabled)(true));
 			} else {
 				_this.props.dispatch((0, _sell.setNextEnabled)(false));
