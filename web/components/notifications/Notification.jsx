@@ -25,7 +25,6 @@ const Notification = ({ notification }) => {
 		fadeIn,
 		fadeOut,
 		color,
-		icon,
 		title,
 		text,
 		hideDelay,
@@ -38,16 +37,13 @@ const Notification = ({ notification }) => {
 			key={uuid}
 			styleName={
 				"notification" +
-					(fadeIn ? "-fade-in" : "") +
-					(fadeOut ? "-fade-out" : "")
+				(fadeIn ? "-fade-in" : "") +
+				(fadeOut ? "-fade-out" : "")
 			}
 			style={{ borderTopColor: color }}
 		>
 			<div className="row">
-				<div className="col-2">
-					<i className="material-icons" styleName="icon">{icon}</i>
-				</div>
-				<div className="col-7">
+				<div className="col-9">
 					<h6 styleName="title">{title}</h6>
 					<p styleName="content">
 						{text}

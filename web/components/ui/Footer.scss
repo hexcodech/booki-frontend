@@ -18,6 +18,23 @@
   }
 }
 
+.links{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li{
+    padding: 0;
+
+    a{
+      color: #fff;
+    }
+  }
+}
+.spacer{
+  padding-right: .5rem;
+}
+
 .copyright{
   position: absolute;
   bottom: 0;

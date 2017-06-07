@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { action as toggleMenu } from "redux-burger-menu";
 import { Link } from "react-router-dom";
 import { API_URL, CLIENT_ID, REDIRECT_URI } from "config.json";
+import MdMenu from "react-icons/md/menu";
 
 import CSSModules from "react-css-modules";
 import styles from "./Header.scss";
@@ -40,7 +41,7 @@ const Header = ({ children, dispatch, user, accessToken }) => {
 							dispatch(toggleMenu(true));
 						}}
 					>
-						<i className="material-icons">menu</i>
+						<MdMenu />
 					</div>
 					<nav styleName="nav" className="hidden-md-down">
 						<NavMenu user={user} />

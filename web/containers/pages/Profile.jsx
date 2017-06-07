@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import MdUpdate from "react-icons/md/update";
 
 import { API_URL, CLIENT_ID, REDIRECT_URI } from "config.json";
 import { COLOR_SUCCESS, COLOR_FAILURE, COLOR_INFO } from "core/constants/color";
@@ -138,9 +139,7 @@ class Profile extends React.Component {
 						<img src={thumbnail} />
 						<div styleName="overlay">
 							<input type="file" onChange={this.onUploadProfilePicture} />
-							<i className="material-icons">
-								update
-							</i>
+							<MdUpdate />
 						</div>
 					</div>
 					<h1>{user.nameDisplay.substring(0, 15)}'s Profil</h1>

@@ -23,18 +23,6 @@
   animation : swipeOut 1s ease-in-out forwards;
 }
 
-.icon{
-  position       : absolute;
-	top            : 50%;
-	transform      : translateY(-50%);
-
-  vertical-align : bottom;
-  display        : block;
-  width          : 100%;
-
-  text-align     : center;
-}
-
 .actions-wrapper{
   border-left: #eee 1px solid;
   padding-left: 0;
