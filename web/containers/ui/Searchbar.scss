@@ -13,6 +13,15 @@
   }
 }
 
+@media (max-width: 575px) {
+  .container{
+       display: none;
+  }
+  .search-button{
+    border-radius: 5px !important;
+  }
+}
+
 .search-button{
   border-radius: 0 5px 5px 0;
   background-color: $brand-primary;

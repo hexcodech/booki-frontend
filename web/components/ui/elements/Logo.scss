@@ -11,3 +11,10 @@
     width: auto;
   }
 }
+
+@media (max-width: 575px) {
+  .logo svg{
+    margin-top: 5px;
+    height: 30px;
+  }
+}

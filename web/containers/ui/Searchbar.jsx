@@ -14,11 +14,10 @@ import styles from "./Searchbar.scss";
 
 const getSuggestionValue = book => book.title;
 
-const renderSuggestion = book => (
+const renderSuggestion = book =>
 	<div>
 		{book.title}
-	</div>
-);
+	</div>;
 
 class Search extends React.Component {
 	componentDidMount = () => {
