@@ -24,13 +24,13 @@ install:
 - yarn install
 before_script:
 - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
-    echo "{\"API_URL\":\"https://api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\", \"REDIRECT_URI\":\"https://booki.me/oauth-callback\"}" > config.json;
+    echo "{\"API_URL\":\"https://api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\", \"REDIRECT_URI\":\"https://booki.me/oauth-callback\", \"DEV_TOOLS\":\"false"}" > config.json;
   fi
 - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-    echo "{\"API_URL\":\"https://beta-api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\", \"REDIRECT_URI\":\"https://beta.booki.me/oauth-callback\"}" > config.json;
+    echo "{\"API_URL\":\"https://beta-api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\", \"REDIRECT_URI\":\"https://beta.booki.me/oauth-callback\", \"DEV_TOOLS\":\"false"}" > config.json;
   fi
 - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "dev" ]; then
-    echo "{\"API_URL\":\"https://dev-api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\",\"REDIRECT_URI\":\"https://dev.booki.me/oauth-callback\"}" > config.json;
+    echo "{\"API_URL\":\"https://dev-api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\",\"REDIRECT_URI\":\"https://dev.booki.me/oauth-callback\", \"DEV_TOOLS\":\"true"}" > config.json;
   fi
 - yarn test
 script:
