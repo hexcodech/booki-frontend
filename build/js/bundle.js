@@ -3251,10 +3251,10 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"API_URL:": "https://dev-api.booki.me",
-	"API_VERSION:": "1",
-	"CLIENT_ID:": "2",
-	"REDIRECT_URI:": "https://dev.booki.me/oauth-callback"
+	"API_URL": "https://dev-api.booki.me",
+	"API_VERSION": "1",
+	"CLIENT_ID": "2",
+	"REDIRECT_URI": "https://dev.booki.me/oauth-callback"
 };
 
 /***/ }),
