@@ -27,11 +27,11 @@ $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 if($response && $status == 200){
 	$json = json_decode($response);
 	$token = $json->access_token;
-	
+
 	header("Location: /auth/callback?token=" . $token->token . "&clientId=" . $token->clientId . "&userId=" . $token->userId . "&expires=" . $token->expires);
 }else{
 	header("Location: /?status=" . $status . "&response=" . $response);
 }
 
-	
+
 ?>

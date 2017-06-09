@@ -36,7 +36,7 @@ before_script:
 script:
 - yarn run build
 after_success:
-- cd build && find . -type d -print
+- cd build && find . -print
 - export GIT_TAG=build-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
 - git remote add origin-frontend https://${GH_TOKEN}@github.com/hexcodech/booki-frontend.git > /dev/null 2>&1
 - git config --global user.email "builds@travis-ci.org"

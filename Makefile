@@ -8,6 +8,7 @@ all:
 		rm -rf $(BUILD); \
 		mkdir $(BUILD); \
 		cp web/index.html $(BUILD)/index.html; \
+		cp config.json $(BUILD)/config.json; \
 		cp -r web/css/ $(BUILD)/css/; \
 		cp -r web/img $(BUILD)/img; \
 		$(WEBPACK) --config "$(BUILD_CONFIG)"; \
