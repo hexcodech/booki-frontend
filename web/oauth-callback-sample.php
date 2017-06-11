@@ -9,13 +9,13 @@ if(empty($_GET["code"])){
 }
 
 
-$curl = curl_init($config["API_URL"] . "/oauth2/token");
+$curl = curl_init($config->API_URL . "/oauth2/token");
 curl_setopt($curl, CURLOPT_HEADER, false);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array(
-	"clientId"      => $config["CLIENT_ID"],
+	"clientId"      => $config->CLIENT_ID,
 	"clientSecret"  => CLIENT_SECRET,
 	"code"          => $_GET["code"],
 	"grant_type"    => "authorization_code"
