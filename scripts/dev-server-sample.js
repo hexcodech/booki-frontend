@@ -1,6 +1,6 @@
 const apiConfig = require("../config.json");
-//this can't be read by the client (btw this is just a local dev secret
-const CLIENT_SECRET = "LSrPC7eMrZBUDOy6rJrZCl6xOm60U/";
+//this can't be read by the client
+const CLIENT_SECRET = "";
 
 const path = require("path");
 const webpack = require("webpack");
