@@ -27854,7 +27854,6 @@ var BookDetail = function (_React$Component) {
 					title: "Anfrage verschickt",
 					text: "Die Anfrage wurde erfolgreich übermittelt.",
 					hideDelay: 2500,
-					icon: "check_circle",
 					color: _color.COLOR_SUCCESS
 				}));
 			});
@@ -28321,7 +28320,6 @@ var Profile = function (_React$Component) {
 					title: "Gespeichert",
 					text: "Die Daten wurden erfolgreich gespeichert",
 					hideDelay: 2500,
-					icon: "check_circle",
 					color: _color.COLOR_SUCCESS
 				}));
 
@@ -28350,7 +28348,6 @@ var Profile = function (_React$Component) {
 				_this.props.dispatch((0, _notification.addNotification)({
 					title: "Datei ungültig!",
 					text: "Wähle ein Bild, dass kleiner als 2 Megabyte ist!",
-					icon: "error_outline",
 					color: _color.COLOR_FAILURE,
 					actions: []
 				}));
@@ -32344,7 +32341,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".web-containers-pages-___Profile__header___1CBys {\n  display: flex;\n  align-items: center;\n  margin-bottom: 1rem;\n}\n\n.web-containers-pages-___Profile__header___1CBys h1 {\n  margin-left: 1rem;\n}\n\n.web-containers-pages-___Profile__profile-picture___1Cycj {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  border: #FFC676 5px solid;\n  overflow: hidden;\n}\n\n.web-containers-pages-___Profile__profile-picture___1Cycj img {\n  display: inline-block;\n  width: 100%;\n  height: auto;\n}\n\n.web-containers-pages-___Profile__profile-picture___1Cycj:hover .web-containers-pages-___Profile__overlay___3uDVT {\n  opacity: 1;\n}\n\n.web-containers-pages-___Profile__overlay___3uDVT {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.25);\n  opacity: 0;\n}\n\n.web-containers-pages-___Profile__overlay___3uDVT input {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  opacity: 0;\n  z-index: 100;\n  cursor: pointer;\n}\n\n.web-containers-pages-___Profile__overlay___3uDVT i {\n  position: absolute;\n  top: 50%;\n  right: 0;\n  left: 0;\n  z-index: 99;\n  transform: translateY(-50%);\n  text-align: center;\n  font-size: 1.5rem;\n  color: #fff;\n}\n\n.web-containers-pages-___Profile__table___1WE68 {\n  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n  border-radius: 5px;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:nth-child(1) {\n  width: 50%;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:nth-child(2) {\n  width: 30%;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:nth-child(3) {\n  width: 20%;\n}\n\n.web-containers-pages-___Profile__table___1WE68 th,\n.web-containers-pages-___Profile__table___1WE68 td {\n  padding: .5rem;\n}\n\n.web-containers-pages-___Profile__table___1WE68 {\n  border: #FFC676 1px solid;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td,\n.web-containers-pages-___Profile__table___1WE68 th {\n  border-bottom: #FFC676 1px solid;\n  border-right: #FFC676 1px solid;\n}\n\n.web-containers-pages-___Profile__table___1WE68 tr:last-child td {\n  border-bottom: none;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:last-child,\n.web-containers-pages-___Profile__table___1WE68 th:last-child {\n  border-right: none;\n}\n\n.web-containers-pages-___Profile__title___YtFRs {\n  margin: 1rem 0 .5rem 0;\n}", ""]);
+exports.push([module.i, ".web-containers-pages-___Profile__header___1CBys {\n  display: flex;\n  align-items: center;\n  margin-bottom: 1rem;\n}\n\n.web-containers-pages-___Profile__header___1CBys h1 {\n  margin-left: 1rem;\n}\n\n.web-containers-pages-___Profile__profile-picture___1Cycj {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  border: #FFC676 5px solid;\n  overflow: hidden;\n}\n\n.web-containers-pages-___Profile__profile-picture___1Cycj img {\n  display: inline-block;\n  width: 100%;\n  height: auto;\n}\n\n.web-containers-pages-___Profile__profile-picture___1Cycj:hover .web-containers-pages-___Profile__overlay___3uDVT {\n  opacity: 1;\n}\n\n.web-containers-pages-___Profile__overlay___3uDVT {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.25);\n  opacity: 0;\n}\n\n.web-containers-pages-___Profile__overlay___3uDVT input {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  opacity: 0;\n  z-index: 100;\n  cursor: pointer;\n}\n\n.web-containers-pages-___Profile__overlay___3uDVT svg {\n  position: absolute;\n  top: 50%;\n  right: 0;\n  left: 50%;\n  z-index: 99;\n  transform: translate(-50%, -50%);\n  font-size: 1.5rem;\n  color: #fff;\n}\n\n.web-containers-pages-___Profile__table___1WE68 {\n  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n  border-radius: 5px;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:nth-child(1) {\n  width: 50%;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:nth-child(2) {\n  width: 30%;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:nth-child(3) {\n  width: 20%;\n}\n\n.web-containers-pages-___Profile__table___1WE68 th,\n.web-containers-pages-___Profile__table___1WE68 td {\n  padding: .5rem;\n}\n\n.web-containers-pages-___Profile__table___1WE68 {\n  border: #FFC676 1px solid;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td,\n.web-containers-pages-___Profile__table___1WE68 th {\n  border-bottom: #FFC676 1px solid;\n  border-right: #FFC676 1px solid;\n}\n\n.web-containers-pages-___Profile__table___1WE68 tr:last-child td {\n  border-bottom: none;\n}\n\n.web-containers-pages-___Profile__table___1WE68 td:last-child,\n.web-containers-pages-___Profile__table___1WE68 th:last-child {\n  border-right: none;\n}\n\n.web-containers-pages-___Profile__title___YtFRs {\n  margin: 1rem 0 .5rem 0;\n}", ""]);
 
 // exports
 exports.locals = {
