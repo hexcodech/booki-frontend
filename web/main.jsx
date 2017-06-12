@@ -15,10 +15,18 @@ import throttle from "lodash/throttle";
 import { loadState, saveState } from "core/utilities/local-storage";
 import { reducer as burgerMenuReducer } from "redux-burger-menu";
 
+import { DEV_TOOLS } from "config.json";
 import DevTools from "web/components/dev/DevTools";
 
 const presistedState = loadState();
 const history = createHistory();
+
+const composed = DEV_TOOLS
+	? compose(
+			applyMiddleware(thunkMiddleware, routerMiddleware(history)),
+			DevTools.instrument()
+		)
+	: compose(applyMiddleware(thunkMiddleware, routerMiddleware(history)));
 
 const store = createStore(
 	combineReducers({
@@ -27,10 +35,7 @@ const store = createStore(
 		burgerMenu: burgerMenuReducer
 	}),
 	presistedState,
-	compose(
-		applyMiddleware(thunkMiddleware, routerMiddleware(history)),
-		DevTools.instrument()
-	)
+	composed
 );
 
 //storing some keys of the application state in the localstorage

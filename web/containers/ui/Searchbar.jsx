@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Autosuggest from "react-autosuggest";
 import { push } from "react-router-redux";
 import debounce from "lodash/debounce";
+import MdSearch from "react-icons/md/search";
 
 import { getParameterByName } from "core/utilities/location";
 
@@ -14,11 +15,10 @@ import styles from "./Searchbar.scss";
 
 const getSuggestionValue = book => book.title;
 
-const renderSuggestion = book => (
+const renderSuggestion = book =>
 	<div>
 		{book.title}
-	</div>
-);
+	</div>;
 
 class Search extends React.Component {
 	componentDidMount = () => {
@@ -81,7 +81,7 @@ class Search extends React.Component {
 					inputProps={inputProps}
 				/>
 				<div className="input-group-addon" styleName="search-button">
-					<i className="material-icons">search</i>
+					<MdSearch />
 				</div>
 			</div>
 		);

@@ -10,11 +10,7 @@
 
   min-height: 300px;
 
-  background-color: #9B9B9B;
-  background-image: url("/img/matura.jpg");
-  background-repeat: none;
-  background-size: cover;
-  background-position: center;
+  background-color: #CFCFCF;
 }
 
 .slider{
@@ -47,4 +43,12 @@
 
 .book-list{
   margin-top: 1rem;
+}
+
+.slider-books img{
+  width:100%;
+  height: auto;
+}
+.slider-books:nth-child(3) img{
+  margin-top: 150px;
 }

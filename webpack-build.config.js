@@ -7,9 +7,9 @@ module.exports = {
 	entry: [path.join(__dirname, "web/main.jsx")],
 
 	output: {
-		path: path.join(__dirname, "build/"),
+		path: path.join(__dirname, "build/js/"),
 		filename: "bundle.js",
-		publicPath: "/build/"
+		publicPath: "/js/"
 	},
 
 	plugins: [],
@@ -28,7 +28,12 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [
+					path.resolve(__dirname, "app"),
+					path.resolve(__dirname, "web"),
+					path.resolve(__dirname, "node_modules", "booki-frontend-core"),
+					path.resolve(__dirname, "node_modules", "react-icons")
+				],
 
 				use: [
 					{
@@ -45,7 +50,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [path.resolve(__dirname, "web")],
 
 				use: [
 					{
@@ -66,7 +71,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [path.resolve(__dirname, "web")],
 
 				use: [
 					{

@@ -117,7 +117,9 @@ class Sell extends React.Component {
 				}
 
 				dispatch(updateBook(book));
-				this.toNextStep(book && book.verified ? book.verified : false);
+				this.toNextStep(
+					book && book.verified ? book.verified : this.validateBook_(book)
+				);
 			});
 	};
 
@@ -191,7 +193,8 @@ class Sell extends React.Component {
 
 	onBookChange = key => {
 		return event => {
-			let book = { ...this.props.sell.book }, image = this.props.sell.image;
+			let book = { ...this.props.sell.book },
+				image = this.props.sell.image;
 			book[key] = event.currentTarget.value;
 
 			this.props.dispatch(updateBook(book));
@@ -200,18 +203,23 @@ class Sell extends React.Component {
 	};
 
 	validateBook = (book, image) => {
-		if (
-			book.title.length > 0 &&
-			book.authors.length > 0 &&
-			(!isNaN(book.pageCount) && book.pageCount > 0) &&
-			((book.coverId && book.coverId != 0) || (image.id && image.id != 0)) &&
-			book.language &&
-			book.language.length >= 2
-		) {
+		if (this.validateBook_(book, image)) {
 			this.props.dispatch(setNextEnabled(true));
 		} else {
 			this.props.dispatch(setNextEnabled(false));
 		}
+	};
+
+	validateBook_ = (book, image) => {
+		return (
+			book.title.length > 0 &&
+			book.authors.length > 0 &&
+			(!isNaN(book.pageCount) && book.pageCount > 0) &&
+			((book.thumbnails && book.thumbnails.length > 0) ||
+				(image.id && image.id != 0)) &&
+			book.language &&
+			book.language.length >= 2
+		);
 	};
 
 	onSubmitBook = () => {
@@ -248,7 +256,7 @@ class Sell extends React.Component {
 
 	onOfferChange = key => {
 		return event => {
-			let offer = {};
+			let offer = Object.assign({}, this.props.sell.offer);
 			offer[key] = event.currentTarget.value;
 
 			this.props.dispatch(updateOffer(offer));
@@ -314,8 +322,10 @@ class Sell extends React.Component {
 						>
 
 							<small styleName="description">
-								Um dein Buch möglichst schnell zu finden, gib im unteren Suchfeld
-								seine ISBN ein. Wir versuchen dann, so viel wie möglich über dein
+								Um dein Buch möglichst schnell zu finden, gib im unteren
+								Suchfeld
+								seine ISBN ein. Wir versuchen dann, so viel wie möglich über
+								dein
 								Buch herauszufinden.
 							</small>
 

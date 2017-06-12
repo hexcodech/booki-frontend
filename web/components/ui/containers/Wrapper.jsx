@@ -1,4 +1,5 @@
 import React from "react";
+import { DEV_TOOLS } from "config.json";
 
 import DevTools from "web/components/dev/DevTools";
 
@@ -21,7 +22,7 @@ const Wrapper = ({ children }) => {
 			</div>
 			<Footer />
 			<Notifications />
-			<DevTools />
+			{DEV_TOOLS && <DevTools />}
 		</div>
 	);
 };

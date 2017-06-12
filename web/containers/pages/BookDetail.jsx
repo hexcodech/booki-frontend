@@ -51,7 +51,6 @@ class BookDetail extends React.Component {
 					title: "Anfrage verschickt",
 					text: "Die Anfrage wurde erfolgreich übermittelt.",
 					hideDelay: 2500,
-					icon: "check_circle",
 					color: COLOR_SUCCESS
 				})
 			);
@@ -108,7 +107,8 @@ class BookDetail extends React.Component {
 								placeholder="Könntest Du mir das Buch nach Hause senden? Meine Adresse ist..."
 							/>
 							<small>
-								Hinweis: Mit "Senden" erhält der Verkäufer deine E-Mail Adresse und kann dich so direkt kontaktieren.
+								Hinweis: Mit "Senden" erhält der Verkäufer deine E-Mail Adresse
+								und kann dich so direkt kontaktieren.
 							</small>
 							<button
 								styleName="cancel"
@@ -165,9 +165,9 @@ class BookDetail extends React.Component {
 													height="25"
 													src={
 														API_URL +
-															"/static/res/img/locales/" +
-															book.language +
-															".svg"
+														"/static/res/img/locales/" +
+														book.language +
+														".svg"
 													}
 												/>
 											</td>
