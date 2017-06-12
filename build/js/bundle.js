@@ -13563,7 +13563,7 @@ _react2.default.createElement(
 	{
 		toggleVisibilityKey: "ctrl-h",
 		changePositionKey: "ctrl-q",
-		defaultIsVisible: true
+		defaultIsVisible: false
 	},
 	_react2.default.createElement(_reduxDevtoolsLogMonitor2.default, { theme: "tomorrow" })
 ));
