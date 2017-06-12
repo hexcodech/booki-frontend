@@ -29227,7 +29227,7 @@ var Sell = function (_React$Component) {
 				}
 
 				dispatch((0, _sell.updateBook)(book));
-				_this.toNextStep(book && book.verified ? book.verified : false);
+				_this.toNextStep(book && book.verified ? book.verified : _this.validateBook_(book));
 			});
 		}, _this.authorInput = function (author) {
 			var _this$props3 = _this.props,
@@ -29301,11 +29301,13 @@ var Sell = function (_React$Component) {
 				_this.validateBook(book, image);
 			};
 		}, _this.validateBook = function (book, image) {
-			if (book.title.length > 0 && book.authors.length > 0 && !isNaN(book.pageCount) && book.pageCount > 0 && (book.thumbnails && book.thumbnails.length > 0 || image.id && image.id != 0) && book.language && book.language.length >= 2) {
+			if (_this.validateBook_(book, image)) {
 				_this.props.dispatch((0, _sell.setNextEnabled)(true));
 			} else {
 				_this.props.dispatch((0, _sell.setNextEnabled)(false));
 			}
+		}, _this.validateBook_ = function (book, image) {
+			return book.title.length > 0 && book.authors.length > 0 && !isNaN(book.pageCount) && book.pageCount > 0 && (book.thumbnails && book.thumbnails.length > 0 || image.id && image.id != 0) && book.language && book.language.length >= 2;
 		}, _this.onSubmitBook = function () {
 			var _this$props5 = _this.props,
 			    dispatch = _this$props5.dispatch,
@@ -29344,7 +29346,7 @@ var Sell = function (_React$Component) {
 			}
 		}, _this.onOfferChange = function (key) {
 			return function (event) {
-				var offer = {};
+				var offer = Object.assign({}, _this.props.sell.offer);
 				offer[key] = event.currentTarget.value;
 
 				_this.props.dispatch((0, _sell.updateOffer)(offer));
