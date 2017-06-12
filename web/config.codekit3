@@ -630,6 +630,50 @@
 		"oAP": "\/css\/booki-frontend.min.css.map",
 		"oF": 0
 		},
+	"\/img\/book01.png": {
+		"ft": 32768,
+		"iS": 213520,
+		"oA": 0,
+		"oAP": "\/img\/book01.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/book02.png": {
+		"ft": 32768,
+		"iS": 262183,
+		"oA": 0,
+		"oAP": "\/img\/book02.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/book03.png": {
+		"ft": 32768,
+		"iS": 303954,
+		"oA": 0,
+		"oAP": "\/img\/book03.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/book04.png": {
+		"ft": 32768,
+		"iS": 465991,
+		"oA": 0,
+		"oAP": "\/img\/book04.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/img\/matura.jpg": {
 		"ft": 16384,
 		"iS": 356304,
@@ -654,6 +698,12 @@
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
+		},
+	"\/oauth-callback-sample.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/oauth-callback-sample.php",
+		"oF": 0
 		},
 	"\/scss\/booki-frontend.scss": {
 		"aP": 1,
