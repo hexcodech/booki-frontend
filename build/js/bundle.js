@@ -2012,11 +2012,11 @@ module.exports = root;
 /***/ (function(module, exports) {
 
 module.exports = {
-	"API_URL": "https://dev-api.booki.me",
+	"API_URL": "https://beta-api.booki.me",
 	"API_VERSION": "1",
 	"CLIENT_ID": "2",
-	"REDIRECT_URI": "https://dev.booki.me/oauth-callback",
-	"DEV_TOOLS": true
+	"REDIRECT_URI": "https://beta.booki.me/oauth-callback",
+	"DEV_TOOLS": false
 };
 
 /***/ }),
