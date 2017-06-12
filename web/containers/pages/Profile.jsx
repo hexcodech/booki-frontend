@@ -80,7 +80,6 @@ class Profile extends React.Component {
 						title: "Gespeichert",
 						text: "Die Daten wurden erfolgreich gespeichert",
 						hideDelay: 2500,
-						icon: "check_circle",
 						color: COLOR_SUCCESS
 					})
 				);
@@ -113,7 +112,6 @@ class Profile extends React.Component {
 				addNotification({
 					title: "Datei ungültig!",
 					text: "Wähle ein Bild, dass kleiner als 2 Megabyte ist!",
-					icon: "error_outline",
 					color: COLOR_FAILURE,
 					actions: []
 				})

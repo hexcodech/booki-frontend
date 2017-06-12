@@ -56,17 +56,15 @@
     cursor: pointer;
   }
 
-  i{
+  svg{
     position: absolute;
     top: 50%;
     right: 0;
-    left: 0;
+    left: 50%;
 
     z-index: 99;
 
-    transform: translateY(-50%);
-
-    text-align: center;
+    transform: translate(-50%, -50%);
     font-size: 1.5rem;
     color: #fff;
   }
