@@ -4,6 +4,8 @@ const webpack = require("webpack");
 process.traceDeprecation = true; //https://github.com/webpack/loader-utils/issues/56
 
 module.exports = {
+	devtool: "cheap-module-source-map",
+
 	entry: [path.join(__dirname, "web/main.jsx")],
 
 	output: {
@@ -12,7 +14,15 @@ module.exports = {
 		publicPath: "/js/"
 	},
 
-	plugins: [],
+	plugins: [
+		new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: JSON.stringify("production")
+			}
+		}),
+		new webpack.optimize.UglifyJsPlugin(), //minify everything
+		new webpack.optimize.AggressiveMergingPlugin() //Merge chunks
+	],
 
 	resolve: {
 		modules: [path.resolve(__dirname), path.resolve(__dirname, "node_modules")],

@@ -6,8 +6,6 @@
   background-color: $brand-primary;
   color: #fff;
 
-  height: 180px;
-
   z-index: 1;
 
   padding: 2rem 0 .5rem 0;
@@ -36,12 +34,6 @@
 }
 
 .copyright{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
   text-transform: uppercase;
-
   text-align: center;
 }
