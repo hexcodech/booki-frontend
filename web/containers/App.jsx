@@ -9,8 +9,9 @@ import OAuthCallback from "web/components/auth/OAuthCallback";
 import Wrapper from "web/components/ui/containers/Wrapper";
 
 //Content
-import Home from "web/components/pages/Home";
 import Login from "web/components/pages/Login";
+
+import Home from "web/containers/pages/Home";
 import Sell from "web/containers/pages/Sell";
 import BookDetail from "web/containers/pages/BookDetail";
 import Search from "web/containers/pages/Search";

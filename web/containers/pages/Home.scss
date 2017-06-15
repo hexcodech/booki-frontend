@@ -41,14 +41,18 @@
   }
 }
 
-.book-list{
-  margin-top: 1rem;
-}
-
 .slider-books img{
   width:100%;
   height: auto;
 }
 .slider-books:nth-child(3) img{
   margin-top: 150px;
+}
+
+.book-list{
+  margin-top: 1rem;
+}
+
+.book{
+  margin-bottom: $grid-gutter-width-base;
 }
