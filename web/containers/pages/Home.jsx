@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 class Home extends React.Component {
 	componentDidMount = () => {
-		this.props.dispatch(fetchLatestOffersIfNeeded(this.props.accessToken));
+		this.props.dispatch(fetchLatestOffersIfNeeded());
 	};
 
 	render() {
