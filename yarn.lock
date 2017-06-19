@@ -821,8 +821,8 @@ babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.25.0:
     to-fast-properties "^1.0.1"
 
 babylon@^6.17.2:
-  version "6.17.3"
-  resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.17.3.tgz#1327d709950b558f204e5352587fd0290f8d8e48"
+  version "6.17.4"
+  resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.17.4.tgz#3e8b7402b88d22c3423e137a1577883b15ff869a"
 
 balanced-match@^0.4.2:
   version "0.4.2"
@@ -865,8 +865,8 @@ bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.6.tgz#53344adb14617a13f6e8dd2ce28905d1c0ba3215"
 
 "booki-frontend-core@github:hexcodech/booki-frontend-core":
-  version "1.0.10"
-  resolved "https://codeload.github.com/hexcodech/booki-frontend-core/tar.gz/c7c64e04b877809997c17687cd41b866d51b9f4d"
+  version "1.0.11"
+  resolved "https://codeload.github.com/hexcodech/booki-frontend-core/tar.gz/c03435e3faf98440a96d6c9bc9962cf2717a7ff7"
   dependencies:
     lodash "^4.17.4"
     redux "^3.6.0"
@@ -1041,12 +1041,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000686"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000686.tgz#d55b479ed6e6402c1fd3f1fd8f46e694d86ea464"
+  version "1.0.30000692"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000692.tgz#3da9a99353adbcea1e142b99f60ecc6216df47a5"
 
 caniuse-lite@^1.0.30000684:
-  version "1.0.30000686"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000686.tgz#d9d9ec6110e5533be544a689003f7596532c67d3"
+  version "1.0.30000692"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000692.tgz#34600fd7152352d85a47f4662a3b51b02d8b646f"
 
 caseless@~0.12.0:
   version "0.12.0"

@@ -79,9 +79,11 @@ class BookDetail extends React.Component {
 
 		thumbnail = thumbnail ? API_URL + thumbnail.url : "";
 
-		let offer = book.offers.filter(offer => {
-			return offer.id == bookDetail.offerId;
-		})[0];
+		let offer = book.offers
+			? book.offers.filter(offer => {
+					return offer.id == bookDetail.offerId;
+				})[0]
+			: false;
 
 		return (
 			<div>

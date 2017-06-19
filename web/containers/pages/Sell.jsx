@@ -39,7 +39,8 @@ import CSSModules from "react-css-modules";
 import styles from "./Sell.scss";
 
 const conditionTranslations = {
-	GOOD: "gut"
+	GOOD: "gut",
+	BAD: "schlecht"
 };
 
 const fuzzySearch = (query, suggestions) => {
@@ -212,13 +213,12 @@ class Sell extends React.Component {
 
 	validateBook_ = (book, image) => {
 		return (
-			book.title.length > 0 &&
-			book.authors.length > 0 &&
+			(book.title && book.title.length) > 0 &&
+			(book.authors && book.authors.length) > 0 &&
 			(!isNaN(book.pageCount) && book.pageCount > 0) &&
 			((book.thumbnails && book.thumbnails.length > 0) ||
 				(image.id && image.id != 0)) &&
-			book.language &&
-			book.language.length >= 2
+			(book.language && book.language.length >= 2)
 		);
 	};
 
@@ -332,7 +332,7 @@ class Sell extends React.Component {
 							<div styleName="isbn-input" className="form-group">
 								<InputMask
 									className="form-control"
-									mask="\979–9–999–99999–9"
+									mask="999–9–999–99999–9"
 									maskChar="_"
 									alwaysShowMask={true}
 									onChange={this.onChangeIsbn}
@@ -397,6 +397,19 @@ class Sell extends React.Component {
 											}
 											className="form-control"
 											onChange={this.onBookChange("subtitle")}
+											disabled={inputsDisabled}
+										/>
+									</div>
+									<div className="form-group">
+										<textarea
+											placeholder="Beschreibung"
+											value={
+												this.props.sell.book.description
+													? this.props.sell.book.description
+													: ""
+											}
+											className="form-control"
+											onChange={this.onBookChange("description")}
 											disabled={inputsDisabled}
 										/>
 									</div>
@@ -505,7 +518,9 @@ class Sell extends React.Component {
 											{conditions.map(condition => {
 												return (
 													<option key={condition.id} value={condition.id}>
-														{conditionTranslations[condition.key]}
+														{condition.key in conditionTranslations
+															? conditionTranslations[condition.key]
+															: condition.key}
 													</option>
 												);
 											})}

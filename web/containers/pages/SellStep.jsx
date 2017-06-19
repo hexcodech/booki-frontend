@@ -4,6 +4,8 @@ import { push } from "react-router-redux";
 
 import Loader from "halogen/PulseLoader";
 
+import { resetSell } from "app/actions/pages/sell";
+
 import CSSModules from "react-css-modules";
 import styles from "./SellStep.scss";
 
@@ -22,6 +24,7 @@ class SellStep extends React.Component {
 					className="btn btn-primary"
 					onClick={() => {
 						dispatch(push("/"));
+						dispatch(resetSell());
 					}}
 				>
 					Abbrechen

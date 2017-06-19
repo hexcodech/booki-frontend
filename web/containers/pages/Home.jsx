@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { API_URL } from "config.json";
 
-import { fetchLatestOffersIfNeeded } from "core/actions/offer";
+import { fetchLatestBookOffersIfNeeded } from "core/actions/book";
 
 import Book from "web/components/ui/elements/Book";
 
@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 class Home extends React.Component {
 	componentDidMount = () => {
-		this.props.dispatch(fetchLatestOffersIfNeeded());
+		this.props.dispatch(fetchLatestBookOffersIfNeeded());
 	};
 
 	render() {
@@ -48,19 +48,19 @@ class Home extends React.Component {
 					<h1>Aktuelle Angebote</h1>
 
 					<div className="row">
-						{this.props.latestOffers.map((offer, index) => {
+						{this.props.latestBookOffers.map((book, index) => {
 							return (
 								<div
-									key={offer.id}
+									key={book.id}
 									styleName="book"
 									className="col-6 col-md-4 col-lg-2"
 								>
-									<Link to={"/book/" + offer.book.id}>
+									<Link to={"/book/" + book.id}>
 										<Book
-											id={offer.book.id}
+											id={book.id}
 											url={
 												API_URL +
-												offer.book.thumbnails.filter(thumbnail => {
+												book.thumbnails.filter(thumbnail => {
 													return thumbnail.name === "book-cover-medium";
 												})[0].url
 											}
@@ -79,7 +79,7 @@ class Home extends React.Component {
 const mapStateToProps = state => {
 	return {
 		accessToken: state.app.authentication.accessToken.token,
-		latestOffers: state.app.latestOffers
+		latestBookOffers: state.app.latestBookOffers
 	};
 };
 
