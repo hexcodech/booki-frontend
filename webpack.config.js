@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const context = path.resolve(__dirname);
 
 process.traceDeprecation = true; //https://github.com/webpack/loader-utils/issues/56
 
@@ -52,7 +53,19 @@ module.exports = {
 							presets: ["es2015", "es2016", "es2017", "react"],
 							plugins: [
 								"transform-object-rest-spread",
-								"transform-class-properties"
+								"transform-class-properties",
+								[
+									"react-css-modules",
+									{
+										filetypes: {
+											".scss": {
+												syntax: "postcss-scss"
+											}
+										},
+										context: context,
+										webpackHotModuleReloading: true
+									}
+								]
 							]
 						}
 					}

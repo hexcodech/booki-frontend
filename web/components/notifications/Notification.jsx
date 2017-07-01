@@ -1,7 +1,6 @@
 import React from "react";
 
-import CSSModules from "react-css-modules";
-import styles from "./Notification.scss";
+import "./Notification.scss";
 
 const onMouseEnter = color => {
 	return e => {
@@ -71,4 +70,4 @@ const Notification = ({ notification }) => {
 	);
 };
 
-export default CSSModules(Notification, styles);
+export default Notification;

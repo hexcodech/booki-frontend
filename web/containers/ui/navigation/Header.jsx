@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { API_URL, CLIENT_ID, REDIRECT_URI } from "config.json";
 import MdMenu from "react-icons/md/menu";
 
-import CSSModules from "react-css-modules";
-import styles from "./Header.scss";
+import "./Header.scss";
 
 import Logo from "web/components/ui/elements/Logo";
 import Button from "web/components/ui/elements/Button";
@@ -59,4 +58,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Header, styles));
+export default connect(mapStateToProps)(Header);

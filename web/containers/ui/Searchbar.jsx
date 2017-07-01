@@ -10,7 +10,6 @@ import { getParameterByName } from "core/utilities/location";
 import { updateText } from "app/actions/search-bar";
 import { lookUpBooks } from "core/actions/book";
 
-import CSSModules from "react-css-modules";
 import styles from "./Searchbar.scss";
 
 const getSuggestionValue = book => book.title;
@@ -70,7 +69,7 @@ class Search extends React.Component {
 		};
 
 		return (
-			<div className="input-group" styleName="search">
+			<div className="input-group" styleName="styles.search">
 				<Autosuggest
 					theme={styles}
 					suggestions={suggestions}
@@ -80,7 +79,7 @@ class Search extends React.Component {
 					renderSuggestion={renderSuggestion}
 					inputProps={inputProps}
 				/>
-				<div className="input-group-addon" styleName="search-button">
+				<div className="input-group-addon" styleName="styles.search-button">
 					<MdSearch />
 				</div>
 			</div>
@@ -95,4 +94,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Search, styles));
+export default connect(mapStateToProps)(Search);

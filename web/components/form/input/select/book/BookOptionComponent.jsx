@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import CSSModules from "react-css-modules";
-import styles from "./BookComponent.scss";
+import "./BookComponent.scss";
 
 const BookOptionComponent = ({
 	option: book,
@@ -45,4 +44,4 @@ const BookOptionComponent = ({
 	);
 };
 
-export default CSSModules(BookOptionComponent, styles);
+export default BookOptionComponent;

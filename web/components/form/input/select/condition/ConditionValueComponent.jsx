@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CSSModules from "react-css-modules";
-import styles from "./ConditionComponent.scss";
+import "./ConditionComponent.scss";
 
 const ConditionValueComponent = ({ value: condition }) => {
 	return (
@@ -14,4 +14,4 @@ const ConditionValueComponent = ({ value: condition }) => {
 	);
 };
 
-export default CSSModules(ConditionValueComponent, styles);
+export default ConditionValueComponent;

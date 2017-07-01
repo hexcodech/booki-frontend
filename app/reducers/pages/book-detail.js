@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 
-const bookDetails = (state = { offerId: false, message: "" }, action) => {
+const defaultState = { offerId: false, message: "", email: "" };
+
+const bookDetails = (state = defaultState, action) => {
 	switch (action.type) {
 		case "PAGES_BOOK_DETAIL_SET_OFFER_ID":
 			return {
@@ -12,11 +14,19 @@ const bookDetails = (state = { offerId: false, message: "" }, action) => {
 				...state,
 				offerId: false
 			};
+		case "PAGES_BOOK_DETAIL_RESET_OFFER_REQUEST":
+			return defaultState;
 
 		case "PAGES_BOOK_DETAIL_UPDATE_MESSAGE":
 			return {
 				...state,
 				message: action.message
+			};
+
+		case "PAGES_BOOK_DETAIL_UPDATE_EMAIL":
+			return {
+				...state,
+				email: action.email
 			};
 
 		default:

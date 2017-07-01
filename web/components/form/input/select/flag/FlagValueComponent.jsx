@@ -3,7 +3,7 @@ import React from "react";
 import { API_URL } from "config.json";
 
 import CSSModules from "react-css-modules";
-import styles from "./FlagComponent.scss";
+import "./FlagComponent.scss";
 
 const FlagValueComponent = ({ value }) => {
 	let url = API_URL + "/static/res/img/locales/" + value.value + ".svg";
@@ -15,4 +15,4 @@ const FlagValueComponent = ({ value }) => {
 	);
 };
 
-export default CSSModules(FlagValueComponent, styles);
+export default FlagValueComponent;

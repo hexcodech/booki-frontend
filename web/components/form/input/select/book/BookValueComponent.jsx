@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CSSModules from "react-css-modules";
-import styles from "./BookComponent.scss";
+import "./BookComponent.scss";
 
 const BookValueComponent = ({ value: book }) => {
 	return (
@@ -19,4 +19,4 @@ const BookValueComponent = ({ value: book }) => {
 	);
 };
 
-export default CSSModules(BookValueComponent, styles);
+export default BookValueComponent;

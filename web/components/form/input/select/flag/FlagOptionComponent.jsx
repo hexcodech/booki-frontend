@@ -3,7 +3,7 @@ import React from "react";
 import { API_URL } from "config.json";
 
 import CSSModules from "react-css-modules";
-import styles from "./FlagComponent.scss";
+import "./FlagComponent.scss";
 
 const FlagOptionComponent = ({ option, isFocused, onFocus, onSelect }) => {
 	let url = API_URL + "/static/res/img/locales/" + option.value + ".svg";
@@ -36,4 +36,4 @@ const FlagOptionComponent = ({ option, isFocused, onFocus, onSelect }) => {
 	);
 };
 
-export default CSSModules(FlagOptionComponent, styles);
+export default FlagOptionComponent;

@@ -3,7 +3,7 @@ import React from "react";
 import FormField from "web/components/form/FormField";
 
 import CSSModules from "react-css-modules";
-import styles from "./FormGroups.scss";
+import "./FormGroups.scss";
 
 const FormGroups = ({ object, keyPaths, handleOnChange, errors = {} }) => {
 	let formGroups = [];
@@ -40,4 +40,4 @@ const FormGroups = ({ object, keyPaths, handleOnChange, errors = {} }) => {
 	return <div>{formGroups}</div>;
 };
 
-export default CSSModules(FormGroups, styles);
+export default FormGroups;

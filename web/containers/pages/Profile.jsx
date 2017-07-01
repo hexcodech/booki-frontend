@@ -15,8 +15,7 @@ import { fetchBookIfNeeded } from "core/actions/book";
 
 import { addNotification } from "core/actions/notification";
 
-import CSSModules from "react-css-modules";
-import styles from "./Profile.scss";
+import "./Profile.scss";
 
 import Loader from "halogen/RingLoader";
 
@@ -377,4 +376,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Profile, styles));
+export default connect(mapStateToProps)(Profile);

@@ -35,8 +35,7 @@ import { fetchConditionsIfNeeded } from "core/actions/condition";
 import Modal from "web/components/ui/containers/Modal";
 import SellStep from "web/containers/pages/SellStep";
 
-import CSSModules from "react-css-modules";
-import styles from "./Sell.scss";
+import "./Sell.scss";
 
 const conditionTranslations = {
 	GOOD: "gut",
@@ -574,4 +573,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Sell, styles));
+export default connect(mapStateToProps)(Sell);

@@ -6,8 +6,7 @@ import Loader from "halogen/PulseLoader";
 
 import { resetSell } from "app/actions/pages/sell";
 
-import CSSModules from "react-css-modules";
-import styles from "./SellStep.scss";
+import "./SellStep.scss";
 
 class SellStep extends React.Component {
 	render() {
@@ -44,4 +43,4 @@ class SellStep extends React.Component {
 	}
 }
 
-export default connect()(CSSModules(SellStep, styles));
+export default connect()(SellStep);

@@ -1,7 +1,6 @@
 import React from "react";
 
-import CSSModules from "react-css-modules";
-import styles from "./Modal.scss";
+import "./Modal.scss";
 
 const Modal = ({ children = [], fading = [] }) => {
 	if (!Array.isArray(children)) {
@@ -32,4 +31,4 @@ const Modal = ({ children = [], fading = [] }) => {
 	);
 };
 
-export default CSSModules(Modal, styles);
+export default Modal;

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CSSModules from "react-css-modules";
-import styles from "./ConditionComponent.scss";
+import "./ConditionComponent.scss";
 
 const ConditionOptionComponent = ({
 	option: condition,
@@ -38,4 +38,4 @@ const ConditionOptionComponent = ({
 	);
 };
 
-export default CSSModules(ConditionOptionComponent, styles);
+export default ConditionOptionComponent;

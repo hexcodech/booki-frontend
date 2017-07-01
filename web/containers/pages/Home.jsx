@@ -7,8 +7,7 @@ import { fetchLatestBookOffersIfNeeded } from "core/actions/book";
 
 import Book from "web/components/ui/elements/Book";
 
-import CSSModules from "react-css-modules";
-import styles from "./Home.scss";
+import "./Home.scss";
 
 import { Link } from "react-router-dom";
 
@@ -83,4 +82,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Home, styles));
+export default connect(mapStateToProps)(Home);

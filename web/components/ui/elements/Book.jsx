@@ -1,7 +1,6 @@
 import React from "react";
 
-import CSSModules from "react-css-modules";
-import styles from "./Book.scss";
+import "./Book.scss";
 
 const Book = props => {
 	const id = props.id ? props.id : Math.random().toString().substring(2);
@@ -17,4 +16,4 @@ const Book = props => {
 	);
 };
 
-export default CSSModules(Book, styles);
+export default Book;

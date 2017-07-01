@@ -1,7 +1,5 @@
 import React from "react";
-
-import CSSModules from "react-css-modules";
-import styles from "./Table.scss";
+import "./Table.scss";
 
 const Table = ({ interactive, children }) => {
 	return (
@@ -11,8 +9,7 @@ const Table = ({ interactive, children }) => {
 	);
 };
 
-const StyledTable = CSSModules(Table, styles);
-export { StyledTable as Table };
+export { Table };
 
 const Seperator = props => {
 	return (
@@ -22,5 +19,4 @@ const Seperator = props => {
 	);
 };
 
-const StyledSeperator = CSSModules(Seperator, styles);
-export { StyledSeperator as Seperator };
+export { Seperator };

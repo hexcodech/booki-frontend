@@ -1,7 +1,6 @@
 import React from "react";
 
-import CSSModules from "react-css-modules";
-import styles from "./Logo.scss";
+import "./Logo.scss";
 
 const Logo = ({ color = "#FFC676" }) => {
 	return (
@@ -17,4 +16,4 @@ const Logo = ({ color = "#FFC676" }) => {
 	);
 };
 
-export default CSSModules(Logo, styles);
+export default Logo;

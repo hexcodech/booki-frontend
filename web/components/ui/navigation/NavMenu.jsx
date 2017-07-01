@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 import { API_URL, CLIENT_ID, REDIRECT_URI } from "config.json";
 
-import CSSModules from "react-css-modules";
-import styles from "./NavMenu.scss";
+import "./NavMenu.scss";
 
 const NavMenu = ({ user = false }) => {
 	let thumbnail = user.thumbnails
@@ -30,10 +29,10 @@ const NavMenu = ({ user = false }) => {
 					<a
 						href={
 							API_URL +
-								"/oauth2/authorize?client_id=" +
-								CLIENT_ID +
-								"&response_type=code&redirect_uri=" +
-								REDIRECT_URI
+							"/oauth2/authorize?client_id=" +
+							CLIENT_ID +
+							"&response_type=code&redirect_uri=" +
+							REDIRECT_URI
 						}
 					>
 						Login
@@ -54,4 +53,4 @@ const NavMenu = ({ user = false }) => {
 	);
 };
 
-export default CSSModules(NavMenu, styles);
+export default NavMenu;

@@ -13,11 +13,11 @@ import { addNotification } from "core/actions/notification";
 import {
 	setOfferId,
 	resetOfferId,
-	updateMessage
+	updateMessage,
+	updateEmail
 } from "app/actions/pages/book-detail";
 
-import CSSModules from "react-css-modules";
-import styles from "./BookDetail.scss";
+import "./BookDetail.scss";
 
 import Modal from "web/components/ui/containers/Modal";
 import Loader from "halogen/RingLoader";
@@ -37,8 +37,12 @@ class BookDetail extends React.Component {
 
 		let promise = dispatch(
 			postOfferRequest(
-				{ offerId: bookDetail.offerId, message: bookDetail.message },
-				accessToken
+				{
+					offerId: bookDetail.offerId,
+					message: bookDetail.message,
+					email: bookDetail.email
+				},
+				accessToken ? accessToken : undefined
 			)
 		);
 
@@ -99,15 +103,28 @@ class BookDetail extends React.Component {
 									</p>
 								</div>}
 							<h4>Nachricht an {offer.user.nameDisplay}</h4>
-							<textarea
-								className="form-control"
-								value={bookDetail.message}
-								onChange={e => {
-									dispatch(updateMessage(e.currentTarget.value));
-								}}
-								rows="6"
-								placeholder="Könntest Du mir das Buch nach Hause senden? Meine Adresse ist..."
-							/>
+							<div className="form-group">
+								<textarea
+									className="form-control"
+									value={bookDetail.message}
+									onChange={e => {
+										dispatch(updateMessage(e.currentTarget.value));
+									}}
+									rows="6"
+									placeholder="Könntest Du mir das Buch nach Hause senden? Meine Adresse ist..."
+								/>
+							</div>
+							{!accessToken &&
+								<div className="form-group">
+									<input
+										className="form-control"
+										value={bookDetail.email}
+										onChange={e => {
+											dispatch(updateEmail(e.currentTarget.value));
+										}}
+										placeholder="E-Mail Adresse"
+									/>
+								</div>}
 							<small>
 								Hinweis: Mit "Senden" erhält der Verkäufer deine E-Mail Adresse
 								und kann dich so direkt kontaktieren.
@@ -265,4 +282,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(BookDetail, styles));
+export default connect(mapStateToProps)(BookDetail);

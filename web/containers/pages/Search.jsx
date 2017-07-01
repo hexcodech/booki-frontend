@@ -8,8 +8,7 @@ import { API_URL } from "config.json";
 
 import { lookUpBooks } from "core/actions/book";
 
-import CSSModules from "react-css-modules";
-import styles from "./Search.scss";
+import "./Search.scss";
 
 import Loader from "halogen/RingLoader";
 
@@ -48,9 +47,9 @@ class Search extends React.Component {
 													id={book.id}
 													url={
 														API_URL +
-															book.thumbnails.filter(thumbnail => {
-																return thumbnail.name === "book-cover-medium";
-															})[0].url
+														book.thumbnails.filter(thumbnail => {
+															return thumbnail.name === "book-cover-medium";
+														})[0].url
 													}
 												/>
 											</div>
@@ -137,4 +136,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Search, styles));
+export default connect(mapStateToProps)(Search);
