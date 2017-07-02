@@ -7,9 +7,7 @@ const Modal = ({ children = [], fading = [] }) => {
 		children = [children];
 	}
 
-	let childrenCopy = [].concat(children).reverse().filter(el => {
-		return el;
-	});
+	let childrenCopy = [].concat(children).reverse().filter(e => e);
 
 	return (
 		<div>
