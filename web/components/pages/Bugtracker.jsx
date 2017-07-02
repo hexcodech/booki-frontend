@@ -16,23 +16,25 @@ class Bugtracker extends React.Component {
 	}
 
 	componentDidMount = () => {
-		let request = new XMLHttpRequest();
-		request.addEventListener("load", event => {
-			if (request.status >= 200 && request.status < 300) {
-				this.setState({ issues: JSON.parse(request.responseText) });
-			} else {
-				console.warn(request.statusText, request.responseText);
-			}
-		});
+		if (this.state.issues.length === 0) {
+			let request = new XMLHttpRequest();
+			request.addEventListener("load", event => {
+				if (request.status >= 200 && request.status < 300) {
+					this.setState({ issues: JSON.parse(request.responseText) });
+				} else {
+					console.warn(request.statusText, request.responseText);
+				}
+			});
 
-		request.open(
-			"GET",
-			"https://api.github.com/repos/hexcodech/booki-frontend/issues?state=all",
-			true
-		);
-		request.setRequestHeader("Content-Type", "application/json");
-		request.setRequestHeader("Accept", "application/vnd.github.v3+json");
-		request.send();
+			request.open(
+				"GET",
+				"https://api.github.com/repos/hexcodech/booki-frontend/issues?state=all",
+				true
+			);
+			request.setRequestHeader("Content-Type", "application/json");
+			request.setRequestHeader("Accept", "application/vnd.github.v3+json");
+			request.send();
+		}
 	};
 
 	render = () => {
@@ -41,6 +43,7 @@ class Bugtracker extends React.Component {
 		return (
 			<div styleName="bugtracker">
 				<div className="container">
+					<h1>Updateverlauf / Bugtracker</h1>
 					<ul styleName="timeline">
 						{issues.map((issue, index) => {
 							let date = new Date(issue.created_at),
@@ -74,10 +77,14 @@ class Bugtracker extends React.Component {
 									<div styleName="content-perspective">
 										<div styleName="content">
 											<div styleName="content-inner">
-												<h3>{issue.title}</h3>
+												<h3>
+													{issue.title}
+												</h3>
 												<div styleName="issue-body">
 													<ReactMarkdown source={issue.body} />
-													<a href={issue.html_url} target="_blank">Details</a>
+													<a href={issue.html_url} target="_blank">
+														Details
+													</a>
 												</div>
 											</div>
 										</div>

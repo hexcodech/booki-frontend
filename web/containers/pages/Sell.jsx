@@ -62,6 +62,8 @@ class Sell extends React.Component {
 	toNextStep = (nextEnabled = false) => {
 		const { dispatch } = this.props;
 
+		console.log(1);
+
 		dispatch(setNextEnabled(false));
 		dispatch(setLoading(false));
 		dispatch(addFading(0));
@@ -115,7 +117,6 @@ class Sell extends React.Component {
 						book = merge(...books);
 					}
 				}
-
 				dispatch(updateBook(book));
 				this.toNextStep(
 					book && book.verified ? book.verified : this.validateBook_(book)
@@ -216,7 +217,7 @@ class Sell extends React.Component {
 			(book.authors && book.authors.length) > 0 &&
 			(!isNaN(book.pageCount) && book.pageCount > 0) &&
 			((book.thumbnails && book.thumbnails.length > 0) ||
-				(image.id && image.id != 0)) &&
+				(image && image.id && image.id != 0)) &&
 			(book.language && book.language.length >= 2)
 		);
 	};
@@ -297,9 +298,10 @@ class Sell extends React.Component {
 		let { sell: { step, isbn }, conditions } = this.props;
 		let inputsDisabled = this.props.sell.book.verified;
 
-		let thumbnails = this.props.sell.book.thumbnails.length > 0
-			? this.props.sell.book.thumbnails
-			: this.props.sell.image.thumbnails,
+		let thumbnails =
+				this.props.sell.book.thumbnails.length > 0
+					? this.props.sell.book.thumbnails
+					: this.props.sell.image.thumbnails,
 			thumbnail = thumbnails.filter(thumbnail => {
 				return thumbnail.name === "book-cover-medium";
 			})[0];
@@ -311,7 +313,6 @@ class Sell extends React.Component {
 		return (
 			<div styleName="sell">
 				<Modal fading={this.props.sell.fading}>
-
 					{step <= 0 &&
 						<SellStep
 							step={step}
@@ -319,13 +320,10 @@ class Sell extends React.Component {
 							loading={loading}
 							onNextStep={this.onIsbnNextStep}
 						>
-
 							<small styleName="description">
 								Um dein Buch möglichst schnell zu finden, gib im unteren
-								Suchfeld
-								seine ISBN ein. Wir versuchen dann, so viel wie möglich über
-								dein
-								Buch herauszufinden.
+								Suchfeld seine ISBN ein. Wir versuchen dann, so viel wie möglich
+								über dein Buch herauszufinden.
 							</small>
 
 							<div styleName="isbn-input" className="form-group">
@@ -338,11 +336,8 @@ class Sell extends React.Component {
 									value={this.props.sell.isbn}
 								/>
 
-								<small className="form-text">
-									Wo finde ich die ISBN?
-								</small>
+								<small className="form-text">Wo finde ich die ISBN?</small>
 							</div>
-
 						</SellStep>}
 
 					{step <= 1 &&
@@ -352,7 +347,6 @@ class Sell extends React.Component {
 							loading={loading}
 							onNextStep={this.onSubmitBook}
 						>
-
 							<div styleName="form" className="row">
 								<div className="col-4">
 									<div styleName="image">
@@ -494,7 +488,6 @@ class Sell extends React.Component {
 									</div>
 								</div>
 							</div>
-
 						</SellStep>}
 
 					{step <= 2 &&
@@ -504,7 +497,6 @@ class Sell extends React.Component {
 							loading={loading}
 							onNextStep={this.onSubmitOffer}
 						>
-
 							<div styleName="form" className="row">
 								<div className="col-6">
 									<div className="form-group">
@@ -513,7 +505,9 @@ class Sell extends React.Component {
 											onChange={this.onOfferChange("conditionId")}
 											value={this.props.sell.offer.conditionId}
 										>
-											<option key={0} value={0}>Wähle einen Zustand</option>
+											<option key={0} value={0}>
+												Wähle einen Zustand
+											</option>
 											{conditions.map(condition => {
 												return (
 													<option key={condition.id} value={condition.id}>
@@ -554,9 +548,7 @@ class Sell extends React.Component {
 									</div>
 								</div>
 							</div>
-
 						</SellStep>}
-
 				</Modal>
 			</div>
 		);

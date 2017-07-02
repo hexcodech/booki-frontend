@@ -7,16 +7,20 @@ const Modal = ({ children = [], fading = [] }) => {
 		children = [children];
 	}
 
+	let childrenCopy = [].concat(children).reverse().filter(el => {
+		return el;
+	});
+
 	return (
 		<div>
 			<div styleName="overlay" />
 			<div styleName="modal-wrapper">
 				<div styleName="modals">
-					{React.Children.map(children.reverse(), (Modal, index) => {
+					{React.Children.map(childrenCopy, (Modal, index) => {
 						return (
 							<div
 								styleName={
-									fading.indexOf(children.length - 1 - index) !== -1
+									fading.indexOf(childrenCopy.length - 1 - index) !== -1
 										? "modal-fading"
 										: "modal"
 								}
