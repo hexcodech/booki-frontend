@@ -1,66 +1,78 @@
 @import 'web/scss/variables.scss';
 
-.search{
-  input{
-    border: $brand-primary 2px solid;
-    border-radius: 5px 0 0 5px;
+.search {
+	input {
+		border: $brand-primary 2px solid;
+		border-radius: 5px 0 0 5px;
 
-    height: 40px;
+		height: 40px;
 
-    &:focus{
-      outline: none;
-    }
-  }
+		&:focus {
+			outline: none;
+		}
+	}
 }
 
 @media (max-width: 575px) {
-  .container{
-       display: none;
-  }
-  .search-button{
-    border-radius: 5px !important;
-  }
+	.container {
+		display: none;
+	}
+	.search-button {
+		border-radius: 5px !important;
+	}
+
+	.search-toggled {
+		composes: search;
+
+		.search-button {
+			border-radius: 0 5px 5px 0 !important;
+		}
+		.container {
+			display: block;
+		}
+	}
 }
 
-.search-button{
-  border-radius: 0 5px 5px 0;
-  background-color: $brand-primary;
-  color: #fff;
-  border: none;
+.search-button {
+	border-radius: 0 5px 5px 0;
+	background-color: $brand-primary;
+	color: #fff;
+	cursor: pointer;
+	border: none;
 }
 
-.container{
-  width: 100%;
+.container {
+	width: 100%;
 }
-.input{
-  width: 100%;
-  padding: 0 .5rem;
+.input {
+	width: 100%;
+	padding: 0 .5rem;
 
-  &:focus ~ .suggestionsContainer{
-    opacity: 1;
-  }
+	&:focus ~ .suggestionsContainer {
+		opacity: 1;
+	}
 }
-.suggestionsContainer{
-  position: absolute;
-  top: 38px;
-  left: 2px;
-  right: 2px;
+.suggestionsContainer {
+	position: absolute;
+	top: 38px;
+	left: 2px;
+	right: 2px;
 
-  opacity: 0;
+	opacity: 0;
 
-  background-color: #fff;
-  border: $brand-primary 2px solid;
+	background-color: #fff;
+	border: $brand-primary 2px solid;
 
-  ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 }
-.suggestion{
-  padding: .5rem 1rem;
+.suggestion {
+	padding: .5rem 1rem;
 }
-.suggestionHighlighted{
-  background-color: $brand-primary;
-  color: #fff;
+.suggestionHighlighted {
+	background-color: $brand-primary;
+	color: #fff;
 }

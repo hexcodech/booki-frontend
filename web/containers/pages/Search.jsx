@@ -26,7 +26,6 @@ class Search extends React.Component {
 
 		return (
 			<div styleName="search" className="container">
-				<h1>Suchresultate für "{search}"</h1>
 				{combined.length === 0
 					? <div styleName="loader">
 							<Loader color="#FFC676" size="75px" />
@@ -55,14 +54,17 @@ class Search extends React.Component {
 											</div>
 											<div className="col-8 col-md-9 col-lg-10">
 												<div styleName="title">
-													<h3>{book.title}</h3>
+													<h3>
+														{book.title}
+													</h3>
 													{book.subtitle
-														? <h4>{" - " + book.subtitle}</h4>
+														? <h4>
+																{" - " + book.subtitle}
+															</h4>
 														: ""}
 												</div>
 												<div styleName="authors">
-													von
-													{" "}
+													von{" "}
 													{book.authors.reduce(
 														(list, author, index, authors) => {
 															return index === authors.length - 1
@@ -99,24 +101,22 @@ class Search extends React.Component {
 														);
 													})}
 													<span styleName="offer-counter">
-														{book.offers.length}
-														{" "}
-														Angebote
+														{book.offers.length} Angebote
 													</span>
 												</div>
-												<button
-													styleName="detail-button"
-													className="btn btn-primary"
-													onClick={() => {
-														dispatch(push("/book/" + book.id));
-													}}
-												>
-													Mehr Infos
-												</button>
-												<div styleName="price">
-													ab
-													{" "}
-													<span>10.00 Fr.</span>
+												<div styleName="details">
+													<button
+														styleName="detail-button"
+														className="btn btn-primary"
+														onClick={() => {
+															dispatch(push("/book/" + book.id));
+														}}
+													>
+														Mehr Infos
+													</button>
+													<div styleName="price">
+														ab <span>10.00 Fr.</span>
+													</div>
 												</div>
 											</div>
 										</div>

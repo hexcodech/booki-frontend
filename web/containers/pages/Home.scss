@@ -1,58 +1,63 @@
 @import "web/scss/variables.scss";
 
-.home{
-  z-index: 1;
+.home {
+	z-index: 1;
 }
 
-.slider-wrapper{
-  margin-top: -1rem;
-  padding: 1rem;
+.slider-wrapper {
+	margin-top: -1rem;
+	padding: 1rem;
 
-  min-height: 300px;
+	min-height: 300px;
 
-  background-color: #CFCFCF;
+	background-color: #cfcfcf;
 }
 
-.slider{
-  height: 100%;
+.slider {
+	height: 100%;
 }
 
-.book-slide{
-  height: 100%;
-  position: relative;
+.book-slide {
+	height: 100%;
+	position: relative;
 
-  h1, h2{
-    color: #fff;
-    text-transform: none;
-  }
+	h1,
+	h2 {
+		color: #fff;
+		text-transform: none;
+	}
 }
 
-.about{
-  text-transform: uppercase;
-  font-size: .8rem;
-  color: #fff;
+.about {
+	text-transform: uppercase;
+	font-size: .8rem;
+	color: #fff;
 
-  &:hover{
-    color: #fff;
-  }
+	&:hover {
+		color: #fff;
+	}
 
-  &:after{
-    content: " >";
-  }
+	&:after {
+		content: " >";
+	}
 }
 
-.slider-books img{
-  width:100%;
-  height: auto;
+.slider-books img {
+	width: 100%;
+	height: auto;
 }
-.slider-books:nth-child(3) img{
-  margin-top: 150px;
-}
-
-.book-list{
-  margin-top: 1rem;
+.slider-books:nth-child(3) img {
+	margin-top: 150px;
 }
 
-.book{
-  margin-bottom: $grid-gutter-width-base;
+.book-list {
+	margin-top: 1rem;
+
+	h1 {
+		margin-bottom: 1rem;
+	}
+}
+
+.book {
+	margin-bottom: $grid-gutter-width-base;
 }

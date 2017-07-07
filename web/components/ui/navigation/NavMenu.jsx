@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { action as toggleMenu } from "redux-burger-menu";
 
 import { API_URL, CLIENT_ID, REDIRECT_URI } from "config.json";
 
 import "./NavMenu.scss";
 
-const NavMenu = ({ user = false }) => {
+const NavMenu = ({ dispatch, isOpen, user = false }) => {
 	let thumbnail = user.thumbnails
 		? user.thumbnails.filter(thumbnail => {
 				return thumbnail.name == "profile-picture-small";
@@ -17,7 +19,13 @@ const NavMenu = ({ user = false }) => {
 		: "https://www.gravatar.com/avatar/?d=mm&s=50";
 
 	return (
-		<ul>
+		<ul
+			onClick={() => {
+				if (isOpen) {
+					dispatch(toggleMenu(false));
+				}
+			}}
+		>
 			<li>
 				<Link to="/">Kaufen</Link>
 			</li>
@@ -53,4 +61,10 @@ const NavMenu = ({ user = false }) => {
 	);
 };
 
-export default NavMenu;
+const mapStateToProps = state => {
+	return {
+		isOpen: state.burgerMenu.isOpen
+	};
+};
+
+export default connect(mapStateToProps)(NavMenu);

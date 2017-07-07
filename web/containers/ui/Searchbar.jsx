@@ -7,7 +7,7 @@ import MdSearch from "react-icons/md/search";
 
 import { getParameterByName } from "core/utilities/location";
 
-import { updateText } from "app/actions/search-bar";
+import { updateText, toggle } from "app/actions/search-bar";
 import { lookUpBooks } from "core/actions/book";
 
 import styles from "./Searchbar.scss";
@@ -59,7 +59,7 @@ class Search extends React.Component {
 	};
 
 	render() {
-		const { query: value, suggestions } = this.props;
+		const { dispatch, toggled, query: value, suggestions } = this.props;
 
 		const inputProps = {
 			placeholder: "Suche nach einem Buch...",
@@ -69,7 +69,10 @@ class Search extends React.Component {
 		};
 
 		return (
-			<div className="input-group" styleName="styles.search">
+			<div
+				className="input-group"
+				styleName={toggled ? "styles.search-toggled" : "styles.search"}
+			>
 				<Autosuggest
 					theme={styles}
 					suggestions={suggestions}
@@ -79,7 +82,13 @@ class Search extends React.Component {
 					renderSuggestion={renderSuggestion}
 					inputProps={inputProps}
 				/>
-				<div className="input-group-addon" styleName="styles.search-button">
+				<div
+					className="input-group-addon"
+					styleName="styles.search-button"
+					onClick={() => {
+						dispatch(toggle(!toggled));
+					}}
+				>
 					<MdSearch />
 				</div>
 			</div>
@@ -90,7 +99,8 @@ class Search extends React.Component {
 const mapStateToProps = state => {
 	return {
 		suggestions: state.app.lookedUpBooks.local,
-		query: state.app.searchBar.query
+		query: state.app.searchBar.query,
+		toggled: state.app.searchBar.toggled
 	};
 };
 

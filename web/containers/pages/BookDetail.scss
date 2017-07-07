@@ -1,130 +1,148 @@
 @import "web/scss/variables.scss";
 
-.book{
-  color: inherit;
+.book {
+	color: inherit;
 }
 
-.title{
-  h1, h2{
-    margin: 0;
-    display: inline-block;
-  }
+.title {
+	h1,
+	h2 {
+		margin: 0;
+		display: inline-block;
+	}
 
-  h2{
-    margin-left: .5rem;
-  }
+	h2 {
+		margin-left: .5rem;
+	}
 }
 
-.authors{
-  color: $gray;
-  font-style: italic;
+.authors {
+	color: $gray;
+	font-style: italic;
 }
 
-.description{
-  margin-top: 1rem;
-  text-align: justify;
+.description {
+	margin-top: 1rem;
+	text-align: justify;
 
-  hyphens: auto;
-  -webkit-hyphens: auto;
+	hyphens: auto;
+	-webkit-hyphens: auto;
 }
 
-.meta{
-  /*width: 100%;
+.meta {
+	/*width: 100%;
 
   td:first-child{
     width: 30%;
   }*/
 
-  td:first-child{
-    padding-right: 1rem;
+	td:first-child {
+		padding-right: 1rem;
 
-    &:after{
-      content: ":";
-    }
-  }
+		&:after {
+			content: ":";
+		}
+	}
 }
 
-.offers{
-  margin-top: 1rem;
+@media (max-width: 575px) {
+	.meta,
+	.meta tr {
+		display: block;
+	}
+
+	.meta td {
+		display: inline-block;
+	}
+
+	.meta td:first-child {
+		padding-right: .5rem;
+		font-weight: 700;
+	}
 }
 
-.offer{
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
-  border-radius: 5px;
-  padding: .5rem;
-
-  margin-bottom: 1rem;
-
-  h4{
-    margin: 0;
-  }
-
-  & > div{
-    align-items: center;
-
-    & > div:first-child{
-      padding-right: 0;
-    }
-  }
+.offers {
+	margin-top: 1rem;
 }
 
-.offer-description{
-  color: $gray;
+.offer {
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+	padding: .5rem;
+
+	margin-bottom: 1rem;
+
+	h4 {
+		margin: 0;
+	}
+
+	& > div {
+		align-items: center;
+
+		& > div:first-child {
+			padding-right: 0;
+		}
+	}
 }
 
-.profile-picture{
-  position: relative;
-
-  img{
-    display: block;
-    margin: 0 auto;
-
-    width: 80%;
-    height: auto;
-    border-radius: 50%;
-
-    border: $brand-primary 3px solid;
-  }
+.offer-description {
+	color: $gray;
 }
 
-.condition, .price{
-  margin: 0;
+.profile-picture {
+	position: relative;
 
-  span{
-    color: $brand-primary;
-    font-weight: 700;
-  }
+	img {
+		display: block;
+		margin: 0 auto;
+
+		width: 80%;
+		height: auto;
+		border-radius: 50%;
+
+		border: $brand-primary 3px solid;
+	}
 }
 
-.condition{
-  color: inherit;
+.condition,
+.price {
+	margin: 0;
+
+	span {
+		color: $brand-primary;
+		font-weight: 700;
+	}
 }
 
-.price{
-  color: inherit;
+.condition {
+	color: inherit;
 }
 
-.detail-button{
-  width: calc(100% + 1rem);
-  border-radius: 0 0 5px 5px;
-  margin: 1rem -.5rem -.5rem -.5rem;
-
-  font-weight: 700;
-  text-transform: uppercase;
+.price {
+	color: inherit;
 }
 
-.modal{
-  margin-bottom: 3rem;
+.detail-button {
+	width: calc(100% + 1rem);
+	border-radius: 0 0 5px 5px;
+	margin: 1rem -.5rem -.5rem -.5rem;
+
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
-.cancel{
-  position: absolute;
-  left: 1rem;
-  bottom: 1rem;
+.modal {
+	margin-bottom: 3rem;
 }
 
-.send{
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+.cancel {
+	position: absolute;
+	left: 1rem;
+	bottom: 1rem;
+}
+
+.send {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
 }

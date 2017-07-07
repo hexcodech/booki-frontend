@@ -14,7 +14,13 @@ import NavMenu from "web/components/ui/navigation/NavMenu";
 import Menu from "web/containers/ui/navigation/Burger";
 import Searchbar from "web/containers/ui/Searchbar";
 
-const Header = ({ children, dispatch, user, accessToken }) => {
+const Header = ({
+	children,
+	dispatch,
+	user,
+	searchbarToggled,
+	accessToken
+}) => {
 	return (
 		<div>
 			<Menu right pageWrapId="page-wrap" outerContainerId="outer-container">
@@ -22,15 +28,14 @@ const Header = ({ children, dispatch, user, accessToken }) => {
 			</Menu>
 			<header styleName="header-wrapper">
 				<div styleName="header" className="container">
-					<Link to="/">
-						<div styleName="logo">
-							<Logo />
-						</div>
-					</Link>
+					{!searchbarToggled &&
+						<Link to="/">
+							<div styleName="logo">
+								<Logo />
+							</div>
+						</Link>}
 					<div styleName="beta" className="hidden-sm-down">
-						<Button>
-							Beta
-						</Button>
+						<Button>Beta</Button>
 					</div>
 					<Searchbar />
 					<div
@@ -54,7 +59,8 @@ const Header = ({ children, dispatch, user, accessToken }) => {
 const mapStateToProps = state => {
 	return {
 		user: state.app.authentication.user,
-		accessToken: state.app.authentication.accessToken.token
+		accessToken: state.app.authentication.accessToken.token,
+		searchbarToggled: state.app.searchBar.toggled
 	};
 };
 
