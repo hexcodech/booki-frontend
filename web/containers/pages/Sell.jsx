@@ -466,7 +466,11 @@ class Sell extends React.Component {
 											<div className="form-group">
 												<select
 													className="form-control"
-													value={this.props.sell.book.language}
+													value={
+														this.props.sell.book.language
+															? this.props.sell.book.language
+															: undefined
+													}
 													onChange={this.onBookChange("language")}
 												>
 													<option key={0} value={null}>

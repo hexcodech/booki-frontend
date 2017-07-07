@@ -18,16 +18,17 @@ class SellStep extends React.Component {
 
 				{children}
 
-				<button
-					styleName="cancel"
-					className="btn btn-primary"
-					onClick={() => {
-						dispatch(push("/"));
-						dispatch(resetSell());
-					}}
-				>
-					Abbrechen
-				</button>
+				{!loading &&
+					<button
+						styleName="cancel"
+						className="btn btn-primary"
+						onClick={() => {
+							dispatch(push("/"));
+							dispatch(resetSell());
+						}}
+					>
+						Abbrechen
+					</button>}
 				<button
 					disabled={!this.props.nextEnabled}
 					styleName="next"
@@ -37,7 +38,6 @@ class SellStep extends React.Component {
 					{loading && <Loader styleName="spinner" color="#FFF" size="10px" />}
 					Weiter
 				</button>
-
 			</div>
 		);
 	}

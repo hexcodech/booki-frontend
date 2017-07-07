@@ -40,7 +40,9 @@
 	left: 0;
 	right: 0;
 
+	height: auto;
 	min-height: 400px;
+	overflow: hidden;
 
 	padding: 1rem;
 
@@ -50,6 +52,12 @@
 
 	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
+
+	transition: all 0.5s ease-in-out;
+}
+
+.modal:not(:last-child) {
+	height: 0px;
 }
 
 .modal-fading {
