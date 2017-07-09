@@ -27,7 +27,9 @@ import {
 	setLoading,
 	addFading,
 	removeFading,
-	resetSell
+	resetSell,
+	toggleIsbn10Input,
+	toggleIsbnAbout
 } from "app/actions/pages/sell";
 import { putImage, postImage, deleteImage } from "core/actions/image";
 import { fetchConditionsIfNeeded } from "core/actions/condition";
@@ -91,9 +93,26 @@ class Sell extends React.Component {
 		}
 	};
 
+	isbn10ToIsbn13 = isbn10 => {
+		let isbn9 = "978" + isbn10.toString().slice(0, -1),
+			checkDigit = 0; //remove check digit and calculate the new one
+
+		for (let i = 0; i < isbn9.length; i++) {
+			checkDigit += parseInt(isbn9.charAt(i)) * ((i - 1) % 2 === 0 ? 3 : 1);
+		}
+
+		checkDigit = ((10 - parseInt(checkDigit.toString()) % 10) % 10).toString();
+
+		return isbn9 + checkDigit;
+	};
+
 	onIsbnNextStep = () => {
 		const { dispatch, accessToken } = this.props;
-		const { isbn } = this.props.sell;
+		let { isbn } = this.props.sell;
+
+		if (isbn.length === 10) {
+			isbn = isbn10ToIsbn13(isbn);
+		}
 
 		dispatch(setNextEnabled(false));
 		dispatch(setLoading(true));
@@ -327,16 +346,47 @@ class Sell extends React.Component {
 							</small>
 
 							<div styleName="isbn-input" className="form-group">
-								<InputMask
-									className="form-control"
-									mask="999–9–999–99999–9"
-									maskChar="_"
-									alwaysShowMask={true}
-									onChange={this.onChangeIsbn}
-									value={this.props.sell.isbn}
-								/>
+								{!this.props.sell.isbn10 &&
+									<InputMask
+										className="form-control"
+										mask="999–9–999–99999–9"
+										maskChar="_"
+										alwaysShowMask={true}
+										onChange={this.onChangeIsbn}
+										value={this.props.sell.isbn}
+									/>}
 
-								<small className="form-text">Wo finde ich die ISBN?</small>
+								{this.props.sell.isbn10 &&
+									<InputMask
+										className="form-control"
+										mask="9–999–99999–9"
+										maskChar="_"
+										alwaysShowMask={true}
+										onChange={this.onChangeIsbn}
+										value={this.props.sell.isbn}
+									/>}
+
+								<a
+									className="form-text"
+									onClick={() => {
+										this.props.dispatch(toggleIsbn10Input());
+									}}
+								>
+									<small>Meine ISBN ist kürzer? (ISBN-10)</small>
+								</a>
+								<a
+									className="form-text"
+									onClick={() => {
+										this.props.dispatch(toggleIsbnAbout());
+									}}
+								>
+									<small>Wo finde ich die ISBN?</small>
+								</a>
+								{this.props.sell.isbnAbout &&
+									<small>
+										Meistens auf der Rückseite des Buches über oder unter dem
+										Barcode.
+									</small>}
 							</div>
 						</SellStep>}
 

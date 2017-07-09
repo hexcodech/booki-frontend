@@ -7,7 +7,7 @@
 		"uuidString": "170B7A15-0EC9-4724-92EB-49AF329EF30A"
 		}
 	],
-"creatorBuild": "25813",
+"creatorBuild": "25849",
 "files": {
 	"\/components\/auth\/OAuthCallback.jsx": {
 		"ft": 64,
@@ -191,16 +191,16 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/pages\/Home.jsx": {
+	"\/components\/pages\/Bugtracker.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/components\/pages\/min\/Home-min.js",
+		"oAP": "\/components\/pages\/min\/Bugtracker-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/pages\/Home.scss": {
+	"\/components\/pages\/Bugtracker.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -208,10 +208,28 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/css\/Home.min.css",
+		"oAP": "\/css\/Bugtracker.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
+		},
+	"\/components\/pages\/Faq.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/Faq-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/pages\/Gtc.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/Gtc-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/components\/pages\/Login.jsx": {
 		"ft": 64,
@@ -473,6 +491,28 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/containers\/pages\/Home.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/pages\/min\/Home-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/pages\/Home.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Home.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/containers\/pages\/Profile.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -629,6 +669,17 @@
 		"oA": 2,
 		"oAP": "\/css\/booki-frontend.min.css.map",
 		"oF": 0
+		},
+	"\/img\/book-mask.png": {
+		"ft": 32768,
+		"iS": 34852,
+		"oA": 0,
+		"oAP": "\/img\/book-mask.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"\/img\/book01.png": {
 		"ft": 32768,
@@ -2685,6 +2736,7 @@
 		},
 	"languageDefaultsUserDefined": [
 		],
+	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules",
 	"sourceFolderName": "source",
