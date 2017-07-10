@@ -139,7 +139,9 @@ class Profile extends React.Component {
 							<MdUpdate />
 						</div>
 					</div>
-					<h1>{user.nameDisplay.substring(0, 15)}'s Profil</h1>
+					<h1>
+						{user.nameDisplay.substring(0, 15)}'s Profil
+					</h1>
 				</header>
 
 				<div className="row">
@@ -205,9 +207,7 @@ class Profile extends React.Component {
 								</div>
 							</div>
 							<div className="col-12 col-md-6">
-								<button className="btn btn-primary">
-									E-Mail ändern
-								</button>
+								<button className="btn btn-primary">E-Mail ändern</button>
 							</div>
 							<div className="col-12">
 								<button className="btn btn-primary">
@@ -221,7 +221,9 @@ class Profile extends React.Component {
 						<table styleName="table">
 							<thead>
 								<tr>
-									<th>Buchtitel</th><th>Datum der Anfrage</th><th>Preis</th>
+									<th>Buchtitel</th>
+									<th>Datum der Anfrage</th>
+									<th>Preis</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -247,14 +249,18 @@ class Profile extends React.Component {
 											return book
 												? <tr key={offerRequest.id}>
 														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
+															<Link to={"/book/" + book.id}>
+																{book.title}
+															</Link>
 														</td>
 														<td>
 															{new Date(
 																offerRequest.createdAt
 															).toLocaleDateString()}
 														</td>
-														<td>{offer.price + " Fr."}</td>
+														<td>
+															{offer.price + " Fr."}
+														</td>
 													</tr>
 												: null;
 										})}
@@ -263,7 +269,11 @@ class Profile extends React.Component {
 						<h2 styleName="title">Offene Angebote</h2>
 						<table styleName="table">
 							<thead>
-								<tr><th>Buchtitel</th><th>Erstelldatum</th><th>Preis</th></tr>
+								<tr>
+									<th>Buchtitel</th>
+									<th>Erstelldatum</th>
+									<th>Preis</th>
+								</tr>
 							</thead>
 							<tbody>
 								{user.offers &&
@@ -279,12 +289,16 @@ class Profile extends React.Component {
 											return book
 												? <tr key={offer.id}>
 														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
+															<Link to={"/book/" + book.id}>
+																{book.title}
+															</Link>
 														</td>
 														<td>
 															{new Date(offer.createdAt).toLocaleDateString()}
 														</td>
-														<td>{offer.price + " Fr."}</td>
+														<td>
+															{offer.price + " Fr."}
+														</td>
 													</tr>
 												: null;
 										})}
@@ -293,7 +307,11 @@ class Profile extends React.Component {
 						<h2 styleName="title">Gekaufte Bücher</h2>
 						<table styleName="table">
 							<thead>
-								<tr><th>Buchtitel</th><th>Kaufdatum</th><th>Preis</th></tr>
+								<tr>
+									<th>Buchtitel</th>
+									<th>Kaufdatum</th>
+									<th>Preis</th>
+								</tr>
 							</thead>
 							<tbody>
 								{user.offerRequests &&
@@ -317,14 +335,18 @@ class Profile extends React.Component {
 											return book
 												? <tr key={offerRequest.id}>
 														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
+															<Link to={"/book/" + book.id}>
+																{book.title}
+															</Link>
 														</td>
 														<td>
 															{new Date(
 																offerRequest.updatedAt
 															).toLocaleDateString()}
 														</td>
-														<td>{offer.price + " Fr."}</td>
+														<td>
+															{offer.price + " Fr."}
+														</td>
 													</tr>
 												: null;
 										})}
@@ -333,7 +355,11 @@ class Profile extends React.Component {
 						<h2 styleName="title">Verkaufte Bücher</h2>
 						<table styleName="table">
 							<thead>
-								<tr><th>Buchtitel</th><th>Erstelldatum</th><th>Preis</th></tr>
+								<tr>
+									<th>Buchtitel</th>
+									<th>Erstelldatum</th>
+									<th>Preis</th>
+								</tr>
 							</thead>
 							<tbody>
 								{user.offers &&
@@ -349,12 +375,16 @@ class Profile extends React.Component {
 											return book
 												? <tr key={offer.id}>
 														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
+															<Link to={"/book/" + book.id}>
+																{book.title}
+															</Link>
 														</td>
 														<td>
 															{new Date(offer.createdAt).toLocaleDateString()}
 														</td>
-														<td>{offer.price + " Fr."}</td>
+														<td>
+															{offer.price + " Fr."}
+														</td>
 													</tr>
 												: null;
 										})}

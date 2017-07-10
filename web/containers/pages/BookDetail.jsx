@@ -71,7 +71,7 @@ class BookDetail extends React.Component {
 			return book.id == bookId;
 		})[0];
 
-		if (!book || book.isFetching) {
+		if (!book || book.isFetching || book.didInvalidate) {
 			return (
 				<div className="container">
 					<Loader color="#FFC676" size="75px" />
