@@ -14,7 +14,13 @@ import { LANGUAGES } from "core/constants/select-options";
 import { mapConditionKey } from "app/constants/conditionTranslations";
 import { API_URL } from "config.json";
 
-import { putBook, postBook, lookUpBooks } from "core/actions/book";
+import {
+	putBook,
+	postBook,
+	lookUpBooks,
+	invalidateBook,
+	invalidateLatestBookOffers
+} from "core/actions/book";
 import { postOffer } from "core/actions/offer";
 import { lookUpPeople } from "core/actions/person";
 import {
@@ -322,7 +328,8 @@ class Sell extends React.Component {
 
 		dispatch(postOffer(offer, accessToken)).then(offer => {
 			dispatch(resetSell());
-
+			dispatch(invalidateLatestBookOffers());
+			dispatch(invalidateBook({ id: offer.bookId }));
 			dispatch(push("/"));
 		});
 	};
