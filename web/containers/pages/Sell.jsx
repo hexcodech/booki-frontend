@@ -11,6 +11,7 @@ import merge from "lodash/merge";
 import set from "lodash/set";
 
 import { LANGUAGES } from "core/constants/select-options";
+import { mapConditionKey } from "app/constants/conditionTranslations";
 import { API_URL } from "config.json";
 
 import { putBook, postBook, lookUpBooks } from "core/actions/book";
@@ -38,11 +39,6 @@ import Modal from "web/components/ui/containers/Modal";
 import SellStep from "web/containers/pages/SellStep";
 
 import "./Sell.scss";
-
-const conditionTranslations = {
-	GOOD: "gut",
-	BAD: "schlecht"
-};
 
 const fuzzySearch = (query, suggestions) => {
 	return fuzzy.filter(query, suggestions).map(function(item) {
@@ -584,9 +580,7 @@ class Sell extends React.Component {
 											{conditions.map(condition => {
 												return (
 													<option key={condition.id} value={condition.id}>
-														{condition.key in conditionTranslations
-															? conditionTranslations[condition.key]
-															: condition.key}
+														{mapConditionKey(condition.key)}
 													</option>
 												);
 											})}

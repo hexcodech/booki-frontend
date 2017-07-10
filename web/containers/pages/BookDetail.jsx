@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Book from "web/components/ui/elements/Book";
+import { mapConditionKey } from "app/constants/conditionTranslations";
 import { API_URL } from "config.json";
 import { COLOR_SUCCESS, COLOR_FAILURE, COLOR_INFO } from "core/constants/color";
 
@@ -262,7 +263,10 @@ class BookDetail extends React.Component {
 															{offer.user.nameDisplay}
 														</h4>
 														<p styleName="condition">
-															Zustand: <span>{offer.condition.key} </span>
+															Zustand:{" "}
+															<span>
+																{mapConditionKey(offer.condition.key)}{" "}
+															</span>
 														</p>
 														<p styleName="price">
 															Preis:{" "}
