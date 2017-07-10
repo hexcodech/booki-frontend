@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Book from "web/components/ui/elements/Book";
 import { API_URL } from "config.json";
@@ -102,7 +103,9 @@ class BookDetail extends React.Component {
 										{offer.description}
 									</p>
 								</div>}
-							<h4>Nachricht an {offer.user.nameDisplay}</h4>
+							<h4>
+								Nachricht an {offer.user.nameDisplay}
+							</h4>
 							<div className="form-group">
 								<textarea
 									className="form-control"
@@ -154,12 +157,17 @@ class BookDetail extends React.Component {
 						</div>
 						<div className="col-12 col-md-9">
 							<div styleName="title">
-								<h1>{book.title}</h1>
-								{book.subtitle ? <h2>{" - " + book.subtitle}</h2> : ""}
+								<h1>
+									{book.title}
+								</h1>
+								{book.subtitle
+									? <h2>
+											{" - " + book.subtitle}
+										</h2>
+									: ""}
 							</div>
 							<div styleName="authors">
-								von
-								{" "}
+								von{" "}
 								{book.authors.reduce((list, author, index, authors) => {
 									return index === authors.length - 1
 										? list + " und " + author
@@ -173,7 +181,9 @@ class BookDetail extends React.Component {
 								<tbody>
 									<tr>
 										<td>ISBN-13</td>
-										<td>{book.isbn13}</td>
+										<td>
+											{book.isbn13}
+										</td>
 									</tr>
 									{book.language &&
 										<tr>
@@ -194,12 +204,16 @@ class BookDetail extends React.Component {
 									{book.pageCount &&
 										<tr>
 											<td>Seiten</td>
-											<td>{book.pageCount}</td>
+											<td>
+												{book.pageCount}
+											</td>
 										</tr>}
 									{book.publisher &&
 										<tr>
 											<td>Verlag</td>
-											<td>{book.publisher}</td>
+											<td>
+												{book.publisher}
+											</td>
 										</tr>}
 									{book.publicationDate &&
 										<tr>
@@ -210,6 +224,12 @@ class BookDetail extends React.Component {
 										</tr>}
 								</tbody>
 							</table>
+							<Link
+								to={"/sell?isbn13=" + book.isbn13}
+								className="btn btn-primary"
+							>
+								Verkaufe dieses Buch
+							</Link>
 						</div>
 					</div>
 					<div styleName="offers">
@@ -238,13 +258,14 @@ class BookDetail extends React.Component {
 														</div>
 													</div>
 													<div className="col-10 col-sm-10 col-md-9">
-														<h4>{offer.user.nameDisplay}</h4>
+														<h4>
+															{offer.user.nameDisplay}
+														</h4>
 														<p styleName="condition">
-															Zustand: <span>{offer.condition.key} {" "}</span>
+															Zustand: <span>{offer.condition.key} </span>
 														</p>
 														<p styleName="price">
-															Preis:
-															{" "}
+															Preis:{" "}
 															<span>
 																{parseFloat(offer.price).toFixed(2) + " Fr."}
 															</span>

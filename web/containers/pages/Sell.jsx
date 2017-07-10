@@ -50,21 +50,37 @@ const fuzzySearch = (query, suggestions) => {
 	});
 };
 
+const getQueryVariable = variable => {
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split("=");
+		if (pair[0] == variable) {
+			return pair[1];
+		}
+	}
+	return false;
+};
+
 class Sell extends React.Component {
 	componentDidMount = () => {
 		let { accessToken, dispatch } = this.props;
+
+		let isbn13 = getQueryVariable("isbn13");
 
 		if (!accessToken) {
 			dispatch(push("/login"));
 		} else {
 			dispatch(fetchConditionsIfNeeded());
+
+			if (isbn13) {
+				this.onChangeIsbn({ currentTarget: { value: isbn13 } });
+			}
 		}
 	};
 
 	toNextStep = (nextEnabled = false) => {
 		const { dispatch } = this.props;
-
-		console.log(1);
 
 		dispatch(setNextEnabled(false));
 		dispatch(setLoading(false));
@@ -85,7 +101,10 @@ class Sell extends React.Component {
 
 			dispatch(updateIsbn(isbn));
 
-			if (isbn.length === 13) {
+			if (
+				(this.props.sell.isbn10 && isbn.length === 10) ||
+				isbn.length === 13
+			) {
 				dispatch(setNextEnabled(true));
 			} else {
 				dispatch(setNextEnabled(false));
