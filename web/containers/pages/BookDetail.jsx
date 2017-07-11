@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { push } from "react-router-redux";
 import { Link } from "react-router-dom";
 
 import Book from "web/components/ui/elements/Book";
@@ -52,14 +53,7 @@ class BookDetail extends React.Component {
 		dispatch(updateMessage(""));
 
 		promise.then(offerRequest => {
-			dispatch(
-				addNotification({
-					title: "Anfrage verschickt",
-					text: "Die Anfrage wurde erfolgreich übermittelt.",
-					hideDelay: 2500,
-					color: COLOR_SUCCESS
-				})
-			);
+			dispatch(push("/profile?offerRequestId=" + offerRequest.id));
 		});
 	};
 

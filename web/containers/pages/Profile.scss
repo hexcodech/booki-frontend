@@ -77,6 +77,10 @@
 	border-spacing: 0;
 	border-radius: 5px;
 
+	tr {
+		transition: all 0.3s ease-in-out;
+	}
+
 	td:nth-child(1) {
 		width: 50%;
 	}
@@ -116,4 +120,13 @@
 
 .title {
 	margin: 1rem 0 .5rem 0;
+}
+
+tr.highlighted {
+	background-color: $brand-success;
+	color: #fff;
+
+	a {
+		color: #fff;
+	}
 }

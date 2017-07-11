@@ -21,13 +21,38 @@ import Loader from "halogen/RingLoader";
 
 import Button from "web/components/ui/elements/Button";
 
+import { getParameterByName } from "core/utilities/location";
+
 class Profile extends React.Component {
 	constructor(props) {
 		super(props);
 
+		let offerId = getParameterByName("offerId", window.location.href),
+			offerRequestId = getParameterByName(
+				"offerRequestId",
+				window.location.href
+			);
+
 		this.state = {
-			loading: false
+			loading: false,
+			highlightedOffer: offerId ? offerId : null,
+			highlightedOfferRequest: offerRequestId ? offerRequestId : null
 		};
+
+		if (offerId) {
+			setTimeout(() => {
+				this.setState({
+					highlightedOffer: null
+				});
+			}, 5000);
+		}
+		if (offerRequestId) {
+			setTimeout(() => {
+				this.setState({
+					highlightedOfferRequest: null
+				});
+			}, 5000);
+		}
 	}
 
 	componentDidMount = () => {
@@ -120,6 +145,7 @@ class Profile extends React.Component {
 
 	render() {
 		const { dispatch, user, accessToken, books, offers } = this.props;
+		const { highlightedOffer, highlightedOfferRequest } = this.state;
 
 		let thumbnail = user.thumbnails.filter(thumbnail => {
 			return thumbnail.name == "profile-picture-large";
@@ -230,7 +256,6 @@ class Profile extends React.Component {
 								{user.offerRequests &&
 									user.offerRequests
 										.filter(offerRequest => {
-											console.log(offerRequest);
 											return !offerRequest.responded;
 										})
 										.map(offerRequest => {
@@ -247,7 +272,26 @@ class Profile extends React.Component {
 											})[0];
 
 											return book
-												? <tr key={offerRequest.id}>
+												? <tr
+														key={offerRequest.id}
+														ref={el => {
+															if (
+																el &&
+																highlightedOfferRequest &&
+																highlightedOfferRequest == offerRequest.id
+															) {
+																setTimeout(() => {
+																	el.scrollIntoView();
+																}, 0);
+															}
+														}}
+														styleName={
+															highlightedOfferRequest &&
+															highlightedOfferRequest == offerRequest.id
+																? "highlighted"
+																: ""
+														}
+													>
 														<td>
 															<Link to={"/book/" + book.id}>
 																{book.title}
@@ -287,7 +331,25 @@ class Profile extends React.Component {
 											})[0];
 
 											return book
-												? <tr key={offer.id}>
+												? <tr
+														key={offer.id}
+														ref={el => {
+															if (
+																el &&
+																highlightedOffer &&
+																highlightedOffer == offer.id
+															) {
+																setTimeout(() => {
+																	el.scrollIntoView();
+																}, 0);
+															}
+														}}
+														styleName={
+															highlightedOffer && highlightedOffer == offer.id
+																? "highlighted"
+																: ""
+														}
+													>
 														<td>
 															<Link to={"/book/" + book.id}>
 																{book.title}

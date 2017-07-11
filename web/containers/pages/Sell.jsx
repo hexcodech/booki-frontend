@@ -46,29 +46,19 @@ import SellStep from "web/containers/pages/SellStep";
 
 import "./Sell.scss";
 
+import { getParameterByName } from "core/utilities/location";
+
 const fuzzySearch = (query, suggestions) => {
 	return fuzzy.filter(query, suggestions).map(function(item) {
 		return item.string;
 	});
 };
 
-const getQueryVariable = variable => {
-	var query = window.location.search.substring(1);
-	var vars = query.split("&");
-	for (var i = 0; i < vars.length; i++) {
-		var pair = vars[i].split("=");
-		if (pair[0] == variable) {
-			return pair[1];
-		}
-	}
-	return false;
-};
-
 class Sell extends React.Component {
 	componentDidMount = () => {
 		let { accessToken, dispatch } = this.props;
 
-		let isbn13 = getQueryVariable("isbn13");
+		let isbn13 = getParameterByName("isbn13", window.location.href);
 
 		if (!accessToken) {
 			dispatch(push("/login"));
@@ -330,7 +320,7 @@ class Sell extends React.Component {
 			dispatch(resetSell());
 			dispatch(invalidateLatestBookOffers());
 			dispatch(invalidateBook({ id: offer.bookId }));
-			dispatch(push("/"));
+			dispatch(push("/profile?offerId=" + offer.id));
 		});
 	};
 
