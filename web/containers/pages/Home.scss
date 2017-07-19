@@ -30,7 +30,7 @@
 
 .about {
 	text-transform: uppercase;
-	font-size: .8rem;
+	font-size: 1rem;
 	color: #fff;
 
 	&:hover {
@@ -48,6 +48,7 @@
 }
 .slider-books:nth-child(3) img {
 	margin-top: 150px;
+	margin-bottom: 20px;
 }
 
 .book-list {
@@ -60,4 +61,33 @@
 
 .book {
 	margin-bottom: $grid-gutter-width-base;
+}
+
+.beta-wrapper {
+	margin-top: 1rem;
+	padding: 1rem;
+
+	min-height: 150px;
+
+	background: repeating-linear-gradient(
+  	45deg,
+  	$brand-primary,
+  	$brand-primary 15px,
+  	$brand-dark 15px,
+  	$brand-dark 30px
+	);
+}
+
+.card{
+	padding: 1rem;
+	background-color: #fff;
+	border-radius: 5px;
+
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+.card > h2{
+	text-transform: uppercase;
+}
+.card > .about{
+	color: $brand-primary;
 }

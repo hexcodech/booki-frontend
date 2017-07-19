@@ -43,6 +43,22 @@ class Home extends React.Component {
 						</div>
 					</div>
 				</div>
+
+				<div styleName="beta-wrapper" className="hidden-sm-down">
+					<div styleName="slider" className="container">
+						<div styleName="card" className="col-md-5">
+							<h2>
+								Achtung Baustelle!
+							</h2>
+
+							Booki ist noch in der Beta-Phase. Du kannst uns helfen, die Plattform zu testen und zu verbessern.
+
+							<br/>
+							<Link styleName="about" to={"/about"}>So kannst du helfen</Link>
+					</div>
+				</div>
+				</div>
+
 				<div styleName="book-list" className="container">
 					<h1>Aktuelle Angebote</h1>
 
