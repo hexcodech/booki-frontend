@@ -1,5 +1,36 @@
 @import "web/scss/variables.scss";
 
+.nav-menu {
+	color: inherit;
+}
+
+.nav-menu li {
+	position: relative;
+}
+
+.dropdown-toggle {
+	cursor: pointer;
+	display: inline-block;
+}
+
+.dropdown {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	list-style: none;
+
+	margin: .5rem 0 0 0;
+	padding: 0;
+
+	background-color: #fff;
+	border: $brand-primary 2px solid;
+	box-shadow: $simple-y-bottom-shadow;
+
+	li {
+		padding: 0 .5rem;
+	}
+}
+
 .profile {
 	display: flex;
 }

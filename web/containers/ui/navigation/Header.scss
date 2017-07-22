@@ -42,13 +42,13 @@
 	white-space: nowrap;
 }
 
-.nav ul {
+.nav > ul {
 	padding: 0;
 	margin: 0 0 0 1rem;
 	list-style: none;
 	float: right;
 
-	li {
+	& > li {
 		display: inline-block;
 
 		text-transform: uppercase;
