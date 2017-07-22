@@ -154,8 +154,6 @@ class Profile extends React.Component {
 			return thumbnail.name == "profile-picture-large";
 		})[0];
 
-		console.log(books);
-
 		thumbnail = thumbnail
 			? API_URL + thumbnail.url
 			: "https://www.gravatar.com/avatar/?d=mm&s=200";
