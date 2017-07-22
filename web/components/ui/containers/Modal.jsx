@@ -12,7 +12,16 @@ const Modal = ({ children = [], fading = [] }) => {
 	return (
 		<div>
 			<div styleName="overlay" />
-			<div styleName="modal-wrapper">
+			<div
+				styleName="modal-wrapper"
+				ref={el => {
+					if (el) {
+						setTimeout(() => {
+							el.scrollIntoView();
+						}, 0);
+					}
+				}}
+			>
 				<div styleName="modals">
 					{React.Children.map(childrenCopy, (Modal, index) => {
 						return (

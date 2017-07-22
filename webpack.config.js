@@ -112,6 +112,9 @@ module.exports = {
 						}
 					},
 					{
+						loader: "postcss-loader"
+					},
+					{
 						loader: "resolve-url-loader"
 					},
 					{
