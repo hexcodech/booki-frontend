@@ -52,6 +52,18 @@
 	}
 }
 
+.profile-mobile {
+	display: flex;
+}
+
+.profile-picture-mobile {
+	margin-right: .5rem;
+	img {
+		width: 25px;
+		height: 25px;
+	}
+}
+
 .name {
 	margin: 1rem 0 1rem 0;
 	text-align: center;

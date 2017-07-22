@@ -21,13 +21,22 @@ class NavMenu extends React.Component {
 		const { dispatch, isOpen, user = false } = this.props;
 
 		let thumbnail = user.thumbnails
-			? user.thumbnails.filter(thumbnail => {
-					return thumbnail.name == "profile-picture-medium";
-				})[0]
-			: "";
+				? user.thumbnails.filter(thumbnail => {
+						return thumbnail.name == "profile-picture-medium";
+					})[0]
+				: "",
+			smallThumbnail = user.thumbnails
+				? user.thumbnails.filter(thumbnail => {
+						return thumbnail.name == "profile-picture-small";
+					})[0]
+				: "";
 
 		thumbnail = thumbnail
 			? API_URL + thumbnail.url
+			: "https://www.gravatar.com/avatar/?d=mm&s=100";
+
+		smallThumbnail = smallThumbnail
+			? API_URL + smallThumbnail.url
 			: "https://www.gravatar.com/avatar/?d=mm&s=50";
 
 		return (
@@ -59,17 +68,36 @@ class NavMenu extends React.Component {
 							Login
 						</a>}
 					{user.id &&
-						<a
-							styleName="profile"
-							onClick={() => {
-								this.setState({ userDropdown: !this.state.userDropdown });
-							}}
-						>
-							{user.nameDisplay.substring(0, 15)}
-						</a>}
+						<div>
+							<div className="hidden-lg-up" styleName="profile-mobile">
+								<div styleName="profile-picture-mobile">
+									<img src={smallThumbnail} />
+								</div>
+								<Link
+									to="/profile"
+									onClick={() => {
+										this.setState({
+											userDropdown: false
+										});
+									}}
+								>
+									{user.nameDisplay.substring(0, 15)}
+								</Link>
+							</div>
+							<a
+								className="hidden-md-down"
+								styleName="profile"
+								href="#"
+								onClick={() => {
+									this.setState({ userDropdown: !this.state.userDropdown });
+								}}
+							>
+								{user.nameDisplay.substring(0, 15)}
+							</a>
+						</div>}
 					{user.id &&
-						(isOpen || this.state.userDropdown) &&
-						<div styleName={isOpen ? "" : "dropdown"}>
+						this.state.userDropdown &&
+						<div styleName="dropdown" className="hidden-md-down">
 							<div styleName="profile-picture">
 								<img src={thumbnail} />
 							</div>
@@ -103,6 +131,18 @@ class NavMenu extends React.Component {
 							</a>
 						</div>}
 				</li>
+				{user.id &&
+					<li className="hidden-lg-up">
+						<a
+							href="#"
+							onClick={() => {
+								dispatch(logoutUser());
+								dispatch(push("/"));
+							}}
+						>
+							Logout
+						</a>
+					</li>}
 			</ul>
 		);
 	};

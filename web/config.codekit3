@@ -58,6 +58,15 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/components\/pages\/About.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/About-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/components\/pages\/Bugtracker.jsx": {
 		"ft": 64,
 		"mi": 0,
