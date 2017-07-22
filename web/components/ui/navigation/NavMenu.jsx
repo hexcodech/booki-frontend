@@ -22,7 +22,7 @@ class NavMenu extends React.Component {
 
 		let thumbnail = user.thumbnails
 			? user.thumbnails.filter(thumbnail => {
-					return thumbnail.name == "profile-picture-small";
+					return thumbnail.name == "profile-picture-medium";
 				})[0]
 			: "";
 
@@ -59,40 +59,49 @@ class NavMenu extends React.Component {
 							Login
 						</a>}
 					{user.id &&
-						<div>
-							<div styleName="profile">
-								<div styleName="profile-picture">
-									<img src={thumbnail} />
-								</div>
-								<Link to="/profile">
-									<div styleName="name">
-										{user.nameDisplay.substring(0, 15)}
-									</div>
-								</Link>
-								<FaCaretDown
-									styleName="dropdown-toggle"
-									className="hidden-md-down"
-									onClick={() => {
-										this.setState({ userDropdown: !this.state.userDropdown });
-									}}
-								/>
-							</div>
-						</div>}
+						<a
+							styleName="profile"
+							onClick={() => {
+								this.setState({ userDropdown: !this.state.userDropdown });
+							}}
+						>
+							{user.nameDisplay.substring(0, 15)}
+						</a>}
 					{user.id &&
 						(isOpen || this.state.userDropdown) &&
-						<ul styleName={isOpen ? "" : "dropdown"}>
-							<li>
-								<a
-									href="#"
-									onClick={() => {
-										dispatch(logoutUser());
-										dispatch(push("/"));
-									}}
-								>
-									Logout
-								</a>
-							</li>
-						</ul>}
+						<div styleName={isOpen ? "" : "dropdown"}>
+							<div styleName="profile-picture">
+								<img src={thumbnail} />
+							</div>
+							<div styleName="name">
+								{user.nameDisplay}
+							</div>
+							<Link
+								className="btn btn-primary"
+								to="/profile"
+								onClick={() => {
+									this.setState({
+										userDropdown: false
+									});
+								}}
+							>
+								Mein Profil
+							</Link>
+							<a
+								className="btn btn-primary"
+								href="#"
+								onClick={() => {
+									this.setState({
+										userDropdown: false
+									});
+
+									dispatch(logoutUser());
+									dispatch(push("/"));
+								}}
+							>
+								Logout
+							</a>
+						</div>}
 				</li>
 			</ul>
 		);

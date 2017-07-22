@@ -1,10 +1,6 @@
 @import "web/scss/variables.scss";
 
 .nav-menu {
-	color: inherit;
-}
-
-.nav-menu li {
 	position: relative;
 }
 
@@ -16,38 +12,47 @@
 .dropdown {
 	position: absolute;
 	top: 100%;
+	left: 0;
 	right: 0;
 	list-style: none;
 
 	margin: .5rem 0 0 0;
-	padding: 0;
+	padding: 1rem 0;
 
 	background-color: #fff;
-	border: $brand-primary 2px solid;
-	box-shadow: $simple-y-bottom-shadow;
+	border-radius: 5px;
+	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
 
 	li {
 		padding: 0 .5rem;
 	}
+
+	& > a {
+		margin: .5rem 1rem;
+		display: block;
+	}
 }
 
 .profile {
-	display: flex;
+	cursor: pointer;
 }
 
 .profile-picture {
-	width: 25px;
-	height: 25px;
+	margin: 0 auto 1rem auto;
+
+	width: 80px;
+	height: 80px;
 
 	img {
 		width: 100%;
 		height: auto;
 
 		border-radius: 50%;
-		border: $brand-primary 2px solid;
+		border: $brand-primary 5px solid;
 	}
 }
 
 .name {
-	margin-left: .5rem;
+	margin: 1rem 0 1rem 0;
+	text-align: center;
 }
