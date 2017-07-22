@@ -17,6 +17,7 @@ import BookDetail from "web/containers/pages/BookDetail";
 import Search from "web/containers/pages/Search";
 import Profile from "web/containers/pages/Profile";
 
+import About from "web/components/pages/About";
 import Bugtracker from "web/components/pages/Bugtracker";
 import Gtc from "web/components/pages/Gtc";
 import Faq from "web/components/pages/Faq";
@@ -37,6 +38,7 @@ const App = ({ store, history }) => {
 						<Route path="/sell" component={Sell} />
 						<Route path="/profile" component={Profile} />
 
+						<Route path="/about" component={About} />
 						<Route path="/bug-tracker" component={Bugtracker} />
 						<Route path="/gtc" component={Gtc} />
 						<Route path="/faq" component={Faq} />
