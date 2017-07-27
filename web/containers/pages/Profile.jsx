@@ -37,7 +37,9 @@ class Profile extends React.Component {
 
 		this.state = {
 			loading: false,
-			editing: false,
+			editingNames: false,
+			editingEmail: false,
+			newEmail: "",
 			highlightedOffer: offerId ? offerId : null,
 			highlightedOfferRequest: offerRequestId ? offerRequestId : null
 		};
@@ -114,7 +116,8 @@ class Profile extends React.Component {
 
 				this.setState({
 					loading: false,
-					editing: false
+					editingNames: false,
+					editingEmail: false
 				});
 
 				this.loadNeededInformation();
@@ -140,7 +143,7 @@ class Profile extends React.Component {
 			this.props.dispatch(
 				addNotification({
 					title: "Datei ungültig!",
-					text: "Wähle ein Bild, dass kleiner als 2 Megabyte ist!",
+					text: "Wähle ein Bild, das kleiner als 2 Megabyte ist!",
 					color: COLOR_FAILURE,
 					actions: []
 				})
@@ -174,18 +177,18 @@ class Profile extends React.Component {
 							<div styleName="section">
 								<div className="row">
 									<div className="col-12">
-										{!this.state.editing &&
+										{!this.state.editingNames &&
 											<h3>
 												{(user.nameFirst ? user.nameFirst + " " : "") +
 													(user.nameLast ? user.nameLast : "")}
 												<MdSettings
 													styleName="editable"
 													onClick={() => {
-														this.setState({ editing: true });
+														this.setState({ editingNames: true });
 													}}
 												/>
 											</h3>}
-										{this.state.editing &&
+										{this.state.editingNames &&
 											<div className="form-group">
 												<input
 													placeholder="Vorname"
@@ -195,7 +198,7 @@ class Profile extends React.Component {
 													className="form-control"
 												/>
 											</div>}
-										{this.state.editing &&
+										{this.state.editingNames &&
 											<div className="form-group">
 												<input
 													placeholder="Nachname"
@@ -207,17 +210,17 @@ class Profile extends React.Component {
 											</div>}
 									</div>
 									<div className="col-12 col-md-6">
-										{!this.state.editing &&
+										{!this.state.editingNames &&
 											<h3>
 												({user.nameDisplay})
 												<MdSettings
 													styleName="editable"
 													onClick={() => {
-														this.setState({ editing: true });
+														this.setState({ editingNames: true });
 													}}
 												/>
 											</h3>}
-										{this.state.editing &&
+										{this.state.editingNames &&
 											<div className="form-group">
 												<input
 													placeholder="Anzeigename"
@@ -233,7 +236,7 @@ class Profile extends React.Component {
 									<button
 										onClick={this.onUpdateUser}
 										className="btn btn-primary"
-										disabled={!this.state.editing}
+										disabled={!this.state.editingNames}
 									>
 										{this.state.loading
 											? <Loader color="#FFFFFF" size="25px" />
@@ -247,22 +250,72 @@ class Profile extends React.Component {
 								<div className="row">
 									<div className="col-12">
 										<div className="form-group">
-											<input
-												placeholder="E-Mail Adresse"
-												type="text"
-												className="form-control"
-											/>
+											{!this.state.editingEmail &&
+												<h6>
+													{user.emailVerified}
+													<MdSettings
+														styleName="editable"
+														onClick={() => {
+															this.setState({ editingEmail: true });
+														}}
+													/>
+												</h6>}
+											{this.state.editingEmail &&
+												<input
+													placeholder="E-Mail Adresse"
+													type="text"
+													className="form-control"
+													onChange={e => {
+														this.setState({ newEmail: e.currentTarget.value });
+													}}
+												/>}
 										</div>
 									</div>
-									<div className="col-12">
-										<button className="btn btn-primary">E-Mail ändern</button>
-									</div>
+									{this.state.editingEmail &&
+										<div className="col-12">
+											<button
+												className="btn btn-primary"
+												onClick={() => {
+													dispatch(
+														putUser(
+															{ id: user.id, newEmail: this.state.newEmail },
+															accessToken
+														)
+													).then(() => {
+														window.open(
+															API_URL +
+																"/views/verify-email?email=" +
+																this.state.newEmail
+														);
+														this.setState({ editingEmail: false });
+													});
+												}}
+											>
+												E-Mail ändern
+											</button>
+										</div>}
 								</div>
 							</div>
 							<div styleName="section">
 								<div className="row">
 									<div className="col-12">
-										<button className="btn btn-primary">
+										<button
+											className="btn btn-primary"
+											onClick={() => {
+												dispatch(
+													putUser(
+														{ id: user.id, newPassword: true },
+														accessToken
+													)
+												).then(() => {
+													window.open(
+														API_URL +
+															"/views/password-reset?email=" +
+															user.emailVerified
+													);
+												});
+											}}
+										>
 											Passwort zurücksetzen
 										</button>
 									</div>
