@@ -59,8 +59,9 @@ class Profile extends React.Component {
 	}
 
 	componentDidMount = () => {
-		this.props.dispatch(fetchAuthUser(this.props.accessToken));
-		this.loadNeededInformation();
+		this.props.dispatch(fetchAuthUser(this.props.accessToken)).then(() => {
+			this.loadNeededInformation();
+		});
 	};
 
 	loadNeededInformation = () => {
