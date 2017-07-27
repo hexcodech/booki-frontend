@@ -314,6 +314,28 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/components\/ui\/UserOffers.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/UserOffers-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/UserOffers.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/UserOffers.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/containers\/App.jsx": {
 		"ft": 64,
 		"mi": 0,

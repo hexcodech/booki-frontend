@@ -1,6 +1,10 @@
 export const KEYS = {
-	GOOD: "gut",
-	BAD: "schlecht"
+	new: "neu",
+	"as-new": "neuwertig",
+	"very-good": "sehr gut",
+	good: "gut",
+	acceptable: "akzeptabel",
+	bad: "schlecht"
 };
 
 export const mapConditionKey = key => {
