@@ -78,3 +78,15 @@ export const resetSell = () => {
 		type: "PAGES_SELL_RESET"
 	};
 };
+
+export const toggleIsbn10Input = () => {
+	return {
+		type: "PAGES_SELL_TOGGLE_ISBN10_INPUT"
+	};
+};
+
+export const toggleIsbnAbout = () => {
+	return {
+		type: "PAGES_SELL_TOGGLE_ISBN_ABOUT"
+	};
+};

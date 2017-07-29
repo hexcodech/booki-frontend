@@ -1,23 +1,33 @@
 import React from "react";
 
-import CSSModules from "react-css-modules";
-import styles from "./Modal.scss";
+import "./Modal.scss";
 
 const Modal = ({ children = [], fading = [] }) => {
 	if (!Array.isArray(children)) {
 		children = [children];
 	}
 
+	let childrenCopy = [].concat(children).reverse().filter(e => e);
+
 	return (
 		<div>
 			<div styleName="overlay" />
-			<div styleName="modal-wrapper">
+			<div
+				styleName="modal-wrapper"
+				ref={el => {
+					if (el) {
+						setTimeout(() => {
+							el.scrollIntoView();
+						}, 0);
+					}
+				}}
+			>
 				<div styleName="modals">
-					{React.Children.map(children.reverse(), (Modal, index) => {
+					{React.Children.map(childrenCopy, (Modal, index) => {
 						return (
 							<div
 								styleName={
-									fading.indexOf(children.length - 1 - index) !== -1
+									fading.indexOf(childrenCopy.length - 1 - index) !== -1
 										? "modal-fading"
 										: "modal"
 								}
@@ -32,4 +42,4 @@ const Modal = ({ children = [], fading = [] }) => {
 	);
 };
 
-export default CSSModules(Modal, styles);
+export default Modal;

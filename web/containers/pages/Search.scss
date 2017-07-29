@@ -1,105 +1,103 @@
 @import "web/scss/variables.scss";
 
-.search{
-  color: inherit;
+.search {
+	color: inherit;
 }
-.loader > div > div{
-  margin: 0 auto;
-}
-
-.book{
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-
-  background: #FFFFFF;
-
-  border-bottom: $brand-primary 1px solid;
+.loader > div > div {
+	margin: 0 auto;
 }
 
-.title{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.book {
+	padding-top: .5rem;
+	padding-bottom: .5rem;
 
-  h3, h4{
-    display: inline-block;
-    margin: 0;
-  }
+	background: #ffffff;
 
-  h4{
-    margin-left: .25rem;
-  }
+	border-bottom: $brand-primary 1px solid;
 }
 
-.authors{
-  color: #000;
-  font-size: .8rem;
+.title {
+	h3,
+	h4 {
+		hyphens: auto;
+		display: inline-block;
+		margin: 0;
+	}
+
+	h4 {
+		margin-left: .25rem;
+	}
 }
 
-.offers{
-  margin-top: 1rem;
+.authors {
+	color: #000;
+	font-size: .8rem;
 }
 
-.profile-picture, .profile-picture-more{
-  position: relative;
-
-  width: 30px;
-  height: 30px;
-
-  display: inline-block;
-  overflow: hidden;
-
-  border-radius: 50%;
-  border: $brand-primary 2px solid;
-
-  img{
-    vertical-align: top;
-    width: 100%;
-    height: auto;
-  }
-
-  &:nth-child(n + 2){
-    margin-left: -12.5px;
-  }
-
-  &:nth-child(n + 4){
-    display: none;
-  }
+.offers {
+	margin-top: 1rem;
 }
 
-.profile-picture-more{
+.profile-picture,
+.profile-picture-more {
+	position: relative;
 
-  &:first-child{
-    opacity: 0.5;
-  }
+	width: 30px;
+	height: 30px;
+
+	display: inline-block;
+	overflow: hidden;
+
+	border-radius: 50%;
+	border: $brand-primary 2px solid;
+
+	img {
+		vertical-align: top;
+		width: 100%;
+		height: auto;
+	}
+
+	&:nth-child(n + 2) {
+		margin-left: -12.5px;
+	}
+
+	&:nth-child(n + 4) {
+		display: none;
+	}
 }
 
-.offer-counter{
-  font-size: 1rem;
-  margin-left: .5rem;
-  color: $brand-primary;
+.profile-picture-more {
+	&:first-child {
+		opacity: 0.5;
+	}
 }
 
-.price{
-  position: absolute;
-  right: 1rem;
-  bottom: 0;
-
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: $brand-primary;
+.offer-counter {
+	font-size: 1rem;
+	margin-left: .5rem;
+	color: $brand-primary;
 }
 
-.detail-button{
-  position: absolute;
-  bottom: 0;
+.details {
+	margin-top: 1rem;
 
-  display: block;
+	display: flex;
 
-  margin-top: 1rem;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
 
-  font-weight: 700;
-  text-transform: uppercase;
+.detail-button {
+	font-weight: 700;
+	text-transform: uppercase;
 
-  border-radius: 5px;
+	border-radius: 5px;
+}
+
+.price {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: $brand-primary;
 }

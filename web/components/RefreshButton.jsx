@@ -3,8 +3,7 @@ import TimeAgo from "react-timeago";
 
 import MdRefresh from "react-icons/md/refresh";
 
-import CSSModules from "react-css-modules";
-import styles from "./RefreshButton.scss";
+import "./RefreshButton.scss";
 
 const RefreshButton = ({ date, loading, refreshHandler }) => {
 	return (
@@ -35,4 +34,4 @@ const RefreshButton = ({ date, loading, refreshHandler }) => {
 	);
 };
 
-export default CSSModules(RefreshButton, styles);
+export default RefreshButton;

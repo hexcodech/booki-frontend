@@ -18,6 +18,8 @@ import { reducer as burgerMenuReducer } from "redux-burger-menu";
 import { DEV_TOOLS } from "config.json";
 import DevTools from "web/components/dev/DevTools";
 
+import { logoutUserIfNeeded } from "core/actions/auth";
+
 const presistedState = loadState();
 const history = createHistory();
 
@@ -52,12 +54,18 @@ store.subscribe(
 	}, 1000)
 );
 
-ReactDOM.render(
-	<AppContainer>
-		<App history={history} store={store} />
-	</AppContainer>,
-	document.getElementById("root")
-);
+store
+	.dispatch(
+		logoutUserIfNeeded(store.getState().app.authentication.accessToken.token)
+	)
+	.then(() => {
+		ReactDOM.render(
+			<AppContainer>
+				<App history={history} store={store} />
+			</AppContainer>,
+			document.getElementById("root")
+		);
+	});
 
 if (module.hot) {
 	module.hot.accept("web/containers/App", () => {

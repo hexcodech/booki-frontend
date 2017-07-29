@@ -1,0 +1,93 @@
+@import "web/scss/variables.scss";
+
+.home {
+	z-index: 1;
+}
+
+.slider-wrapper {
+	margin-top: -1rem;
+	padding: 1rem;
+
+	min-height: 300px;
+
+	background-color: #cfcfcf;
+}
+
+.slider {
+	height: 100%;
+}
+
+.book-slide {
+	height: 100%;
+	position: relative;
+
+	h1,
+	h2 {
+		color: #fff;
+		text-transform: none;
+	}
+}
+
+.about {
+	text-transform: uppercase;
+	font-size: 1rem;
+	color: #fff;
+
+	&:hover {
+		color: #fff;
+	}
+
+	&:after {
+		content: " >";
+	}
+}
+
+.slider-books img {
+	width: 100%;
+	height: auto;
+}
+.slider-books:nth-child(3) img {
+	margin-top: 150px;
+	margin-bottom: 20px;
+}
+
+.book-list {
+	margin-top: 1rem;
+
+	h1 {
+		margin-bottom: 1rem;
+	}
+}
+
+.book {
+	margin-bottom: $grid-gutter-width-base;
+}
+
+.beta-wrapper {
+	margin-top: 1rem;
+	padding: 1rem;
+
+	min-height: 150px;
+
+	background: repeating-linear-gradient(
+  	45deg,
+  	$brand-primary,
+  	$brand-primary 15px,
+  	$brand-dark 15px,
+  	$brand-dark 30px
+	);
+}
+
+.card{
+	padding: 1rem;
+	background-color: #fff;
+	border-radius: 5px;
+
+	box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+.card > h2{
+	text-transform: uppercase;
+}
+.card > .about{
+	color: $brand-primary;
+}

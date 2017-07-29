@@ -15,25 +15,55 @@ import { fetchBookIfNeeded } from "core/actions/book";
 
 import { addNotification } from "core/actions/notification";
 
-import CSSModules from "react-css-modules";
-import styles from "./Profile.scss";
+import "./Profile.scss";
 
+import UserOffers from "web/components/ui/UserOffers.jsx";
 import Loader from "halogen/RingLoader";
-
 import Button from "web/components/ui/elements/Button";
+
+import { getParameterByName } from "core/utilities/location";
+
+import MdSettings from "react-icons/md/settings";
 
 class Profile extends React.Component {
 	constructor(props) {
 		super(props);
 
+		let offerId = getParameterByName("offerId", window.location.href),
+			offerRequestId = getParameterByName(
+				"offerRequestId",
+				window.location.href
+			);
+
 		this.state = {
-			loading: false
+			loading: false,
+			editingNames: false,
+			editingEmail: false,
+			newEmail: "",
+			highlightedOffer: offerId ? offerId : null,
+			highlightedOfferRequest: offerRequestId ? offerRequestId : null
 		};
+
+		if (offerId) {
+			setTimeout(() => {
+				this.setState({
+					highlightedOffer: null
+				});
+			}, 5000);
+		}
+		if (offerRequestId) {
+			setTimeout(() => {
+				this.setState({
+					highlightedOfferRequest: null
+				});
+			}, 5000);
+		}
 	}
 
 	componentDidMount = () => {
-		this.props.dispatch(fetchAuthUser(this.props.accessToken));
-		this.loadNeededInformation();
+		this.props.dispatch(fetchAuthUser(this.props.accessToken)).then(() => {
+			this.loadNeededInformation();
+		});
 	};
 
 	loadNeededInformation = () => {
@@ -85,7 +115,9 @@ class Profile extends React.Component {
 				);
 
 				this.setState({
-					loading: false
+					loading: false,
+					editingNames: false,
+					editingEmail: false
 				});
 
 				this.loadNeededInformation();
@@ -111,7 +143,7 @@ class Profile extends React.Component {
 			this.props.dispatch(
 				addNotification({
 					title: "Datei ungültig!",
-					text: "Wähle ein Bild, dass kleiner als 2 Megabyte ist!",
+					text: "Wähle ein Bild, das kleiner als 2 Megabyte ist!",
 					color: COLOR_FAILURE,
 					actions: []
 				})
@@ -132,235 +164,173 @@ class Profile extends React.Component {
 
 		return (
 			<div className="container">
-				<header styleName="header">
-					<div styleName="profile-picture">
-						<img src={thumbnail} />
-						<div styleName="overlay">
-							<input type="file" onChange={this.onUploadProfilePicture} />
-							<MdUpdate />
-						</div>
-					</div>
-					<h1>{user.nameDisplay.substring(0, 15)}'s Profil</h1>
-				</header>
-
 				<div className="row">
-					<div className="col-12 col-lg-6">
-						<h2 styleName="title">Name</h2>
-						<div className="row">
-							<div className="col-12">
-								<div className="form-group">
-									<input
-										placeholder="Anzeigename"
-										value={user.nameDisplay ? user.nameDisplay : ""}
-										onChange={this.onFieldChange("nameDisplay")}
-										type="text"
-										className="form-control"
-									/>
+					<div className="col-12 col-lg-4">
+						<div styleName="card">
+							<div styleName="profile-picture">
+								<img width="200" height="200" src={thumbnail} />
+								<div styleName="overlay">
+									<input type="file" onChange={this.onUploadProfilePicture} />
+									<MdUpdate />
 								</div>
 							</div>
-							<div className="col-12 col-md-6">
-								<div className="form-group">
-									<input
-										placeholder="Vorname"
-										value={user.nameFirst ? user.nameFirst : ""}
-										onChange={this.onFieldChange("nameFirst")}
-										type="text"
-										className="form-control"
-									/>
+							<div styleName="section">
+								<div className="row">
+									<div className="col-12">
+										{!this.state.editingNames &&
+											<h3>
+												{(user.nameFirst ? user.nameFirst + " " : "") +
+													(user.nameLast ? user.nameLast : "")}
+												<MdSettings
+													styleName="editable"
+													onClick={() => {
+														this.setState({ editingNames: true });
+													}}
+												/>
+											</h3>}
+										{this.state.editingNames &&
+											<div className="form-group">
+												<input
+													placeholder="Vorname"
+													value={user.nameFirst ? user.nameFirst : ""}
+													onChange={this.onFieldChange("nameFirst")}
+													type="text"
+													className="form-control"
+												/>
+											</div>}
+										{this.state.editingNames &&
+											<div className="form-group">
+												<input
+													placeholder="Nachname"
+													value={user.nameLast ? user.nameLast : ""}
+													onChange={this.onFieldChange("nameLast")}
+													type="text"
+													className="form-control"
+												/>
+											</div>}
+									</div>
+									<div className="col-12 col-md-6">
+										{!this.state.editingNames &&
+											<h3>
+												({user.nameDisplay})
+												<MdSettings
+													styleName="editable"
+													onClick={() => {
+														this.setState({ editingNames: true });
+													}}
+												/>
+											</h3>}
+										{this.state.editingNames &&
+											<div className="form-group">
+												<input
+													placeholder="Anzeigename"
+													value={user.nameDisplay ? user.nameDisplay : ""}
+													onChange={this.onFieldChange("nameDisplay")}
+													type="text"
+													className="form-control"
+												/>
+											</div>}
+									</div>
 								</div>
-							</div>
-							<div className="col-12 col-md-6">
-								<div className="form-group">
-									<input
-										placeholder="Nachname"
-										value={user.nameLast ? user.nameLast : ""}
-										onChange={this.onFieldChange("nameLast")}
-										type="text"
-										className="form-control"
-									/>
-								</div>
-							</div>
-							<div className="col-12 col-md-6">
-								<div className="form-group">
+								<div>
 									<button
 										onClick={this.onUpdateUser}
 										className="btn btn-primary"
+										disabled={!this.state.editingNames}
 									>
-										Speichern
+										{this.state.loading
+											? <Loader color="#FFFFFF" size="25px" />
+											: null}
+										Änderungen Speichern
 									</button>
-									{this.state.loading
-										? <Loader color="#FFC676" size="25px" />
-										: null}
 								</div>
 							</div>
-						</div>
-						<h2 styleName="title">E-Mail und Passwort</h2>
-						<div className="row">
-							<div className="col-12 col-md-6">
-								<div className="form-group">
-									<input
-										placeholder="E-Mail Adresse"
-										type="text"
-										className="form-control"
-									/>
+							<div styleName="section">
+								<h3>E-Mail & Passwort</h3>
+								<div className="row">
+									<div className="col-12">
+										<div className="form-group">
+											{!this.state.editingEmail &&
+												<h6>
+													{user.emailVerified}
+													<MdSettings
+														styleName="editable"
+														onClick={() => {
+															this.setState({ editingEmail: true });
+														}}
+													/>
+												</h6>}
+											{this.state.editingEmail &&
+												<input
+													placeholder="E-Mail Adresse"
+													type="text"
+													className="form-control"
+													onChange={e => {
+														this.setState({ newEmail: e.currentTarget.value });
+													}}
+												/>}
+										</div>
+									</div>
+									{this.state.editingEmail &&
+										<div className="col-12">
+											<button
+												className="btn btn-primary"
+												onClick={() => {
+													dispatch(
+														putUser(
+															{ id: user.id, newEmail: this.state.newEmail },
+															accessToken
+														)
+													).then(() => {
+														window.open(
+															API_URL +
+																"/views/verify-email?email=" +
+																this.state.newEmail
+														);
+														this.setState({ editingEmail: false });
+													});
+												}}
+											>
+												E-Mail ändern
+											</button>
+										</div>}
 								</div>
 							</div>
-							<div className="col-12 col-md-6">
-								<button className="btn btn-primary">
-									E-Mail ändern
-								</button>
-							</div>
-							<div className="col-12">
-								<button className="btn btn-primary">
-									Passwort zurücksetzen
-								</button>
+							<div styleName="section">
+								<div className="row">
+									<div className="col-12">
+										<button
+											className="btn btn-primary"
+											onClick={() => {
+												dispatch(
+													putUser(
+														{ id: user.id, newPassword: true },
+														accessToken
+													)
+												).then(() => {
+													window.open(
+														API_URL +
+															"/views/password-reset?email=" +
+															user.emailVerified
+													);
+												});
+											}}
+										>
+											Passwort zurücksetzen
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div className="col-12 col-lg-6">
-						<h2 styleName="title">Offene Kaufanfragen</h2>
-						<table styleName="table">
-							<thead>
-								<tr>
-									<th>Buchtitel</th><th>Datum der Anfrage</th><th>Preis</th>
-								</tr>
-							</thead>
-							<tbody>
-								{user.offerRequests &&
-									user.offerRequests
-										.filter(offerRequest => {
-											console.log(offerRequest);
-											return !offerRequest.responded;
-										})
-										.map(offerRequest => {
-											const offer = offers.filter(offer => {
-												return offer.id == offerRequest.offerId;
-											})[0];
-
-											if (!offer) {
-												return null;
-											}
-
-											const book = books.filter(book => {
-												return book.id == offer.bookId;
-											})[0];
-
-											return book
-												? <tr key={offerRequest.id}>
-														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
-														</td>
-														<td>
-															{new Date(
-																offerRequest.createdAt
-															).toLocaleDateString()}
-														</td>
-														<td>{offer.price + " Fr."}</td>
-													</tr>
-												: null;
-										})}
-							</tbody>
-						</table>
-						<h2 styleName="title">Offene Angebote</h2>
-						<table styleName="table">
-							<thead>
-								<tr><th>Buchtitel</th><th>Erstelldatum</th><th>Preis</th></tr>
-							</thead>
-							<tbody>
-								{user.offers &&
-									user.offers
-										.filter(offer => {
-											return !offer.sold;
-										})
-										.map(offer => {
-											const book = books.filter(book => {
-												return book.id == offer.bookId;
-											})[0];
-
-											return book
-												? <tr key={offer.id}>
-														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
-														</td>
-														<td>
-															{new Date(offer.createdAt).toLocaleDateString()}
-														</td>
-														<td>{offer.price + " Fr."}</td>
-													</tr>
-												: null;
-										})}
-							</tbody>
-						</table>
-						<h2 styleName="title">Gekaufte Bücher</h2>
-						<table styleName="table">
-							<thead>
-								<tr><th>Buchtitel</th><th>Kaufdatum</th><th>Preis</th></tr>
-							</thead>
-							<tbody>
-								{user.offerRequests &&
-									user.offerRequests
-										.filter(offerRequest => {
-											return offerRequest.responded;
-										})
-										.map(offerRequest => {
-											const offer = offers.filter(offer => {
-												return offer.id == offerRequest.offerId;
-											})[0];
-
-											if (!offer) {
-												return null;
-											}
-
-											const book = books.filter(book => {
-												return book.id == offer.bookId;
-											})[0];
-
-											return book
-												? <tr key={offerRequest.id}>
-														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
-														</td>
-														<td>
-															{new Date(
-																offerRequest.updatedAt
-															).toLocaleDateString()}
-														</td>
-														<td>{offer.price + " Fr."}</td>
-													</tr>
-												: null;
-										})}
-							</tbody>
-						</table>
-						<h2 styleName="title">Verkaufte Bücher</h2>
-						<table styleName="table">
-							<thead>
-								<tr><th>Buchtitel</th><th>Erstelldatum</th><th>Preis</th></tr>
-							</thead>
-							<tbody>
-								{user.offers &&
-									user.offers
-										.filter(offer => {
-											return offer.sold;
-										})
-										.map(offer => {
-											const book = books.filter(book => {
-												return book.id == offer.bookId;
-											})[0];
-
-											return book
-												? <tr key={offer.id}>
-														<td>
-															<Link to={"/book/" + book.id}>{book.title}</Link>
-														</td>
-														<td>
-															{new Date(offer.createdAt).toLocaleDateString()}
-														</td>
-														<td>{offer.price + " Fr."}</td>
-													</tr>
-												: null;
-										})}
-							</tbody>
-						</table>
+					<div className="col-12 col-lg-8">
+						<UserOffers
+							offerRequests={user.offerRequests}
+							offers={user.offers}
+							books={books}
+							highlightedOffer={this.state.highlightedOffer}
+							highlightedOfferRequest={this.state.highlightedOfferRequest}
+						/>
 					</div>
 				</div>
 			</div>
@@ -377,4 +347,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Profile, styles));
+export default connect(mapStateToProps)(Profile);

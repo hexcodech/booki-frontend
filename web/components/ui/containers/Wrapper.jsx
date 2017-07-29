@@ -6,10 +6,9 @@ import DevTools from "web/components/dev/DevTools";
 import Footer from "web/components/ui/Footer";
 
 import Header from "web/containers/ui/navigation/Header";
-import Notifications from "web/containers/Notifications";
 
-import CSSModules from "react-css-modules";
-import styles from "./Wrapper.scss";
+import Notifications from "web/containers/Notifications";
+import "./Wrapper.scss";
 
 const Wrapper = ({ children }) => {
 	return (
@@ -27,4 +26,4 @@ const Wrapper = ({ children }) => {
 	);
 };
 
-export default CSSModules(Wrapper, styles);
+export default Wrapper;

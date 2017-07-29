@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import { push } from "react-router-redux";
+import { Link } from "react-router-dom";
 
 import Book from "web/components/ui/elements/Book";
+import { mapConditionKey } from "app/constants/conditionTranslations";
 import { API_URL } from "config.json";
 import { COLOR_SUCCESS, COLOR_FAILURE, COLOR_INFO } from "core/constants/color";
 
@@ -13,11 +16,11 @@ import { addNotification } from "core/actions/notification";
 import {
 	setOfferId,
 	resetOfferId,
-	updateMessage
+	updateMessage,
+	updateEmail
 } from "app/actions/pages/book-detail";
 
-import CSSModules from "react-css-modules";
-import styles from "./BookDetail.scss";
+import "./BookDetail.scss";
 
 import Modal from "web/components/ui/containers/Modal";
 import Loader from "halogen/RingLoader";
@@ -37,8 +40,12 @@ class BookDetail extends React.Component {
 
 		let promise = dispatch(
 			postOfferRequest(
-				{ offerId: bookDetail.offerId, message: bookDetail.message },
-				accessToken
+				{
+					offerId: bookDetail.offerId,
+					message: bookDetail.message,
+					email: bookDetail.email
+				},
+				accessToken ? accessToken : undefined
 			)
 		);
 
@@ -46,14 +53,7 @@ class BookDetail extends React.Component {
 		dispatch(updateMessage(""));
 
 		promise.then(offerRequest => {
-			dispatch(
-				addNotification({
-					title: "Anfrage verschickt",
-					text: "Die Anfrage wurde erfolgreich übermittelt.",
-					hideDelay: 2500,
-					color: COLOR_SUCCESS
-				})
-			);
+			dispatch(push("/profile?offerRequestId=" + offerRequest.id));
 		});
 	};
 
@@ -65,7 +65,7 @@ class BookDetail extends React.Component {
 			return book.id == bookId;
 		})[0];
 
-		if (!book || book.isFetching) {
+		if (!book || book.isFetching || book.didInvalidate) {
 			return (
 				<div className="container">
 					<Loader color="#FFC676" size="75px" />
@@ -79,9 +79,11 @@ class BookDetail extends React.Component {
 
 		thumbnail = thumbnail ? API_URL + thumbnail.url : "";
 
-		let offer = book.offers.filter(offer => {
-			return offer.id == bookDetail.offerId;
-		})[0];
+		let offer = book.offers
+			? book.offers.filter(offer => {
+					return offer.id == bookDetail.offerId;
+				})[0]
+			: false;
 
 		return (
 			<div>
@@ -96,16 +98,31 @@ class BookDetail extends React.Component {
 										{offer.description}
 									</p>
 								</div>}
-							<h4>Nachricht an {offer.user.nameDisplay}</h4>
-							<textarea
-								className="form-control"
-								value={bookDetail.message}
-								onChange={e => {
-									dispatch(updateMessage(e.currentTarget.value));
-								}}
-								rows="6"
-								placeholder="Könntest Du mir das Buch nach Hause senden? Meine Adresse ist..."
-							/>
+							<h4>
+								Nachricht an {offer.user.nameDisplay}
+							</h4>
+							<div className="form-group">
+								<textarea
+									className="form-control"
+									value={bookDetail.message}
+									onChange={e => {
+										dispatch(updateMessage(e.currentTarget.value));
+									}}
+									rows="6"
+									placeholder="Könntest Du mir das Buch nach Hause senden? Meine Adresse ist..."
+								/>
+							</div>
+							{!accessToken &&
+								<div className="form-group">
+									<input
+										className="form-control"
+										value={bookDetail.email}
+										onChange={e => {
+											dispatch(updateEmail(e.currentTarget.value));
+										}}
+										placeholder="E-Mail Adresse"
+									/>
+								</div>}
 							<small>
 								Hinweis: Mit "Senden" erhält der Verkäufer deine E-Mail Adresse
 								und kann dich so direkt kontaktieren.
@@ -135,12 +152,17 @@ class BookDetail extends React.Component {
 						</div>
 						<div className="col-12 col-md-9">
 							<div styleName="title">
-								<h1>{book.title}</h1>
-								{book.subtitle ? <h2>{" - " + book.subtitle}</h2> : ""}
+								<h1>
+									{book.title}
+								</h1>
+								{book.subtitle
+									? <h2>
+											{" - " + book.subtitle}
+										</h2>
+									: ""}
 							</div>
 							<div styleName="authors">
-								von
-								{" "}
+								von{" "}
 								{book.authors.reduce((list, author, index, authors) => {
 									return index === authors.length - 1
 										? list + " und " + author
@@ -154,7 +176,9 @@ class BookDetail extends React.Component {
 								<tbody>
 									<tr>
 										<td>ISBN-13</td>
-										<td>{book.isbn13}</td>
+										<td>
+											{book.isbn13}
+										</td>
 									</tr>
 									{book.language &&
 										<tr>
@@ -175,12 +199,16 @@ class BookDetail extends React.Component {
 									{book.pageCount &&
 										<tr>
 											<td>Seiten</td>
-											<td>{book.pageCount}</td>
+											<td>
+												{book.pageCount}
+											</td>
 										</tr>}
 									{book.publisher &&
 										<tr>
 											<td>Verlag</td>
-											<td>{book.publisher}</td>
+											<td>
+												{book.publisher}
+											</td>
 										</tr>}
 									{book.publicationDate &&
 										<tr>
@@ -191,6 +219,12 @@ class BookDetail extends React.Component {
 										</tr>}
 								</tbody>
 							</table>
+							<Link
+								to={"/sell?isbn13=" + book.isbn13}
+								className="btn btn-primary"
+							>
+								Verkaufe dieses Buch
+							</Link>
 						</div>
 					</div>
 					<div styleName="offers">
@@ -219,13 +253,17 @@ class BookDetail extends React.Component {
 														</div>
 													</div>
 													<div className="col-10 col-sm-10 col-md-9">
-														<h4>{offer.user.nameDisplay}</h4>
+														<h4>
+															{offer.user.nameDisplay}
+														</h4>
 														<p styleName="condition">
-															Zustand: <span>{offer.condition.key} {" "}</span>
+															Zustand:{" "}
+															<span>
+																{mapConditionKey(offer.condition.key)}{" "}
+															</span>
 														</p>
 														<p styleName="price">
-															Preis:
-															{" "}
+															Preis:{" "}
 															<span>
 																{parseFloat(offer.price).toFixed(2) + " Fr."}
 															</span>
@@ -263,4 +301,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(BookDetail, styles));
+export default connect(mapStateToProps)(BookDetail);
