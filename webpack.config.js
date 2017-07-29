@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const context = path.resolve(__dirname);
 
 process.traceDeprecation = true; //https://github.com/webpack/loader-utils/issues/56
 
@@ -11,9 +12,9 @@ module.exports = {
 	],
 
 	output: {
-		path: path.join(__dirname, "build/"),
+		path: path.join(__dirname, "build/js/"),
 		filename: "bundle.js",
-		publicPath: "/build/"
+		publicPath: "/js/"
 	},
 
 	plugins: [
@@ -35,7 +36,12 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [
+					path.resolve(__dirname, "app"),
+					path.resolve(__dirname, "web"),
+					path.resolve(__dirname, "node_modules", "booki-frontend-core"),
+					path.resolve(__dirname, "node_modules", "react-icons")
+				],
 
 				use: [
 					{
@@ -47,7 +53,19 @@ module.exports = {
 							presets: ["es2015", "es2016", "es2017", "react"],
 							plugins: [
 								"transform-object-rest-spread",
-								"transform-class-properties"
+								"transform-class-properties",
+								[
+									"react-css-modules",
+									{
+										filetypes: {
+											".scss": {
+												syntax: "postcss-scss"
+											}
+										},
+										context: context,
+										webpackHotModuleReloading: true
+									}
+								]
 							]
 						}
 					}
@@ -55,7 +73,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [path.resolve(__dirname, "web")],
 
 				use: [
 					{
@@ -76,7 +94,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [path.resolve(__dirname, "web")],
 
 				use: [
 					{
@@ -92,6 +110,9 @@ module.exports = {
 							importLoaders: true,
 							localIdentName: "[path]___[name]__[local]___[hash:base64:5]"
 						}
+					},
+					{
+						loader: "postcss-loader"
 					},
 					{
 						loader: "resolve-url-loader"

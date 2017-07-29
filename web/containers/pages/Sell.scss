@@ -1,37 +1,58 @@
 @import 'web/scss/variables.scss';
 
-.sell{
-  color: inherit;
+.sell {
+	color: inherit;
 }
 
-.form{
-  color: inherit;
+.form {
+	color: inherit;
 }
 
-.image{
+.image {
+	margin: 1rem 0;
 
-
-
-  img{
-    width: 100%;
-    height: auto;
-  }
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
-.isbn-input input, .isbn-input input:focus{
-  color: $brand-primary;
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
+.isbn-input input {
+	color: $brand-primary;
+	font-size: 1.2rem;
+	font-weight: 500;
+	text-align: center;
 
-  padding: 1rem;
+	padding: 1rem;
 
-  border: $brand-primary 2px solid;
+	border: $brand-primary 2px solid;
 
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
-.description{
-  margin-bottom: 1rem;
-  display: block;
+.isbn-input input:focus {
+	color: $brand-primary;
+}
+
+@media (min-width: 370px) {
+	.isbn-input input {
+		font-size: 1.5rem;
+	}
+}
+
+@media (min-width: 400px) {
+	.isbn-input input {
+		font-size: 1.75rem;
+	}
+}
+
+@media (min-width: 576px) {
+	.isbn-input input {
+		font-size: 2rem;
+	}
+}
+
+.description {
+	margin-bottom: 1rem;
+	display: block;
 }

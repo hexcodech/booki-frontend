@@ -1,68 +1,82 @@
 @import 'web/scss/variables.scss';
 
-.overlay{
-  position: fixed;
-  top:0;
-  right:0;
-  bottom: 0;
-  left:0;
+.overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 
-  background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.25);
 
-  z-index: 999;
+	z-index: 999;
 }
 
-.modal-wrapper{
-  position: absolute;
-  top:0;
-  right:1rem;
-  left:1rem;
+.modal-wrapper {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	left: 1rem;
 
-  z-index: 1000;
+	z-index: 1000;
 }
 
-.modals{
-  position: relative;
-  display: block;
+.modals {
+	position: relative;
+	display: block;
 
-  max-width: 600px;
-  margin: 6.75rem auto 1rem auto;
+	max-width: 600px;
+	margin: 0 auto 1rem auto;
 }
 
-.modal{
-  position: absolute;
-  left:0;
-  right: 0;
-
-  min-height: 400px;
-
-  padding: 1rem;
-
-  background-color: #fff;
-
-  z-index: 1001;
-
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
-  border-radius: 5px;
+@media (min-width: 576px) {
+	.modals {
+		margin-top: 5.75rem;
+	}
 }
 
-.modal-fading{
-  composes: modal;
+.modal {
+	position: absolute;
+	left: 0;
+	right: 0;
 
-  animation : swipeOut 1s ease-in-out forwards;
+	height: auto;
+	min-height: 400px;
+	overflow: hidden;
+
+	padding: 1rem;
+
+	background-color: #fff;
+
+	z-index: 1001;
+
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+
+	transition: all 0.5s ease-in-out;
 }
 
-@for $i from 2 through 10{
-  .modal:nth-child(#{$i}){
-    right: .5rem * ($i - 1);
-  }
+.modal:not(:last-child) {
+	height: 0px;
 }
 
-.modal:nth-child(n + 11){
-  display: none;
+.modal-fading {
+	composes: modal;
+
+	animation: swipeOut 1s ease-in-out forwards;
 }
 
-@keyframes swipeOut{
+@for $i from 2 through 10 {
+	.modal:nth-child(#{$i}) {
+		right: .5rem * ($i - 1);
+	}
+}
+
+.modal:nth-child(n + 11) {
+	display: none;
+}
+
+@keyframes swipeOut {
 	0% {
 		transform: translateX(0);
 	}

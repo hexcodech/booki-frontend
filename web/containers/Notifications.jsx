@@ -5,8 +5,7 @@ import { addNotification } from "core/actions/notification";
 
 import Notification from "web/components/notifications/Notification";
 
-import CSSModules from "react-css-modules";
-import styles from "./Notifications.scss";
+import "./Notifications.scss";
 
 const Notifications = ({ notifications, dispatch }) => {
 	return (
@@ -33,4 +32,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Notifications, styles));
+export default connect(mapStateToProps)(Notifications);

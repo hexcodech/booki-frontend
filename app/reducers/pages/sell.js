@@ -3,6 +3,8 @@ import { combineReducers } from "redux";
 const defaultState = {
 	step: 0,
 	isbn: "",
+	isbnAbout: false,
+	isbn10: false,
 	book: {
 		isbn13: "",
 		title: "",
@@ -91,6 +93,12 @@ const sell = (state = defaultState, action) => {
 			};
 		case "PAGES_SELL_RESET":
 			return { ...state, ...defaultState };
+
+		case "PAGES_SELL_TOGGLE_ISBN10_INPUT":
+			return { ...state, isbn10: !state.isbn10 };
+
+		case "PAGES_SELL_TOGGLE_ISBN_ABOUT":
+			return { ...state, isbnAbout: !state.isbnAbout };
 
 		default:
 			return state;

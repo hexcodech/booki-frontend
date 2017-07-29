@@ -12,6 +12,7 @@ import lookedUpPeople from "core/reducers/person/looked-up";
 import conditions from "core/reducers/conditions";
 
 import books from "core/reducers/books";
+import latestBookOffers from "core/reducers/book/latest";
 import newBook from "core/reducers/book/new";
 import lookedUpBooks from "core/reducers/book/looked-up";
 
@@ -39,13 +40,14 @@ export default combineReducers({
 	conditions,
 
 	newBook,
+	latestBookOffers,
 	books,
 	lookedUpBooks,
 
 	images,
 
-	newOffer,
 	offers,
+	newOffer,
 
 	offerRequests,
 	newOfferRequest,

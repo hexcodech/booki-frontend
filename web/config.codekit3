@@ -7,7 +7,7 @@
 		"uuidString": "170B7A15-0EC9-4724-92EB-49AF329EF30A"
 		}
 	],
-"creatorBuild": "25813",
+"creatorBuild": "25849",
 "files": {
 	"\/components\/auth\/OAuthCallback.jsx": {
 		"ft": 64,
@@ -36,139 +36,6 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/form\/FormField.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/min\/FormField-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/FormGroups.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/min\/FormGroups-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/FormGroups.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/FormGroups.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/form\/input\/select\/book\/BookComponent.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/BookComponent.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/form\/input\/select\/book\/BookOptionComponent.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/select\/book\/min\/BookOptionComponent-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/input\/select\/book\/BookValueComponent.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/select\/book\/min\/BookValueComponent-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/input\/select\/condition\/ConditionComponent.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/ConditionComponent.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/form\/input\/select\/condition\/ConditionOptionComponent.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/select\/condition\/min\/ConditionOptionComponent-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/input\/select\/condition\/ConditionValueComponent.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/select\/condition\/min\/ConditionValueComponent-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/input\/select\/flag\/FlagComponent.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/css\/FlagComponent.min.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
-	"\/components\/form\/input\/select\/flag\/FlagOptionComponent.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/select\/flag\/min\/FlagOptionComponent-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/input\/select\/flag\/FlagValueComponent.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/select\/flag\/min\/FlagValueComponent-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/components\/form\/input\/select\/SelectInput.jsx": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/components\/form\/input\/select\/min\/SelectInput-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
 	"\/components\/notifications\/Notification.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -191,16 +58,25 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/components\/pages\/Home.jsx": {
+	"\/components\/pages\/About.jsx": {
 		"ft": 64,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/components\/pages\/min\/Home-min.js",
+		"oAP": "\/components\/pages\/min\/About-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/components\/pages\/Home.scss": {
+	"\/components\/pages\/Bugtracker.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/Bugtracker-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/pages\/Bugtracker.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -208,10 +84,28 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/css\/Home.min.css",
+		"oAP": "\/css\/Bugtracker.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
+		},
+	"\/components\/pages\/Faq.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/Faq-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/pages\/Gtc.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/pages\/min\/Gtc-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/components\/pages\/Login.jsx": {
 		"ft": 64,
@@ -420,6 +314,28 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/components\/ui\/UserOffers.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/components\/ui\/min\/UserOffers-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/components\/ui\/UserOffers.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/UserOffers.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/containers\/App.jsx": {
 		"ft": 64,
 		"mi": 0,
@@ -469,6 +385,28 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/css\/BookDetail.min.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/containers\/pages\/Home.jsx": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/containers\/pages\/min\/Home-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/containers\/pages\/Home.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/Home.min.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -630,6 +568,61 @@
 		"oAP": "\/css\/booki-frontend.min.css.map",
 		"oF": 0
 		},
+	"\/img\/book-mask.png": {
+		"ft": 32768,
+		"iS": 34852,
+		"oA": 0,
+		"oAP": "\/img\/book-mask.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/book01.png": {
+		"ft": 32768,
+		"iS": 213520,
+		"oA": 0,
+		"oAP": "\/img\/book01.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/book02.png": {
+		"ft": 32768,
+		"iS": 262183,
+		"oA": 0,
+		"oAP": "\/img\/book02.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/book03.png": {
+		"ft": 32768,
+		"iS": 303954,
+		"oA": 0,
+		"oAP": "\/img\/book03.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/img\/book04.png": {
+		"ft": 32768,
+		"iS": 465991,
+		"oA": 0,
+		"oAP": "\/img\/book04.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/img\/matura.jpg": {
 		"ft": 16384,
 		"iS": 356304,
@@ -654,6 +647,12 @@
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
+		},
+	"\/oauth-callback-sample.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/oauth-callback-sample.php",
+		"oF": 0
 		},
 	"\/scss\/booki-frontend.scss": {
 		"aP": 1,
@@ -680,15 +679,6 @@
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
-		},
-	"\/utilities\/input-types.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/utilities\/min\/input-types-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
 		}
 	},
 "hooks": [
@@ -2635,6 +2625,7 @@
 		},
 	"languageDefaultsUserDefined": [
 		],
+	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules",
 	"sourceFolderName": "source",

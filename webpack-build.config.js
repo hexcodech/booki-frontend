@@ -1,18 +1,29 @@
 const path = require("path");
 const webpack = require("webpack");
+const context = path.resolve(__dirname);
 
 process.traceDeprecation = true; //https://github.com/webpack/loader-utils/issues/56
 
 module.exports = {
+	devtool: "cheap-module-source-map",
+
 	entry: [path.join(__dirname, "web/main.jsx")],
 
 	output: {
-		path: path.join(__dirname, "build/"),
+		path: path.join(__dirname, "build/js/"),
 		filename: "bundle.js",
-		publicPath: "/build/"
+		publicPath: "/js/"
 	},
 
-	plugins: [],
+	plugins: [
+		new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: JSON.stringify("production")
+			}
+		}),
+		new webpack.optimize.UglifyJsPlugin(), //minify everything
+		new webpack.optimize.AggressiveMergingPlugin() //Merge chunks
+	],
 
 	resolve: {
 		modules: [path.resolve(__dirname), path.resolve(__dirname, "node_modules")],
@@ -28,7 +39,12 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [
+					path.resolve(__dirname, "app"),
+					path.resolve(__dirname, "web"),
+					path.resolve(__dirname, "node_modules", "booki-frontend-core"),
+					path.resolve(__dirname, "node_modules", "react-icons")
+				],
 
 				use: [
 					{
@@ -37,7 +53,19 @@ module.exports = {
 							presets: ["es2015", "es2016", "es2017", "react"],
 							plugins: [
 								"transform-object-rest-spread",
-								"transform-class-properties"
+								"transform-class-properties",
+								[
+									"react-css-modules",
+									{
+										filetypes: {
+											".scss": {
+												syntax: "postcss-scss"
+											}
+										},
+										context: context,
+										webpackHotModuleReloading: false
+									}
+								]
 							]
 						}
 					}
@@ -45,7 +73,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [path.resolve(__dirname, "web")],
 
 				use: [
 					{
@@ -66,7 +94,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				exclude: /node_modules(\/|\\)(?!booki-frontend-core(\/|\\))/,
+				include: [path.resolve(__dirname, "web")],
 
 				use: [
 					{

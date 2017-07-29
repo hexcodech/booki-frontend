@@ -1,19 +1,15 @@
 import React from "react";
 import TimeAgo from "react-timeago";
 
-import CSSModules from "react-css-modules";
-import styles from "./RefreshButton.scss";
+import MdRefresh from "react-icons/md/refresh";
+
+import "./RefreshButton.scss";
 
 const RefreshButton = ({ date, loading, refreshHandler }) => {
 	return (
 		<span>
 			<a href="#" onClick={refreshHandler}>
-				<i
-					styleName={loading ? "icon-spinning" : "icon"}
-					className="material-icons"
-				>
-					refresh
-				</i>
+				<MdRefresh styleName={loading ? "icon-spinning" : "icon"} />
 			</a>
 
 			{" "}
@@ -38,4 +34,4 @@ const RefreshButton = ({ date, loading, refreshHandler }) => {
 	);
 };
 
-export default CSSModules(RefreshButton, styles);
+export default RefreshButton;

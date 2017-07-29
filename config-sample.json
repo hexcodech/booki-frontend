@@ -2,5 +2,6 @@
 	"API_URL"      : "",
 	"API_VERSION"  : "",
 	"CLIENT_ID"    : "",
-	"REDIRECT_URI" : ""
+	"REDIRECT_URI" : "",
+	"DEV_TOOLS"    : false
 }

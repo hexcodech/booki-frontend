@@ -1,0 +1,44 @@
+@import "web/scss/variables.scss";
+
+.card-offers {
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+
+	margin-bottom: 1rem;
+	padding: 1.5rem;
+
+	& > div {
+		font-size: .8rem;
+
+		padding-top: .5rem;
+		border-bottom: $brand-primary 1px solid;
+
+		& > div {
+			margin-bottom: .5rem;
+		}
+	}
+}
+
+.book-thumbnail {
+	width: 100%;
+	height: auto;
+	background-color: #eee;
+}
+
+.price {
+	color: $brand-primary;
+	font-style: normal;
+	border-bottom: $brand-primary 2px solid;
+}
+
+.actions button {
+	width: 100%;
+	font-size: .8rem;
+	white-space: normal;
+}
+
+.highlighted {
+	background-color: rgba($brand-success, 0.5);
+	transition: all 0.3s ease-in-out;
+}

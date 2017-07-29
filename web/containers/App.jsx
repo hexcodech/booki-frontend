@@ -9,12 +9,18 @@ import OAuthCallback from "web/components/auth/OAuthCallback";
 import Wrapper from "web/components/ui/containers/Wrapper";
 
 //Content
-import Home from "web/components/pages/Home";
 import Login from "web/components/pages/Login";
+
+import Home from "web/containers/pages/Home";
 import Sell from "web/containers/pages/Sell";
 import BookDetail from "web/containers/pages/BookDetail";
 import Search from "web/containers/pages/Search";
 import Profile from "web/containers/pages/Profile";
+
+import About from "web/components/pages/About";
+import Bugtracker from "web/components/pages/Bugtracker";
+import Gtc from "web/components/pages/Gtc";
+import Faq from "web/components/pages/Faq";
 
 const App = ({ store, history }) => {
 	return (
@@ -31,6 +37,11 @@ const App = ({ store, history }) => {
 						<Route path="/book/:bookId" component={BookDetail} />
 						<Route path="/sell" component={Sell} />
 						<Route path="/profile" component={Profile} />
+
+						<Route path="/about" component={About} />
+						<Route path="/bug-tracker" component={Bugtracker} />
+						<Route path="/gtc" component={Gtc} />
+						<Route path="/faq" component={Faq} />
 					</Wrapper>
 				</div>
 			</ConnectedRouter>

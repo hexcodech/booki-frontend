@@ -4,8 +4,9 @@ import { push } from "react-router-redux";
 
 import Loader from "halogen/PulseLoader";
 
-import CSSModules from "react-css-modules";
-import styles from "./SellStep.scss";
+import { resetSell } from "app/actions/pages/sell";
+
+import "./SellStep.scss";
 
 class SellStep extends React.Component {
 	render() {
@@ -17,15 +18,17 @@ class SellStep extends React.Component {
 
 				{children}
 
-				<button
-					styleName="cancel"
-					className="btn btn-primary"
-					onClick={() => {
-						dispatch(push("/"));
-					}}
-				>
-					Abbrechen
-				</button>
+				{!loading &&
+					<button
+						styleName="cancel"
+						className="btn btn-primary"
+						onClick={() => {
+							dispatch(push("/"));
+							dispatch(resetSell());
+						}}
+					>
+						Abbrechen
+					</button>}
 				<button
 					disabled={!this.props.nextEnabled}
 					styleName="next"
@@ -35,10 +38,9 @@ class SellStep extends React.Component {
 					{loading && <Loader styleName="spinner" color="#FFF" size="10px" />}
 					Weiter
 				</button>
-
 			</div>
 		);
 	}
 }
 
-export default connect()(CSSModules(SellStep, styles));
+export default connect()(SellStep);

@@ -1,31 +1,30 @@
 @import 'web/scss/variables.scss';
 
-.sell-step{
+.sell-step {
+	margin-bottom: 3rem;
 
-  margin-bottom: 3rem;
+	h1 {
+		margin-bottom: 0;
+	}
 
-  h1{
-    margin-bottom: 0;
-  }
-
-  small{
-    color: $brand-dark;
-  }
+	small {
+		color: $brand-dark;
+	}
 }
 
-.spinner{
-  display: inline-block;
-  margin-right: .5rem;
+.spinner {
+	display: inline-block;
+	margin-right: .5rem;
 }
 
-.cancel{
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+.cancel {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
 }
 
-.next{
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+.next {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
 }

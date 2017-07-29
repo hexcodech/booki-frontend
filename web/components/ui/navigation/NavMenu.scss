@@ -1,23 +1,70 @@
 @import "web/scss/variables.scss";
 
-.profile{
-  display: flex;
-  justify-content: center;
+.nav-menu {
+	position: relative;
 }
 
-.profile-picture{
-  width: 25px;
-  height: 25px;
-
-  img{
-    width: 100%;
-    height: auto;
-
-    border-radius: 50%;
-    border: $brand-primary 2px solid;
-  }
+.dropdown-toggle {
+	cursor: pointer;
+	display: inline-block;
 }
 
-.name{
-  margin-left: .5rem;
+.dropdown {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	list-style: none;
+
+	margin: .5rem 0 0 0;
+	padding: 1rem 0;
+
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+
+	li {
+		padding: 0 .5rem;
+	}
+
+	& > a {
+		margin: .5rem 1rem;
+		display: block;
+	}
+}
+
+.profile {
+	cursor: pointer;
+}
+
+.profile-picture {
+	margin: 0 auto 1rem auto;
+
+	width: 80px;
+	height: 80px;
+
+	img {
+		width: 100%;
+		height: auto;
+
+		border-radius: 50%;
+		border: $brand-primary 5px solid;
+	}
+}
+
+.profile-mobile {
+	display: flex;
+}
+
+.profile-picture-mobile {
+	margin-right: .5rem;
+	img {
+		width: 25px;
+		height: 25px;
+	}
+}
+
+.name {
+	margin: 1rem 0 1rem 0;
+	text-align: center;
 }

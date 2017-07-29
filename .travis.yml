@@ -1,9 +1,6 @@
-sudo: required
-services:
-- docker
 language: node_js
 node_js:
-- node
+- '7'
 notifications:
   email: false
   webhooks:
@@ -12,20 +9,44 @@ notifications:
     on_success: always
     on_failure: always
     on_start: never
-    on_cancel: always
+    on_cancel: never
     on_error: always
 env:
-- secure: WFhg+shBXX54/5Sd+zUR6+2KdySXYcPlIo05/T6OzLcFH16kqukwYtdDvKSFWCABnmmAG7f+Y5KvKb7ybVdpcZ3XsoNebtaSUbLrVJetgcSEss6aZdf3aybjD1CBQR65kTPUsufyfdEsmbvcTvHfywgPnn7zYzi8CPNeG9AEY9RExvn9tzqpGw+CQFX1yUKwXGphAFwtrE/O/l5jH4Z9i/VTqqEr+jRbChLy1qXBpJJ9EeaBVlP21Dpr82BOgG7wIrtV8LXo/58FobF3gZsONihG8HLO5vHAgvtibzoeTroX6HmFvMm/VNU4vldNokKccYMKfPyjhW8FLuatWLWIojeHLaFLZKn1KtUW50gxcwEPMsXJeuzOhfa8BZu4QyGvcYp/AKjuQx7l2dbOCTLzUWc2+uE+EPhkKBy8HxGNR0rPqYhJS0RjdDc0A413bh+88r9uNXURi62LMMuZHovLIuKH3T0Y5jgE57srSMZNjOFjzUPgUbwN2TihWAtHU7s9pMrD1c3OGig8/EcSwXdWEqj7IF5jEo5ha/ku4Cr+6JOkXnySdiJvb+fk5Q82z7gYhbwTcMA1wLDotG2AXCaRgNSKQSMvhaCojbdc4KtUAARMzNTWe+j69vXtRHyIsSZcTS+U6QV+Iua81x6ANnFlmWhQOquNTGS+XftP43qp+ak=
-install: yarn install
-before_script: yarn test
+  global:
+    - CM_MESSAGE="Automated travis build"
+    - secure: "azSVVL1byDnFDPRZVn5jGwFS1ZFgkyMZNOt/tX8drz1H9M5mhFXkJwuvOsmqrNvCcJUX1Kse8JhidCgrbV4dh5v7Czn9k3rX2SFaj364FyjZhrzPAjycpqnovaA9at4nQgr6W4SmxyUphFZBklQ5/loxZtUaVtGS1JTnlm+AAHO95Cn1Ft4le2wMDSkHQNuqY/SHxlKhloRz7PghgUSphkS10gG8AL8LZQnNt61QQ/BiH4PIFQLRMRqAOe0Zn9HzJnbmDTt5N1y2VEzxEzMFaYwuSSBVwmJW3o5DHrVfbWia8SXffblaZIqh/1BKwnL3CG0B27Qrg+D2Rz25/h8lQffvmEQ4NVCsIkvfN8PGblarLp91GHXbaX4GUABpNpCdEQH2wgx/9Eu8TfMdfK/EU+fk0ulxbs78BALROHMWV7h/zxI8MdbL0pw4KXEZv2TByAY9VnwiDg9GHwsvJyiNOeZoEy1yoxK78wDWspYoEJGUuPBi3dKnjloemDVVKLgS6Lvie8rXrMcCNInnDvADOK+Mg9tgnIlXOPTWjgPsTkJzBlbePvys6lIiwQp0WUbmCD/crRos3VKx7EbEfscW8vNPU6CjAQCl7QunT7EnTANXv0AouI5c0CK5cQbtKfUiv6cQGu3M4PD/3jIm9DrHLNR70WMb4ciAArYDNBQZMZc="
+branches:
+  except:
+  - "/^build-[0-9A-z\\-]*/"
+before_install:
+  - if [ "$TRAVIS_COMMIT_MESSAGE" = "$CM_MESSAGE" ]; then exit 0; fi
+install:
+- yarn install
+before_script:
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
+    echo "{\"API_URL\":\"https://api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\", \"REDIRECT_URI\":\"https://booki.me/oauth-callback\", \"DEV_TOOLS\":false}" > config.json;
+  fi
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+    echo "{\"API_URL\":\"https://beta-api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\", \"REDIRECT_URI\":\"https://beta.booki.me/oauth-callback\", \"DEV_TOOLS\":false}" > config.json;
+  fi
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "dev" ]; then
+    echo "{\"API_URL\":\"https://dev-api.booki.me\", \"API_VERSION\":\"1\", \"CLIENT_ID\":\"2\",\"REDIRECT_URI\":\"https://dev.booki.me/oauth-callback\", \"DEV_TOOLS\":true}" > config.json;
+  fi
+- yarn test
 script:
 - yarn run build
 after_success:
-- cd build && zip booki-frontend *
-deploy:
-  provider: releases
-  api_key:
-    secure: GGx2Yqju7BHBtS53kC12Ki1+ZRkmJRZKz1O9YMcpgveKV9U9mcUBxsdbqQWg+UB5wi/XyzQDsNSuIoj9wgnTih5UD7+0FnOlwdhBOHaoPKPg6YmKcQUaTIwSobRpaKG50AR/9dz79V1MBquBSFhsjwoXZ2jbSTrHeilvVl50sAMM+0Rb+y3ZaMOkieLdS9acVhBip165FOu5e7k+NDVmOJ8wY6i/85GRJ7n07CfZAgvBLYJKoG06JpHmaynKS4/n1yadHGQfVvuAlRT2EsNleJ5BspYY+9+jfH4YOFx+m6DYGGPk8i0E8/g96s747o4kbyDpKkSC9bY7d/CxiT2cFlyKPgsgob4PXLf/iaRur3FU2499rLMV8hBKoVecBYciyfGLUWmarquIZDe0GGQTyZsdvk3+WKor2IH6qxx5/1T40cKT8vsimPdCbpMwV5bAh/etQqzxwVbKcU0KAB9F19s858GWUstSNbqfxF4OCvQl5hR/et/oXXRcPlcMoOe64z+VFmnQJuxLeQmL2yrW2WUtBfFTDJLniAS5zH5l7PhoMaTD7jlIFSJjOasmhQ3zTeHwlXhrgZWQK7OUCaw9spEc2IV6TY4No+9FQ2IODhE2rbwZE+cvBAzKYg4E4G+9mVk2nZTEgtWSiIOImDjLKHT5u6RLuZHoGo29s5+hkWk=
-  file: build/booki-frontend.zip
-  on:
-    repo: hexcodech/booki-frontend
+- cd build && find . -print
+- export GIT_TAG=build-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
+- git remote add origin-frontend https://${GH_TOKEN}@github.com/hexcodech/booki-frontend.git > /dev/null 2>&1
+- git config --global user.email "builds@travis-ci.org"
+- git config --global user.name "Travis CI"
+- git config --global push.default simple
+- git add -A
+- git commit -a -m "$CM_MESSAGE"
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "release" ]; then
+    git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
+    git push --quiet origin-frontend HEAD:$TRAVIS_BRANCH $GIT_TAG > /dev/null 2>&1;
+  else
+    git push --quiet origin-frontend HEAD:$TRAVIS_BRANCH > /dev/null 2>&1;
+  fi

@@ -3,22 +3,21 @@ import { connect } from "react-redux";
 import Autosuggest from "react-autosuggest";
 import { push } from "react-router-redux";
 import debounce from "lodash/debounce";
+import MdSearch from "react-icons/md/search";
 
 import { getParameterByName } from "core/utilities/location";
 
-import { updateText } from "app/actions/search-bar";
+import { updateText, toggle } from "app/actions/search-bar";
 import { lookUpBooks } from "core/actions/book";
 
-import CSSModules from "react-css-modules";
 import styles from "./Searchbar.scss";
 
 const getSuggestionValue = book => book.title;
 
-const renderSuggestion = book => (
+const renderSuggestion = book =>
 	<div>
 		{book.title}
-	</div>
-);
+	</div>;
 
 class Search extends React.Component {
 	componentDidMount = () => {
@@ -60,7 +59,7 @@ class Search extends React.Component {
 	};
 
 	render() {
-		const { query: value, suggestions } = this.props;
+		const { dispatch, toggled, query: value, suggestions } = this.props;
 
 		const inputProps = {
 			placeholder: "Suche nach einem Buch...",
@@ -70,7 +69,10 @@ class Search extends React.Component {
 		};
 
 		return (
-			<div className="input-group" styleName="search">
+			<div
+				className="input-group"
+				styleName={toggled ? "styles.search-toggled" : "styles.search"}
+			>
 				<Autosuggest
 					theme={styles}
 					suggestions={suggestions}
@@ -80,8 +82,14 @@ class Search extends React.Component {
 					renderSuggestion={renderSuggestion}
 					inputProps={inputProps}
 				/>
-				<div className="input-group-addon" styleName="search-button">
-					<i className="material-icons">search</i>
+				<div
+					className="input-group-addon"
+					styleName="styles.search-button"
+					onClick={() => {
+						dispatch(toggle(!toggled));
+					}}
+				>
+					<MdSearch />
 				</div>
 			</div>
 		);
@@ -91,8 +99,9 @@ class Search extends React.Component {
 const mapStateToProps = state => {
 	return {
 		suggestions: state.app.lookedUpBooks.local,
-		query: state.app.searchBar.query
+		query: state.app.searchBar.query,
+		toggled: state.app.searchBar.toggled
 	};
 };
 
-export default connect(mapStateToProps)(CSSModules(Search, styles));
+export default connect(mapStateToProps)(Search);
