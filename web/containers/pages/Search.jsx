@@ -129,9 +129,18 @@ class Search extends React.Component {
 														>
 															Mehr Infos
 														</button>
-														<div styleName="price">
-															ab <span>10.00 Fr.</span>
-														</div>
+
+														{book.offers.length > 0 &&
+															<div styleName="price">
+																ab{" "}
+																<span>
+																	{book.offers.reduce((a, b) => {
+																		return a.price > b.price
+																			? a.price
+																			: b.price;
+																	}) + " Fr."}
+																</span>
+															</div>}
 													</div>
 												</div>
 											</div>
