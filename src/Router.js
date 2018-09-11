@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import LazyComponent from './utils/LazyComponent';
 
-import { Home } from './pages/Home';
+const AsyncHome = LazyComponent(() => import('./pages/Home'));
 
 const Router = (props) => (
     <BrowserRouter>
@@ -9,9 +10,9 @@ const Router = (props) => (
             {props.header}
             
             {props.children}
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={AsyncHome} />
         </div>
     </BrowserRouter>
 );
 
-export { Router };
+export default Router;
