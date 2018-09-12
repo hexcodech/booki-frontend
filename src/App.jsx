@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Router from './components/Router';
 import LazyComponent from './utils/LazyComponent';
 
-const AsyncHeader = LazyComponent(() => import('./components/Header.jsx'));
+const AsyncHeader = LazyComponent(() => import('./components/header/Header'));
 
 class App extends Component {
   render() {

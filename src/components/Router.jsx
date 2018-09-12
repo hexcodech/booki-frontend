@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import LazyComponent from '../utils/LazyComponent';
 
-const AsyncHome = LazyComponent(() => import('../pages/Home'));
+const AsyncHome = LazyComponent(() => import('../pages/home/Home'));
 
 export default class Router extends PureComponent {
     render() {
