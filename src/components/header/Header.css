@@ -1,6 +1,9 @@
 .bg-booki {
     background-color: #FFC676;
 }
+.border-booki {
+    border-color: #FFC676;
+}
 
 .btn-outline-booki {
     background-color: white;
@@ -15,10 +18,6 @@
     box-shadow: inset 0px 1px 0px 0px white,
                 inset 0px -1px 0px 0px white,
                 inset -1px 0px 0px 0px white;
-}
-
-.mutedPlaceholder::placeholder {
-    color: rgba(0,0,0,0.4);
 }
 
 .navbar-light .navbar-toggler {
