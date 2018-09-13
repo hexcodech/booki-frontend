@@ -24,3 +24,8 @@
     border-color: white;
     color: white;
 }
+
+.header-avatar-booki img {
+    display: block;
+    border: 2px solid white;
+}

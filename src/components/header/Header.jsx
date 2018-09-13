@@ -13,6 +13,7 @@ import {
     InputGroupAddon,
     Button,
 } from 'reactstrap';
+import Avatar from 'react-avatar';
 import userManager from '../../utils/userManager';
 
 import './Header.css';
@@ -51,7 +52,23 @@ class Header extends PureComponent {
                             </InputGroup>
                         </Form>
                         <Button outline color="booki" className="mx-3">Sell books</Button>
-                        {this.props.user && !this.props.user.expired ? null : <a onClick={() => userManager.signinRedirect()}>Login</a> }
+                        
+                        {/*this.props.user && !this.props.user.expired ? 
+                            <a onClick={() => userManager.removeUser()}>Logout</a> : 
+                            <a onClick={() => userManager.signinRedirect()}>Login</a>
+                        */}
+
+
+                        {this.props.user && !this.props.user.expired ?
+                            <Avatar 
+                            className="header-avatar-booki"
+                            email={this.props.user.profile.private.email} // Gravatar, etc...
+                            name={this.props.user.profile.private.username} // Generate avatar based on initials
+                            maxInitials={2}
+                            size="45px"
+                            round /> :
+                            null
+                        }
                     </Collapse>
                 </Navbar>
             </div>

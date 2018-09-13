@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import LazyComponent from '../utils/lazyComponent';
 
-const AsyncHome = LazyComponent(() => import('../pages/home/Home'));
 const AsyncCallback = LazyComponent(() => import('../pages/callback/Callback'));
+const AsyncHome = LazyComponent(() => import('../pages/home/Home'));
+const AsyncProfile = LazyComponent(() => import('../pages/profile/Profile'));
 
 export default class Router extends PureComponent {
     render() {
@@ -15,6 +16,7 @@ export default class Router extends PureComponent {
                     {this.props.children}
         
                     <Route exact path="/" component={AsyncHome} />
+                    <Route path="/profile" component={AsyncProfile} />
                     <Route path="/callback" component={AsyncCallback} />
                 </div>
             </BrowserRouter>
