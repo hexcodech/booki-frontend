@@ -12,6 +12,10 @@ import {
     InputGroup,
     InputGroupAddon,
     Button,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
 } from 'reactstrap';
 import Avatar from 'react-avatar';
 import userManager from '../../utils/userManager';
@@ -21,9 +25,26 @@ import './Header.css';
 class Header extends PureComponent {
     constructor(props) {
         super(props);
+
+        this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.toggleProfileDropdown = this.toggleProfileDropdown.bind(this);
+        
         this.state = {
             navbarOpen: false,
+            profileDropdownOpen: false,
         };
+    }
+
+    toggleNavbar() {
+        this.setState({
+            navbarOpen: !this.state.navbarOpen,
+        });
+    }
+
+    toggleProfileDropdown() {
+        this.setState({
+            profileDropdownOpen: !this.state.profileDropdownOpen,
+        });
     }
 
     render() {
@@ -33,11 +54,7 @@ class Header extends PureComponent {
                     <NavbarBrand tag={Link} to="/" className="mr-5">
                         <img src="/img/logo/logo.svg" alt="Booki Logo"/>
                     </NavbarBrand>
-                    <NavbarToggler type="navbar" onClick={() => this.setState({
-                        ...this.state,
-                        navbarOpen: !this.state.navbarOpen,
-                        })}>
-                    </NavbarToggler>
+                    <NavbarToggler type="navbar" onClick={this.toggleNavbar} />
 
                     <Collapse isOpen={this.state.navbarOpen} navbar>
                         <Nav navbar>
@@ -60,14 +77,28 @@ class Header extends PureComponent {
 
 
                         {this.props.user && !this.props.user.expired ?
-                            <Avatar 
-                            className="header-avatar-booki"
-                            email={this.props.user.profile.private.email} // Gravatar, etc...
-                            name={this.props.user.profile.private.username} // Generate avatar based on initials
-                            maxInitials={2}
-                            size="45px"
-                            round /> :
-                            null
+                            <Dropdown isOpen={this.state.profileDropdownOpen} toggle={this.toggleProfileDropdown}>
+                                <DropdownToggle
+                                tag="div"
+                                onClick={this.toggleProfileDropdown}
+                                data-toggle="dropdown"
+                                >
+                                    <Avatar 
+                                    className="header-avatar-booki"
+                                    email={this.props.user.profile.private.email} // Gravatar, etc...
+                                    name={this.props.user.profile.private.username} // Generate avatar based on initials
+                                    maxInitials={2}
+                                    size="45px"
+                                    round />
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem header>{this.props.user.profile.private.username}</DropdownItem>
+                                    <DropdownItem tag={Link} to="/profile">Profile</DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem onClick={() => userManager.signoutRedirect()}>Logout</DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown> :
+                            <Button outline color="booki" className="mx-3" onClick={() => userManager.signinRedirect()}>Login</Button>
                         }
                     </Collapse>
                 </Navbar>

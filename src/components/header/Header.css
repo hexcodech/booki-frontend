@@ -5,13 +5,13 @@
     border-color: #FFC676;
 }
 
-.btn-outline-booki {
+.btn.btn-outline-booki {
     background-color: white;
     border-color: #FFC676;
     color: #FFC676;
 }
 
-.btn-outline-booki:hover {
+.btn.btn-outline-booki:hover {
     background-color: #FFC676;
     color: white;
     border-left-color: white;
