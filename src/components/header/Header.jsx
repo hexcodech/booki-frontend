@@ -19,6 +19,8 @@ import {
     DropdownItem,
 } from 'reactstrap';
 import Avatar from 'react-avatar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import userManager from '../../utils/userManager';
 
 import './Header.css';
@@ -65,17 +67,11 @@ class Header extends PureComponent {
                             <InputGroup>
                                 <Input type="search" placeholder="" className="border-booki"/>
                                 <InputGroupAddon addonType="append">
-                                    <Button outline type="submit" color="booki"><Translate value="application.header.search"/></Button>
+                                    <Button outline type="submit" color="booki"><FontAwesomeIcon icon={faSearch}/></Button>
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>
                         <Button outline color="booki" className="mx-3"><Translate value="application.header.sell_books"/></Button>
-                        
-                        {/*this.props.user && !this.props.user.expired ? 
-                            <a onClick={() => userManager.removeUser()}>Logout</a> : 
-                            <a onClick={() => userManager.signinRedirect()}>Login</a>
-                        */}
-
 
                         {this.props.user && !this.props.user.expired ?
                             <Dropdown isOpen={this.state.profileDropdownOpen} toggle={this.toggleProfileDropdown}>
