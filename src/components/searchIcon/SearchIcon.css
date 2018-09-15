@@ -1,0 +1,77 @@
+svg {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#pie {
+  stroke: currentColor;
+  fill: transparent;
+  stroke-width: 40;
+  stroke-dashoffset: -15.7;
+  stroke-dasharray: 0, 158;
+}
+
+#pie.toggled {
+  animation: pieToggled 2s infinite ease-in-out;
+}
+
+#pie.toggle-end {
+  stroke-dasharray: 126, 0;
+  transition: stroke 0.5s linear 0.5s;
+  stroke: transparent;
+}
+
+#line, #circle {
+  stroke: currentColor;
+  fill: transparent;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+#line {
+  stroke-dashoffset: -40;
+  stroke-dasharray: 30, 100;
+  transition: stroke-dashoffset 0.5s, stroke-dasharray 0.5s;
+}
+
+#line.toggled {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 40, 100;
+  transition: stroke-dashoffset 0.2s, stroke-dasharray 0.2s;
+}
+
+#line.toggle-end {
+  transition-delay: 2s;
+  transition: stroke-dashoffset 0.5s, stroke-dasharray 0.5s;
+  stroke-dashoffset: -40;
+  stroke-dasharray: 30, 100;
+
+  animation: toggleEndFinish 1s ease-out;
+}
+
+@keyframes pieToggled {
+  0% {
+    stroke-dasharray: 0, 158;
+  }
+  
+  50% {
+    stroke-dasharray: 126, 0;
+  }
+  51% {
+
+  }
+}
+
+@keyframes toggleEndFinish {
+  0% {
+    stroke-dasharray: 0.01, 100;
+  }
+}

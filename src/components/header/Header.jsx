@@ -20,8 +20,9 @@ import {
 } from 'reactstrap';
 import Avatar from 'react-avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import userManager from '../../utils/userManager';
+import SearchIcon from '../searchIcon/SearchIcon';
 
 import './Header.css';
 
@@ -35,6 +36,7 @@ class Header extends PureComponent {
         this.state = {
             navbarOpen: false,
             profileDropdownOpen: false,
+            searchInProgress: false,
         };
     }
 
@@ -67,11 +69,13 @@ class Header extends PureComponent {
                             <InputGroup>
                                 <Input type="search" placeholder="" className="border-booki"/>
                                 <InputGroupAddon addonType="append">
-                                    <Button outline type="submit" color="booki"><FontAwesomeIcon icon={faSearch}/></Button>
+                                    <Button outline type="submit" color="booki">
+                                        <SearchIcon animated={this.state.searchInProgress}/>
+                                    </Button>
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>
-                        <Button outline color="booki" className="mx-3"><Translate value="application.header.sell_books"/></Button>
+                        <Button outline color="booki" className="mx-3"><Translate value="application.header.sell_books" /></Button>
 
                         {this.props.user && !this.props.user.expired ?
                             <Dropdown isOpen={this.state.profileDropdownOpen} toggle={this.toggleProfileDropdown}>
@@ -90,12 +94,18 @@ class Header extends PureComponent {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem header>{this.props.user.profile.private.username}</DropdownItem>
-                                    <DropdownItem tag={Link} to="/profile"><Translate value="application.header.profile"/></DropdownItem>
+                                    <DropdownItem tag={Link} to="/profile">
+                                        <FontAwesomeIcon icon={faUser} className="mr-1 text-muted" />
+                                        <Translate value="application.header.profile" />
+                                    </DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem onClick={() => userManager.signoutRedirect()}><Translate value="application.header.logout"/></DropdownItem>
+                                    <DropdownItem onClick={() => userManager.signoutRedirect()}>
+                                        <FontAwesomeIcon icon={faSignOutAlt} className="mr-1 text-muted" />
+                                        <Translate value="application.header.logout" />
+                                    </DropdownItem>
                                 </DropdownMenu>
                             </Dropdown> :
-                            <Button outline color="booki" className="mx-3" onClick={() => userManager.signinRedirect()}><Translate value="application.header.login"/></Button>
+                            <Button outline color="booki" className="mx-3" onClick={() => userManager.signinRedirect()}><Translate value="application.header.login" /></Button>
                         }
                     </Collapse>
                 </Navbar>
