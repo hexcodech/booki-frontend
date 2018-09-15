@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
+import { Translate } from 'react-redux-i18n';
 import { connect } from 'react-redux';
 import { 
     Navbar,
@@ -64,11 +65,11 @@ class Header extends PureComponent {
                             <InputGroup>
                                 <Input type="search" placeholder="" className="border-booki"/>
                                 <InputGroupAddon addonType="append">
-                                    <Button outline type="submit" color="booki">Search</Button>
+                                    <Button outline type="submit" color="booki"><Translate value="application.header.search"/></Button>
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>
-                        <Button outline color="booki" className="mx-3">Sell books</Button>
+                        <Button outline color="booki" className="mx-3"><Translate value="application.header.sell_books"/></Button>
                         
                         {/*this.props.user && !this.props.user.expired ? 
                             <a onClick={() => userManager.removeUser()}>Logout</a> : 
@@ -93,12 +94,12 @@ class Header extends PureComponent {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem header>{this.props.user.profile.private.username}</DropdownItem>
-                                    <DropdownItem tag={Link} to="/profile">Profile</DropdownItem>
+                                    <DropdownItem tag={Link} to="/profile"><Translate value="application.header.profile"/></DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem onClick={() => userManager.signoutRedirect()}>Logout</DropdownItem>
+                                    <DropdownItem onClick={() => userManager.signoutRedirect()}><Translate value="application.header.logout"/></DropdownItem>
                                 </DropdownMenu>
                             </Dropdown> :
-                            <Button outline color="booki" className="mx-3" onClick={() => userManager.signinRedirect()}>Login</Button>
+                            <Button outline color="booki" className="mx-3" onClick={() => userManager.signinRedirect()}><Translate value="application.header.login"/></Button>
                         }
                     </Collapse>
                 </Navbar>

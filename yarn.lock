@@ -3370,6 +3370,10 @@ interpret@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
 
+intl@^1.2:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+
 invariant@^2.0.0, invariant@^2.2.1, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -4516,6 +4520,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
+moment@^2.22.1:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -5587,6 +5595,14 @@ react-error-overlay@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
 
+react-i18nify@^1.11.8:
+  version "1.11.14"
+  resolved "https://registry.yarnpkg.com/react-i18nify/-/react-i18nify-1.11.14.tgz#e88acdba4766815b91edcecd222aa1242f422ff3"
+  dependencies:
+    intl "^1.2"
+    moment "^2.22.1"
+    prop-types "^15.6.1"
+
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -5597,6 +5613,12 @@ react-popper@^0.10.4:
   dependencies:
     popper.js "^1.14.1"
     prop-types "^15.6.1"
+
+react-redux-i18n@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/react-redux-i18n/-/react-redux-i18n-1.9.3.tgz#c3bd2c83e99d939c78a35e00df16a85b851f6315"
+  dependencies:
+    react-i18nify "^1.11.8"
 
 react-redux@^5.0.7:
   version "5.0.7"
@@ -5800,6 +5822,10 @@ redux-oidc@^3.0.2:
   resolved "https://registry.yarnpkg.com/redux-oidc/-/redux-oidc-3.0.2.tgz#04f8b21fdf2d19479c5dcc492b75867d5cb00e42"
   optionalDependencies:
     immutable ">=3.6.0"
+
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
 
 redux@^4.0.0:
   version "4.0.0"
