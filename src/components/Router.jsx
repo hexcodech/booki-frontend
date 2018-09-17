@@ -15,9 +15,11 @@ export default class Router extends PureComponent {
                     
                     {this.props.children}
         
-                    <Route exact path="/" component={AsyncHome} />
-                    <Route path="/profile" component={AsyncProfile} />
-                    <Route path="/callback" component={AsyncCallback} />
+                    <div className="container">
+                        <Route exact path="/" component={AsyncHome} />
+                        <Route path="/profile" component={AsyncProfile} />
+                        <Route path="/callback" component={AsyncCallback} />
+                    </div>
                 </div>
             </BrowserRouter>
         );

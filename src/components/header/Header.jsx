@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-redux-i18n';
 import { connect } from 'react-redux';
@@ -20,8 +21,10 @@ import {
 } from 'reactstrap';
 import Avatar from 'react-avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { bookSearchStart } from '../../actions/search';
 import userManager from '../../utils/userManager';
+import throttle from '../../utils/throttle';
 import SearchIcon from '../searchIcon/SearchIcon';
 
 import './Header.css';
@@ -32,11 +35,12 @@ class Header extends PureComponent {
 
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.toggleProfileDropdown = this.toggleProfileDropdown.bind(this);
+        this.onSearchInputChange = this.onSearchInputChange.bind(this);
         
         this.state = {
             navbarOpen: false,
             profileDropdownOpen: false,
-            searchInProgress: false,
+            searchTerm: '',
         };
     }
 
@@ -51,6 +55,12 @@ class Header extends PureComponent {
             profileDropdownOpen: !this.state.profileDropdownOpen,
         });
     }
+
+    onSearchInputChange(e) {
+        if (e.target.value.length < 3)
+            return;
+        this.props.bookSearchStart(e.target.value);
+    };
 
     render() {
         return (
@@ -67,15 +77,17 @@ class Header extends PureComponent {
                         </Nav>
                         <Form className="flex-grow-1">
                             <InputGroup>
-                                <Input type="search" placeholder="" className="border-booki"/>
+                                <Input type="search" placeholder="" className="border-booki" onChange={throttle(200, this.onSearchInputChange)} />
                                 <InputGroupAddon addonType="append">
                                     <Button outline type="submit" color="booki">
-                                        <SearchIcon animated={this.state.searchInProgress}/>
+                                        <SearchIcon animated={this.props.search.bookSearchLoading} />
                                     </Button>
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>
-                        <Button outline color="booki" className="mx-3"><Translate value="application.header.sell_books" /></Button>
+                        <Button outline color="booki" className="mx-3">
+                            <Translate value="application.header.sell_books" />
+                        </Button>
 
                         {this.props.user && !this.props.user.expired ?
                             <Dropdown isOpen={this.state.profileDropdownOpen} toggle={this.toggleProfileDropdown}>
@@ -117,7 +129,12 @@ class Header extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         user: state.oidc.user,
+        search: state.search,
     }
 }
 
-export default connect(mapStateToProps, null)(Header);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ bookSearchStart }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

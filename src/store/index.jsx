@@ -16,6 +16,7 @@ export const store = createStoreWithMiddleware(
 );
 
 loadUser(store, userManager);
+
 syncTranslationWithStore(store);
 store.dispatch(loadTranslations({en}));
 store.dispatch(setLocale('en'));
