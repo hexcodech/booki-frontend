@@ -1,8 +1,18 @@
-.dropdown-menu {
+.dropdown .dropdown-menu {
     width: 100%;
     transform: translate3d(0px, 0px, 0px) !important;
+    border-color: #FFC676;
 }
 
-.dropdown-menu .dropdown-item {
+.dropdown .dropdown-menu .dropdown-item {
     white-space: normal;
+}
+
+.dropdown .dropdown-menu .search-book-img {
+    flex-shrink: 0;
+    width: 80px;
+}
+
+.dropdown .dropdown-menu .search-book-img img {
+    height: 5rem;
 }

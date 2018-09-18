@@ -71,11 +71,13 @@ class SearchBar extends PureComponent {
                         {this.props.search.bookSearchResult && this.props.search.bookSearchResult.books.slice(0,5).map(book => {
                             return (
                             <DropdownItem key={book.isbn}>
-                                <div>
-                                    <span>{book.title}</span>
-                                </div>
-                                <div>
-
+                                <div className="d-flex">
+                                    <div className="search-book-img">
+                                        <img src={book.image_url} alt={`Cover Bild ${book.title}`} />
+                                    </div>
+                                    <div className="search-book-content">
+                                        <span>{book.title}</span>
+                                    </div>
                                 </div>
                             </DropdownItem>
                             );
