@@ -1,0 +1,8 @@
+.dropdown-menu {
+    width: 100%;
+    transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.dropdown-menu .dropdown-item {
+    white-space: normal;
+}

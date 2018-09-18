@@ -7,6 +7,10 @@ import {
     Input,
     InputGroup,
     InputGroupAddon,
+    Dropdown,
+    DropdownMenu,
+    DropdownToggle,
+    DropdownItem,
 } from 'reactstrap';
 
 import throttle from '../../utils/throttle';
@@ -27,16 +31,17 @@ class SearchBar extends PureComponent {
         this.state = {
             searchTerm: '',
             searchTyping: false,
+            searchFocus: false,
         };
     }
 
     onSearchInputChange(e) {
+        this.setState({searchTerm: e.target.value});
+        
         if (e.target.value.length < 3)
             return;
 
-        this.setState({
-            searchTyping: true
-        });
+        this.setState({searchTyping: true});
         this.props.bookSearchStart(e.target.value);
         this.disableSearchAnimation();
     };
@@ -45,16 +50,40 @@ class SearchBar extends PureComponent {
 
     render() {
         return (
-        <Form className="flex-grow-1" color="#ffffff">
-            <InputGroup>
-                <Input type="search" placeholder="" className="border-booki" onChange={throttle(200, this.onSearchInputChange)} />
-                <InputGroupAddon addonType="append">
-                    <Button outline type="submit" color="booki">
-                        <SearchIcon animated={this.state.searchTyping} />
-                    </Button>
-                </InputGroupAddon>
-            </InputGroup>
-        </Form>
+        <div className="flex-grow-1">
+            <Form color="#ffffff">
+                <InputGroup>
+                    <Input type="search" placeholder="" className="border-booki" 
+                    onChange={throttle(200, this.onSearchInputChange)} 
+                    onFocus={() => this.setState({searchFocus: true})}
+                    onBlur={() => this.setState({searchFocus: false})} />
+                    <InputGroupAddon addonType="append">
+                        <Button outline type="submit" color="booki">
+                            <SearchIcon animated={this.state.searchTyping} />
+                        </Button>
+                    </InputGroupAddon>
+                </InputGroup>
+
+                <Dropdown isOpen={this.state.searchFocus && this.state.searchTerm.length >= 3} toggle={() => console.log('asd')}>
+                    <DropdownToggle tag="div" />
+                    <DropdownMenu>
+                        <DropdownItem tag="div" />
+                        {this.props.search.bookSearchResult && this.props.search.bookSearchResult.books.slice(0,5).map(book => {
+                            return (
+                            <DropdownItem key={book.isbn}>
+                                <div>
+                                    <span>{book.title}</span>
+                                </div>
+                                <div>
+
+                                </div>
+                            </DropdownItem>
+                            );
+                        })}
+                    </DropdownMenu>
+                </Dropdown>
+            </Form>
+        </div>
         );
     }
 }

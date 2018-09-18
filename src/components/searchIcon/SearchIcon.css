@@ -25,7 +25,7 @@ svg {
 
 #pie.toggle-end {
   stroke-dasharray: 126, 0;
-  transition: stroke 0.5s linear 0.5s;
+  transition: stroke 0.5s linear, stroke-dasharray 0.5s;
   stroke: transparent;
 }
 
