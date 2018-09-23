@@ -2,6 +2,7 @@ export default function searchReducer(state = {
     bookSearchLoading: false,
     bookSearchError: null,
     bookSearchResult: null,
+    bookSearchTerm: null,
 }, action) {
     switch(action.type) {
         case 'BOOK_SEARCH_IS_LOADING':
@@ -25,6 +26,7 @@ export default function searchReducer(state = {
                 bookSearchLoading: false,
                 bookSearchError: false,
                 bookSearchResult: action.books,
+                bookSearchTerm: action.searchTerm
             };
 
         default:

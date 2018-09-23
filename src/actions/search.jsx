@@ -2,6 +2,7 @@ import axios from 'axios';
 import config from '../utils/config';
 
 let bookSearchCancelTokenSource = axios.CancelToken.source();
+let bookAggregatedSearchCancelTokenSource = axios.CancelToken.source();
 
 export function bookSearchStart(searchTerm) {
     // Cancel all still ongoing requests
@@ -14,14 +15,32 @@ export function bookSearchStart(searchTerm) {
         dispatch(bookSearchIsLoading());
         return axios.get(config.searchUrl, {
             params: {q: searchTerm},
-            cancelToken: bookSearchCancelTokenSource.token
+            cancelToken: bookSearchCancelTokenSource.token,
         })
-        .then(result => dispatch(bookSearchSuccess(result.data)))
+        .then(result => dispatch(bookSearchSuccess(result.data, searchTerm)))
         .catch(err => {
-            if (!err.message === 'another_request')
+            if (err.message !== 'another_request')
                 dispatch(bookSearchError(err));
         });
     };
+}
+
+export function bookAggregatedSearchStart(searchTerm) {
+    bookAggregatedSearchCancelTokenSource.cancel('another_request');
+    bookAggregatedSearchCancelTokenSource = axios.CancelToken.source();
+
+    return function(dispatch) {
+        dispatch(bookSearchIsLoading());
+        return axios.get(config.aggregatedSearchUrl, {
+            params: {q: searchTerm},
+            cancelToken: bookAggregatedSearchCancelTokenSource.token,
+        })
+        .then(result => dispatch(bookSearchSuccess(result.data, searchTerm)))
+        .catch(err => {
+            if (err.message !== 'another_request')
+                dispatch(bookSearchError(err));
+        });
+    }
 }
 
 export function bookSearchIsLoading() {
@@ -37,9 +56,10 @@ export function bookSearchError(error) {
     }
 }
 
-export function bookSearchSuccess(books) {
+export function bookSearchSuccess(books, searchTerm) {
     return {
         type: 'BOOK_SEARCH_SUCCESS',
-        books
+        books,
+        searchTerm,
     }
 }

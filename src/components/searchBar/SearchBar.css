@@ -1,11 +1,25 @@
+.input-group .border-booki {
+    border-color: #FFC676;
+}
+
 .dropdown .dropdown-menu {
     width: 100%;
     transform: translate3d(0px, 0px, 0px) !important;
     border-color: #FFC676;
+    padding: 0;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
+.dropdown .dropdown-menu .search-book-nullItem {
+    padding: 0;
+}
 .dropdown .dropdown-menu .dropdown-item {
     white-space: normal;
+    border-bottom: 1px solid #FFC676;
+}
+.dropdown .dropdown-menu .dropdown-item:first-child,
+.dropdown .dropdown-menu .dropdown-item:last-child {
+    border-bottom: none;
 }
 
 .dropdown .dropdown-menu .search-book-img {
@@ -14,5 +28,9 @@
 }
 
 .dropdown .dropdown-menu .search-book-img img {
-    height: 5rem;
+    height: 80px;
+    width: 55px;
+}
+.dropdown .dropdown-menu .search-book-content span {
+    display: block;
 }

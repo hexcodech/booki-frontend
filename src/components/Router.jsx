@@ -5,6 +5,7 @@ import LazyComponent from '../utils/lazyComponent';
 const AsyncCallback = LazyComponent(() => import('../pages/callback/Callback'));
 const AsyncHome = LazyComponent(() => import('../pages/home/Home'));
 const AsyncProfile = LazyComponent(() => import('../pages/profile/Profile'));
+const AsyncSearch = LazyComponent(() => import('../pages/search/Search'));
 
 export default class Router extends PureComponent {
     render() {
@@ -17,6 +18,7 @@ export default class Router extends PureComponent {
         
                     <div className="container">
                         <Route exact path="/" component={AsyncHome} />
+                        <Route path="/search/:searchvalue" component={AsyncSearch} />
                         <Route path="/profile" component={AsyncProfile} />
                         <Route path="/callback" component={AsyncCallback} />
                     </div>

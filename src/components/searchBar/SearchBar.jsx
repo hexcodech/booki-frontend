@@ -59,7 +59,7 @@ class SearchBar extends PureComponent {
                     onBlur={() => this.setState({searchFocus: false})} />
                     <InputGroupAddon addonType="append">
                         <Button outline type="submit" color="booki">
-                            <SearchIcon animated={this.state.searchTyping} />
+                            <SearchIcon animated={this.state.searchTyping || this.props.search.bookSearchLoading} />
                         </Button>
                     </InputGroupAddon>
                 </InputGroup>
@@ -67,16 +67,18 @@ class SearchBar extends PureComponent {
                 <Dropdown isOpen={this.state.searchFocus && this.state.searchTerm.length >= 3} toggle={() => console.log('asd')}>
                     <DropdownToggle tag="div" />
                     <DropdownMenu>
-                        <DropdownItem tag="div" />
+                        <DropdownItem tag="div" className="search-book-nullItem" />
                         {this.props.search.bookSearchResult && this.props.search.bookSearchResult.books.slice(0,5).map(book => {
                             return (
                             <DropdownItem key={book.isbn}>
                                 <div className="d-flex">
-                                    <div className="search-book-img">
+                                    <div className="search-book-img align-self-center">
                                         <img src={book.image_url} alt={`Cover Bild ${book.title}`} />
                                     </div>
                                     <div className="search-book-content">
                                         <span>{book.title}</span>
+                                        <span className="text-muted">{book.authors}</span>
+                                        <span className="text-muted"><i>{book.publication_date ? new Date(book.publication_date*1000).getFullYear() : null}</i></span>
                                     </div>
                                 </div>
                             </DropdownItem>
